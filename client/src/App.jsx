@@ -11,6 +11,7 @@ import { Homepage, AboutPage, LoginPage, MyMooJournalPage, NewJournalEntryPage, 
 
 // Components
 import LoadingIndicator from './components/LoadingIndicator'
+import Footer from './components/Footer'
 
 
 
@@ -37,7 +38,9 @@ function App() {
   
   useEffect(() => {
     // If you want to simulate loading screen
-    simulateLoading(false)
+    // simulateLoading(false)
+
+    setLoading(false)    
   })
 
 
@@ -55,6 +58,8 @@ function App() {
           <Route path="/my_journal" element={<MyMooJournalPage />}/>
           <Route path="/new_entry" element={<NewJournalEntryPage />}/>
         </Routes>
+
+        <Footer />
       </>
   )
 }

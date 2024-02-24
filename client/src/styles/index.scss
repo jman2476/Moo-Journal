@@ -71,10 +71,26 @@ button:hover, .btn:hover {
   transition: 0.2s ease-out;
   color:$white-smoke;
 }
-// button:focus,
-// button:focus-visible {
-//   outline: 4px auto -webkit-focus-ring-color;
-// }
+
+
+footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#669900;
+  height:35px;
+  p{
+    margin:auto;
+    padding:0;
+    font-size:.8rem;
+  }
+}
+
+
+
+
+
 .modak-regular {
   font-family: "Modak", system-ui;
   font-weight: 400;

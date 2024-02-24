@@ -32,7 +32,7 @@ function Homepage() {
                         <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
                         <span>
                             <NavLink className="btn" to='/new_entry'>Start Writing</NavLink>
-                            <NavLink className="btn mj-text fw8" to='/my_journal'>My MooJournal</NavLink>
+                            <NavLink className="btn" to='/my_journal'><span className='mj-text fw8'>My MooJournal</span></NavLink>
                         </span> 
                     </>
                     :
