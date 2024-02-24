@@ -140,3 +140,20 @@ button:hover {
   animation: slide 120s linear infinite; /* Adjust speed as necessary */
   overflow: hidden;
 }
+
+// Admin
+
+.adminControl{
+  position:absolute;
+  top:0;
+  left:10px;
+  z-index:100;
+  font-family: "Sniglet", system-ui;
+  p{
+    font-size:24px;
+    margin:0;
+  }
+  button{
+    padding:5px;
+  }
+}
