@@ -78,18 +78,21 @@ footer{
   bottom:0;
   left:0;
   right:0;
-  background:#669900;
-  height:35px;
+  // background:#669900;
+  height:120px;
+  img{
+    filter: blur(3px);
+  }
   p{
+    position:absolute;
     margin:auto;
     padding:0;
     font-size:.8rem;
+    left:0;
+    right:0;
+    bottom:0;
   }
 }
-
-
-
-
 
 .modak-regular {
   font-family: "Modak", system-ui;
