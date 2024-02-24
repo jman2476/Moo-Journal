@@ -5,6 +5,7 @@ import cowPic from '../assets/cow-hp-bg.jpg';
 import { useState } from 'react'
 import { getUserName } from '../../services/userService';
 import AdminControl from '../components/AdminControl-2';
+import CowPatternBg from '../components/CowPatternBg';
 import '../styles/components/homepage.scss'
 
 function Homepage() {
@@ -22,19 +23,16 @@ function Homepage() {
     return (
         <>
             <AdminControl adminObj={adminObj} />
-            
-            <div className="hp-backdrop">
-                <img src={cowPic} alt="Background" className="hp-image" />
-                <img src={cowPic} alt="Background" className="hp-image" />
-            </div>
+            <CowPatternBg/>
+
             <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
                 <h1  className="modak-regular">MooJournal</h1>
                 { isLoggedIn ? 
                     <>
                         <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
                         <span>
-                            <button>Start Writing</button>
-                            <button className='mj-text fw8'>My MooJournal</button>
+                            <NavLink className="btn" to='/new_entry'>Start Writing</NavLink>
+                            <NavLink className="btn mj-text fw8" to='/my_journal'>My MooJournal</NavLink>
                         </span> 
                     </>
                     :
@@ -42,21 +40,13 @@ function Homepage() {
                         <h3>Start your <span className=''> MooJournaling </span> journey.</h3>
                         <span>
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
-                            <button>Login</button>
-                            <button>Sign Up</button>
+                            <NavLink className="btn" to='/login'>Login</NavLink>
+                            <NavLink className="btn" to='/sign_up'>Sign Up</NavLink>
                         </span> 
                     </>   
                 }           
             </div>
-            <style>{`
-                @keyframes slide {
-                    from { transform: translateX(0); }
-                    to { transform: translateX(-50%); } // Moves the container to show the second image, then resets
-                }
-                body{
-                    overflow:hidden;
-                }
-            `}</style>
+
         </>
     );
 }

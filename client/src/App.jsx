@@ -4,9 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import 'tachyons'
 import './App.css'
-import Homepage from './pages/Homepage'
-import About from './pages/About'
+
+// Pages
+import { Homepage, AboutPage, LoginPage, MyMooJournalPage, NewJournalEntryPage, SignUpPage } from './pages';
+
+
+// Components
 import LoadingIndicator from './components/LoadingIndicator'
+
 
 
 function App() {
@@ -44,8 +49,11 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Homepage />}/>
-          <Route path="/about" element={<About />}/>
-          
+          <Route path="/about" element={<AboutPage />}/>
+          <Route path="/login" element={<LoginPage />}/>
+          <Route path="/sign_up" element={<SignUpPage />}/>
+          <Route path="/my_journal" element={<MyMooJournalPage />}/>
+          <Route path="/new_entry" element={<NewJournalEntryPage />}/>
         </Routes>
       </>
   )

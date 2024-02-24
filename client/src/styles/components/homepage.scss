@@ -28,25 +28,3 @@
     100% { transform: translateX(100%); }
   }
   
-  
-  .hp-btn{
-    
-  }
-  
-  .hp-image{
-    width: 50%; /* Each image takes up half of the container width */
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    filter: blur(16px);
-  }
-  
-  .hp-backdrop{
-    display: flex;
-    width: 200%; /* 100% for each image */
-    height: 100vh; /* Full viewport height */
-    position: absolute; /* Position it over the entire page */
-    top: 0;
-    left: 0;
-    animation: slide 120s linear infinite; /* Adjust speed as necessary */
-    overflow: hidden;
-  }
