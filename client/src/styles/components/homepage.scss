@@ -1,0 +1,52 @@
+// HOMEPAGE STYLES
+
+.homepage {
+    font-family: "Sniglet", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow:-4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+    color:black;
+  
+    > h1{
+      font-family: "Sniglet", system-ui;
+      font-weight: 800;    
+      font-size:120px;
+      margin:0;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      color:white;
+    }
+    > h3{
+  
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+  
+  
+  @keyframes moveRight {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(100%); }
+  }
+  
+  
+  .hp-btn{
+    
+  }
+  
+  .hp-image{
+    width: 50%; /* Each image takes up half of the container width */
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    filter: blur(16px);
+  }
+  
+  .hp-backdrop{
+    display: flex;
+    width: 200%; /* 100% for each image */
+    height: 100vh; /* Full viewport height */
+    position: absolute; /* Position it over the entire page */
+    top: 0;
+    left: 0;
+    animation: slide 120s linear infinite; /* Adjust speed as necessary */
+    overflow: hidden;
+  }

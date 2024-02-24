@@ -2,7 +2,9 @@ import React from 'react';
 import cowPic from '../assets/cow-hp-bg.jpg';
 import { useState } from 'react'
 import { getUserName } from '../../services/userService';
-import AdminControl from '../components/AdminControl';
+import AdminControl from '../components/AdminControl-2';
+import '../styles/components/homepage.scss'
+
 function Homepage() {
 
     const [isLoggedIn, setLoggedIn] = useState(false)
