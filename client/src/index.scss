@@ -74,6 +74,13 @@ button:hover {
 // button:focus-visible {
 //   outline: 4px auto -webkit-focus-ring-color;
 // }
+.modak-regular {
+  font-family: "Modak", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 
 @media (prefers-color-scheme: light) {
@@ -89,6 +96,16 @@ button:hover {
   }
 }
 
+// GENERAL
+
+// the mj-title will change
+.mj-text{
+  font-family: "Sniglet", system-ui;
+  font-style: normal;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  color:white;
+}
+
 
 
 // HOMEPAGE STYLES
@@ -101,9 +118,12 @@ button:hover {
   color:black;
 
   > h1{
-    font-family: "Modak", system-ui;
+    font-family: "Sniglet", system-ui;
+    font-weight: 800;    
     font-size:120px;
     margin:0;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    color:white;
   }
   > h3{
 
