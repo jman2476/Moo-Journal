@@ -1,6 +1,4 @@
 import grass from '../assets/Green-grass-clipart-free-pictures.png'
-// The footer should contain group members with their linkedIn and Github accts linked.
-// Also any relevant links that go on a footer(e.g. the about page)
 
 function Footer(){
     return (

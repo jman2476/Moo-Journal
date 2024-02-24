@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
 
-import cowPic from '../assets/cow-hp-bg.jpg';
 import { useState } from 'react'
 import { getUserName } from '../../services/userService';
 import AdminControl from '../components/AdminControl-2';
@@ -11,7 +10,7 @@ import '../styles/pages/homepage.scss'
 function Homepage() {
 
     const [isLoggedIn, setLoggedIn] = useState(false)
-    const userName = getUserName()
+    const [userName, setUserName] = useState(getUserName())
 
     const adminObj = {
         runFxn(){
