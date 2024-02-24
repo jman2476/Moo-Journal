@@ -51,7 +51,7 @@ h1 {
 }
 
 
-button {
+button, .btn {
   border-radius: 16px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -66,9 +66,10 @@ button {
   text-shadow:-4px 4px 20px $gray;
 
 }
-button:hover {
+button:hover, .btn:hover {
   box-shadow:-4px 4px 10px $gray, 4px -4px 20px $white-smoke, 4px -4px 10px $gray, -4px 4px 20px $white-smoke;
   transition: 0.2s ease-out;
+  color:$white-smoke;
 }
 // button:focus,
 // button:focus-visible {

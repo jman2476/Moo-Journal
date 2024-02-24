@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 import 'tachyons'
 import './App.css'
 import Homepage from './pages/Homepage'
+import About from './pages/About'
 import LoadingIndicator from './components/LoadingIndicator'
 
 
@@ -28,23 +31,23 @@ function App() {
   }
   
   useEffect(() => {
-
-
     // If you want to simulate loading screen
-    simulateLoading(true)
-    
-    // page finished loading
-    // setLoading(false)    
+    simulateLoading(false)
   })
 
 
   return (
-    loading ?
-      <LoadingIndicator />
-      :
-    <>
-      <Homepage />
-    </>
+
+      loading ?
+        <LoadingIndicator />
+        :
+      <>
+        <Routes>
+          <Route path="/" element={<Homepage />}/>
+          <Route path="/about" element={<About />}/>
+          
+        </Routes>
+      </>
   )
 }
 

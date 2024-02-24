@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
+
 import cowPic from '../assets/cow-hp-bg.jpg';
 import { useState } from 'react'
 import { getUserName } from '../../services/userService';
@@ -39,7 +41,7 @@ function Homepage() {
                     <>
                         <h3>Start your <span className=''> MooJournaling </span> journey.</h3>
                         <span>
-                            <button>What the hell is <span className='mj-text fw8'>MooJournal</span>?</button>
+                            <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <button>Login</button>
                             <button>Sign Up</button>
                         </span> 
