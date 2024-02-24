@@ -1,23 +1,16 @@
 import React from 'react';
 import cowPic from '../assets/cow-hp-bg.jpg';
 import { useState } from 'react'
-import AdminControl from '../components/adminControl';
 import { getUserName } from '../../services/userService';
-
-
+import AdminControl from '../components/AdminControl';
 function Homepage() {
 
     const [isLoggedIn, setLoggedIn] = useState(false)
     const userName = getUserName()
 
-    const toggleLoginStatus = () => {
-        console.log('Does this work?')
-        setLoggedIn(!isLoggedIn)
-    }
-
     const adminObj = {
         runFxn(){
-            toggleLoginStatus()
+            setLoggedIn(!isLoggedIn)
         },
         msg:'Change Logged in state'
     }
