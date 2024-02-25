@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3469
 
 // import routes here
 // TODO: add in the routes as they are created
-// const api_routes = require('./routes/api_routes')
+const api_routes = require('./routes/api_routes')
 
 
 // open middleware channels
@@ -17,7 +17,7 @@ app.use(express.json())
 // Load the routes
 // TODO: load the routes as they are created and
 //       imported into this file
-// app.use('/api', api_routes)
+app.use('/api', api_routes)
 
 
 // Confirm the DB connection
