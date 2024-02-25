@@ -1,0 +1,16 @@
+.loading-indicator {
+    font-size: 20px;
+    color: #000000;
+      opacity: 0;
+      animation: dot 1s infinite linear both;
+
+  }
+  
+  @keyframes dot {
+    0%, 50%, 100% { 
+      opacity: 0; 
+    }
+    50% { 
+      opacity: 1; 
+    }
+  }

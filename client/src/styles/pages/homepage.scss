@@ -1,0 +1,30 @@
+// HOMEPAGE STYLES
+
+.homepage {
+    font-family: "Sniglet", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow:-4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+    color:black;
+  
+    > h1{
+      font-family: "Sniglet", system-ui;
+      font-weight: 800;    
+      font-size:120px;
+      margin:0;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      color:white;
+    }
+    > h3{
+  
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+  
+  
+  @keyframes moveRight {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(100%); }
+  }
+  
