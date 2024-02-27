@@ -24,8 +24,14 @@ function Homepage() {
             <AdminControl adminObj={adminObj} />
             <CowPatternBg/>
 
-            <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
-                <h1  className="modak-regular">MooJournal</h1>
+            <div className='
+                homepage 
+                flex 
+                flex-column 
+                justify-center 
+                items-center 
+                absolute--fill'>
+                <h1  className="modak-regular tc">MooJournal</h1>
                 { isLoggedIn ? 
                     <>
                         <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
@@ -38,7 +44,7 @@ function Homepage() {
                     <>
                         <h3>Start your <span className=''> MooJournaling </span> journey.</h3>
                         <span>
-                            <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
+                            <NavLink className="btn flex-s flex-column-s tc-s items-center-s" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <NavLink className="btn" to='/login'>Login</NavLink>
                             <NavLink className="btn" to='/sign_up'>Sign Up</NavLink>
                         </span> 
