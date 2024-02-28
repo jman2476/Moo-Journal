@@ -6,12 +6,14 @@ import 'tachyons'
 import './App.css'
 
 // Pages
-import { Homepage, AboutPage, LoginPage, MyMooJournalPage, NewJournalEntryPage, SignUpPage } from './pages';
+import { Homepage, About, Login, MyMooJournal, NewJournalEntry, SignUp } from './pages';
 
 
 // Components
 import LoadingIndicator from './components/LoadingIndicator'
 import Footer from './components/Footer'
+import HeavyEntry from './components/HeavyEntry'
+import LightEntry from './components/LightEntry'
 
 
 
@@ -52,11 +54,13 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Homepage />}/>
-          <Route path="/about" element={<AboutPage />}/>
-          <Route path="/login" element={<LoginPage />}/>
-          <Route path="/sign_up" element={<SignUpPage />}/>
-          <Route path="/my_journal" element={<MyMooJournalPage />}/>
-          <Route path="/new_entry" element={<NewJournalEntryPage />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/sign_up" element={<SignUp />}/>
+          <Route path="/my_journal" element={<MyMooJournal />}/>
+          {/* <Route path="/new_entry" element={<NewJournalEntry />}/> */}
+          <Route path="/light_entry" element={<LightEntry />}/>
+          <Route path="/heavy_entry" element={<HeavyEntry />}/>
         </Routes>
 
         <Footer />

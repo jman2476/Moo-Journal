@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('./config/connection')
 
 const app = express()
-const PORT = process.env.PORT || 3469
+const PORT = process.env.PORT || 3469 //bruh why 3469? lmao
 
 // import routes here
 // TODO: add in the routes as they are created

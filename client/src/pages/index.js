@@ -1,6 +1,6 @@
 export { default as Homepage } from './Homepage';
-export { default as AboutPage } from './AboutPage';
-export { default as LoginPage } from './LoginPage';
-export { default as SignUpPage } from './SignUpPage';
-export { default as MyMooJournalPage } from './MyMooJournalPage';
-export { default as NewJournalEntryPage } from './NewJournalEntryPage';
+export { default as About } from './About';
+export { default as Login } from './Login';
+export { default as SignUp } from './SignUp';
+export { default as MyMooJournal } from './MyMooJournal';
+export { default as NewJournalEntry } from './NewJournalEntry';
