@@ -10,7 +10,7 @@ import '../styles/pages/homepage.scss'
 
 function Homepage() {
 
-    const [isLoggedIn, setLoggedIn] = useState(false)
+    const [isLoggedIn, setLoggedIn] = useState(true)
     const [userName, setUserName] = useState(getUserName())
 
     const adminObj = {
