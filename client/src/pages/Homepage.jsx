@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { getUserName } from '../../services/userService';
 import AdminControl from '../components/AdminControl';
 import CowPatternBg from '../components/CowPatternBg';
+import NewEntry from '../components/NewEntry'
 import '../styles/pages/homepage.scss'
 
 function Homepage() {
