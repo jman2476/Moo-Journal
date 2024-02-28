@@ -31,8 +31,9 @@ function Homepage() {
                     <>
                         <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
                         <span>
-                            <NavLink className="btn" to='/new_entry'>Start Writing</NavLink>
-                            <NavLink className="btn" to='/my_journal'><span className='mj-text fw8'>My MooJournal</span></NavLink>
+                            {/* <NavLink className="btn" to='/new_entry'>Start Writing</NavLink> */}
+                            <NewEntry />
+                            <NavLink className="btn" to='/my_journal'><span className='mj-text fw8'>Go To My MooJournal</span></NavLink>
                         </span> 
                     </>
                     :

@@ -12,6 +12,8 @@ import { Homepage, About, Login, MyMooJournal, NewJournalEntry, SignUp } from '.
 // Components
 import LoadingIndicator from './components/LoadingIndicator'
 import Footer from './components/Footer'
+import HeavyEntry from './components/HeavyEntry'
+import LightEntry from './components/LightEntry'
 
 
 
@@ -56,7 +58,9 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/sign_up" element={<SignUp />}/>
           <Route path="/my_journal" element={<MyMooJournal />}/>
-          <Route path="/new_entry" element={<NewJournalEntry />}/>
+          {/* <Route path="/new_entry" element={<NewJournalEntry />}/> */}
+          <Route path="/light_entry" element={<LightEntry />}/>
+          <Route path="/heavy_entry" element={<HeavyEntry />}/>
         </Routes>
 
         <Footer />
