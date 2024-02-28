@@ -1,0 +1,26 @@
+{
+  "name": "moo-journal",
+  "version": "1.0.0",
+  "description": "https://github.com/users/cjswayne/projects/2/views/1",
+  "main": "index.js",
+  "scripts": {
+    "client:build": "cd ./client && npm run build",
+    "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"",
+    "install:client": "cd ./client && npm i",
+    "install:server": "cd ./server && npm i",
+    "save": "git add -A && git commit -m \"ready for deploy\"",
+    "push:heroku": "git push heroku main",
+    "deploy": "npm run client:build && npm run save && npm run push:heroku",
+    "start": "cd ./server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
