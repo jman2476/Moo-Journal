@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 import { useState } from 'react'
 import { getUserName } from '../../services/userService';
-import AdminControl from '../components/AdminControl-2';
+import AdminControl from '../components/AdminControl';
 import CowPatternBg from '../components/CowPatternBg';
 import '../styles/pages/homepage.scss'
 
@@ -22,7 +22,7 @@ function Homepage() {
     return (
         <>
             <AdminControl adminObj={adminObj} />
-            <CowPatternBg/>
+            {/* <CowPatternBg/> */}
 
             <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
                 <h1  className="modak-regular">MooJournal</h1>
