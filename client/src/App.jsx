@@ -12,8 +12,8 @@ import { Homepage, About, Login, MyMooJournal, NewJournalEntry, SignUp } from '.
 // Components
 import LoadingIndicator from './components/LoadingIndicator'
 import Footer from './components/Footer'
-import HeavyEntry from './components/HeavyEntry'
-import LightEntry from './components/LightEntry'
+import HeavyEntry from './pages/HeavyEntry'
+import LightEntry from './pages/LightEntry'
 
 
 
