@@ -1,4 +1,5 @@
 const gql = String.raw
+// const Prompt = require('../models/Prompt')
 
 // typeDefs explain the resolver
 const typeDefs = gql`
@@ -32,6 +33,24 @@ const typeDefs = gql`
         loginUser(email: String!, password: String!): User
         logoutUser: Success
     }
+
+  type Journal {
+    text:String
+  }
+
+  type Success {
+    message: String
+  }
+
+  type Prompt {
+    prompt:String
+  }
+
+  type Mutation {
+    generatePrompt(type: String!): Prompt
+
+  }
+
 `;
 
 

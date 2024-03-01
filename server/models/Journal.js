@@ -2,8 +2,13 @@ const { model, Schema } = require('mongoose')
 
 const journalSchema = new Schema({
     prompt: {
-        type: Schema.Types.ObjectId,
-        ref: 'Prompt'
+        type: String,
+    },
+    cream: {
+        type: String,
+        enum: ['Light', 'Heavy'],
+        default: 'Heavy',
+        required: true,
     },
     text: {
         type: String,
@@ -12,12 +17,9 @@ const journalSchema = new Schema({
     },
     moodRanking: {
         type: Number,
-        required: true,
         min: 1,
         max: 10
     },
-    //  maybe add field for emotions/moods (input via small text box)
-
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
