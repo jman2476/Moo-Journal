@@ -1,6 +1,4 @@
-const {gql} = require('@apollo/client')
+import {gql} from '@apollo/client'
 
-module.exports = {
-
-}
+// export const GENERATE_PROMPT
 

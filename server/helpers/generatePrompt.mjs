@@ -1,9 +1,9 @@
 import dotenv from 'dotenv'
 import OpenAI from "openai";
 dotenv.config()
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: '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' });
 
-async function main() {
+export default async function generatePrompt() {
   const completion = await openai.chat.completions.create({
     messages: [
       { "role": "system", "content": "You are a helpful assistant that generates reflective journal prompts." },
@@ -12,6 +12,5 @@ async function main() {
     model: "gpt-3.5-turbo",
   });
 
-  console.log(completion.choices[0]);
+  return(completion.choices[0]);
 }
-main();
