@@ -2,34 +2,25 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 
 import { useState } from 'react'
-import { getUserName } from '../../services/userService';
-import AdminControl from '../components/AdminControl';
 import CowPatternBg from '../components/CowPatternBg';
 import NewEntry from '../components/NewEntry'
 import '../styles/pages/homepage.scss'
 
+import {useStore} from '../store'
+
 function Homepage() {
 
-    const [isLoggedIn, setLoggedIn] = useState(true)
-    const [userName, setUserName] = useState(getUserName())
-
-    const adminObj = {
-        runFxn(){
-            setLoggedIn(!isLoggedIn)
-        },
-        msg:'Change Logged in state'
-    }
+    const { state, setState } = useStore()
 
     return (
         <>
-            <AdminControl adminObj={adminObj} />
             {/* <CowPatternBg/> */}
 
             <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
                 <h1  className="modak-regular">MooJournal</h1>
-                { isLoggedIn ? 
+                { state.user ? 
                     <>
-                        <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
+                        <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
                         <span>
                             {/* <NavLink className="btn" to='/new_entry'>Start Writing</NavLink> */}
                             <NewEntry />
