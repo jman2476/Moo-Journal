@@ -15,8 +15,12 @@ const typeDefs = gql`
     message: String
   }
 
+  type Prompt {
+    prompt:String
+  }
+
   type Mutation {
-    generatePrompt(type: String!): Success
+    generatePrompt(type: String!): Prompt
 
   }
 
