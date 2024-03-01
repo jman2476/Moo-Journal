@@ -1,6 +1,7 @@
 import React from 'react'
-import EditorComponent from '../components/EditorComponent'
 import { useState } from 'react'
+
+import {EditorComponent, PromptBox} from '../components'
 
 const styleMap = {
     'SMALL':{ fontSize: 12 },
@@ -37,6 +38,8 @@ const LightEntry = () => {
     return (
         <div>
         <h2>Light Journal Entry</h2>
+        <PromptBox type={'Light'}/>
+
             <button onClick={() => applyStyle('SMALL')}>Small</button>
             <button onClick={() => applyStyle('MEDIUM')}>Medium</button>
             <button onClick={() => applyStyle('LARGE')}>Large</button>
