@@ -1,8 +1,13 @@
+import {useStore} from '../store'
 
 function Entry(){
+
+    const { state, setState } = useStore()
+
+    console.log()
     return (
         <>
-            <h1>Entry</h1>
+            <h1>{state.entryType} Entry</h1>
         </>
     )
 }
