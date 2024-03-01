@@ -1,33 +1,50 @@
-const { model, Schema } = require('mongoose')
-const { hash, compare } = requrie('bcrypt')
+const { model, Schema } = require('mongoose');
+const { hash, compare } = require('bcrypt')
 
 const userSchema = new Schema(
     {
         username: {
             type: String,
-            required: [true, 'You must enter a username'],
-            minLength: [5, 'Your username must be at least 5 characters in length']
+            unique: true,
+            required: [true, 'Please enter a valid username'],
+            minLength: [5, 'Your username must be at least 5 characters long.']
         },
         email: {
             type: String,
-            required: [true, 'You must enter a password'],
             unique: true,
+            required: [true, 'Please enter a valid email address'],
             validate: {
                 validator(val) {
-                    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig.test(val);
+                    return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ig.test(val);
                 },
-                message: 'Your email address is not formatted correctly'
+                message: 'Your email address is invalid.'
             }
         },
         password: {
             type: String,
-            required: [true, 'You must enter a password'],
-            minLength: [6, 'Your password must be at least 6 characters in length']
+            required: true,
+            minLength: [5, 'Your password must be at least 5 characters long.']
         },
-        entries: [{
+        journal: [{
             type: Schema.Types.ObjectId,
-            ref: 'Entry'
+            ref: 'Journal'
         }]
+
     }
 )
 
+userSchema.methods,validatePass = async function (formPass) {
+    const validPass = await compare(formPass, this.password);
+
+    return validPass
+}
+
+userSchema.pre('save', async function (next) {
+    if(this.isNew){
+        this.password= await hash(this.password, 10);
+    }
+    next();
+});
+
+const User = model('User', userSchema)
+model.exports = User;
