@@ -11,9 +11,9 @@ module.exports = {
     },
 
     mutations: {
-        newEntry: proteck(async (_, args, {req, res}) => {
+        newEntry: proteck(async (_, args, {req, res, user_id}) => {
             try {
-
+                 
             } catch (err) {
                 console.log(err)
             }

@@ -20,7 +20,7 @@ const typeDefs = gql`
     }
 
     type Prompt {
-        prompt:String
+      prompt:String
     }
 
     type Success {
@@ -44,12 +44,14 @@ const typeDefs = gql`
         loginUser(email: String!, password: String!): User
         logoutUser: Success
         generatePrompt(type: String!): Prompt
+        test: Success
         newEntry(prompt: String!, text: String!, moodRanking: Int!, user_id: String!): Success
         updateEntry(text: String!, user_id: String!): Success
         deleteEntry: Success
     }
 
-`
+
+`;
 
 
 module.exports = typeDefs

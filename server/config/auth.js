@@ -26,7 +26,7 @@ function proteck(resolver) {
         }
 
         try {
-            const user_id = verifyToken(token)
+            const user_id = verToken(token)
 
             return resolver(_,args, {req, res, user_id})
         } catch (err) {
