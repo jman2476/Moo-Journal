@@ -4,22 +4,11 @@ import { useState } from 'react'
 
 const styleMap = {
     'SMALL':{ fontSize: 12 },
-    'MEDIUM':{ fontSize: 12 },
-    'LARGE':{ fontSize: 12 },
+    'MEDIUM':{ fontSize: 18 },
+    'LARGE':{ fontSize: 24 },
     'HIGHLIGHT':{ backgroundColor: 'yellow' },
 }
 
-// const LightEntryEditor = () => {
-//     const handleEditorStateChange = (newState) => {
-//         // save to db
-//     };
-
-//     return (
-//         <div>
-//             <EditorComponent customStyleMap={styleMap} onEditorStateChange={handleEditorStateChange} />
-//         </div>
-//     )
-// }
 import { EditorState, RichUtils } from 'draft-js';
 // import EditorComponent from './EditorComponent';
 
@@ -47,6 +36,7 @@ const LightEntry = () => {
 
     return (
         <div>
+        <h2>Light Journal Entry</h2>
             <button onClick={() => applyStyle('SMALL')}>Small</button>
             <button onClick={() => applyStyle('MEDIUM')}>Medium</button>
             <button onClick={() => applyStyle('LARGE')}>Large</button>
@@ -61,7 +51,3 @@ const LightEntry = () => {
 };
 
 export default LightEntry;
-
-
-
-// export default LightEntryEditor
