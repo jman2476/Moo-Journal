@@ -4,21 +4,18 @@ import { useStore } from '../store'
 
 function AddNewEntry() {
     const [hideNewEntry, setNewEntry] = useState(true)
-    const [entryType, setEntryType] = useState('')
+    const [cream, setCream] = useState('')
 
     const { state, setState } = useStore()
 
     const heavyEntry = {
         ...state,
-        entryType: 'Heavy'
+        cream: 'Heavy'
     }
     const lightEntry = {
         ...state,
-        entryType: 'Light'
+        cream: 'Light'
     }
-
-
-
 
     return (
         <>

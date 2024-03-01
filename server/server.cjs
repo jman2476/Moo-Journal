@@ -6,11 +6,13 @@ const path = require('path')
 const { ApolloServer } = require('@apollo/server')
 const { expressMiddleware } = require('@apollo/server/express4')
 const cookieParser = require('cookie-parser')
-const { typeDefs, resolvers } = require('./schema/')
+const { typeDefs, resolvers } = require('./schema')
+const { createHmac } = require('crypto')
 
 
 const app = express()
 const PORT = process.env.PORT || 3469 //bruh why 3469? why not
+
 
 
 // create function to start the server
