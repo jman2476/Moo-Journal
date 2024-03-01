@@ -13,7 +13,7 @@
     "push:heroku": "git push heroku main",
     "deploy": "npm run client:build && npm run add && npm run commit && npm run push:heroku",
     "start": "cd ./server && npm start",
-    "start:testwin" : "",
+    "start:testwin" : "cd ./server && set ",
     "start:testmac": ""
   },
   "keywords": [],
