@@ -1,13 +1,30 @@
 import {gql} from '@apollo/client'
 
-export const GENERATE_PROMPT = gql`
-    mutation GeneratePrompt($type: String!){
-        generatePrompt(type: $type) {
-            text
-        }
+export const TEST = gql`
+  mutation Test {
+    test {
+      message
     }
-
+  }
 `
+
+
+export const GENERATE_PROMPT = gql`
+  mutation Mutation($type: String!) {
+    generatePrompt(type: $type) {
+      prompt
+    }
+}
+`
+
+
+// export const GENERATE_PROMPT = gql`
+//     mutation GeneratePrompt($type: String!){
+//         generatePrompt(type: $type) {
+//             text
+//         }
+//     }
+// `
 export const SIGNUP_USER = gql`
   mutation SignUpUser($username: String!, $email: String!, $password: String!) {
     signUpUser(username: $username, email: $email, password: $password) {
