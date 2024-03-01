@@ -26,8 +26,7 @@ module.exports = {
             const user = await User.findById(user_id).populate('journals')
 
             return user.journals
-        })
-        
+        }) 
     },
 
     mutations: {

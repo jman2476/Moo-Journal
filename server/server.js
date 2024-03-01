@@ -44,7 +44,7 @@ async function startServer() {
             res.sendFile(path.join(__dirname, '../client/dist/index.html'))
         })
     }
-    
+     
     // confirm the database connection
     db.on('open', () => {
         // then start the server
