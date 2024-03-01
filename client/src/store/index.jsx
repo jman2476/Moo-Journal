@@ -10,7 +10,7 @@ export function StoreProvider({children}){
     // const { data: userData } = useQuery(AUTHENTICATE) // correct userData obj
 
     const [state, setState] = useState({
-        user:{ _id:1, username:'cjswayne'},  // simulated
+        // user:{ _id:1, username:'cjswayne'},  // simulated
         user:null, // simulated
         loading: true
     })

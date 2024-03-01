@@ -4,9 +4,6 @@ const { GraphQLError } = require('graphql')
 const generatePrompt = require('../helpers/generatePrompt2')
 
 const resolvers = {
-  Query: {
-    hello: () => 'Hello, world!',
-  },
   Mutation: {
     async generatePrompt(_, args, { res }) {
 

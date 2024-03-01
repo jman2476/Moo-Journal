@@ -8,9 +8,6 @@ export const GENERATE_PROMPT = gql`
     }
 
 `
-
-import { gql } from '@apollo/client'
-
 export const SIGNUP_USER = gql`
   mutation SignUpUser($username: String!, $email: String!, $password: String!) {
     signUpUser(username: $username, email: $email, password: $password) {
