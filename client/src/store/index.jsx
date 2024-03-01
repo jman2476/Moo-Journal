@@ -1,17 +1,28 @@
 import { useContext, createContext, useState, useEffect } from "react"
 import { useQuery } from '@apollo/client'
-import {AUTHENTICATE} from '../graphql'
+// import {AUTHENTICATE} from '../graphql'
 
 const Context = createContext()
 
 export function StoreProvider({children}){
 
-    // const { data: userData } = useQuery(AUTHENTICATE)
-
+    // const { data: userData } = useQuery(AUTHENTICATE) // correct userData obj
+    const userData = { authenticate: true } // simulated obj
 
     const [state, setState] = useState({
-        user:null
+        user:null,
+        loading: true
     })
+
+    useEffect(() => {
+        if(userData){
+            setState({
+                ...state,
+                user:userData.authenticate,
+                loading:false
+            })
+        }
+    }, [userData])
 
 
     return (
