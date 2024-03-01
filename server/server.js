@@ -8,7 +8,7 @@ const { expressMiddleware } = require('@apollo/server/express4')
 const cookieParser = require('cookie-parser')
 const { typeDefs, resolvers } = require('./schema/')
 
-
+console.log(process.env.OPENAI_API_KEY_1)
 const app = express()
 const PORT = process.env.PORT || 3469 //bruh why 3469? why not
 
