@@ -1,12 +1,13 @@
-// TODO: import models
-const { sign, verify } = require('jsonwebtoken')
-const { GraphQLError } = require('graphql')
+// TODO: import resolers
+const user_resolver = require('./lib/userResolver')
 
 const resolvers = {
     Query: {
-        hello: () => 'Hello, world!',
-      },
-      
+        ...user_resolver.queries
+    },
+    Mutation: {
+        ...user_resolver.mutations
+    }
 }
 
 module.exports = resolvers

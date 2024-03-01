@@ -1,4 +1,4 @@
-// import { useStore } from '../store'
+import { useStore } from '../store'
 // import LightEntryEditor from '../components/LightEntryEditor'
 // import HeavyEntryEditor from '../components/HeavyEntryEditor'
 
