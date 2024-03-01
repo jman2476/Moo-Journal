@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-function NewEntry() {
+function AddNewEntry() {
     const [hideNewEntry, setNewEntry] = useState(true)
 
     return (
@@ -10,12 +10,11 @@ function NewEntry() {
                 <button onClick={() => { setNewEntry(false) }} className="btn">New Entry</button>
                 :
                 <span>
-                    <NavLink className="btn" to='/light_entry'><span className='mj-text fw8'>Light</span></NavLink>
-                    <NavLink className="btn" to='/heavy_entry'><span className='mj-text fw8'>Heavy</span></NavLink>
+                    <NavLink className="btn" to='/entry'><span className='mj-text fw8'>Light or heavy entry</span></NavLink>
                 </span>
             }
         </>
     )
 }
 
-export default NewEntry
+export default AddNewEntry
