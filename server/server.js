@@ -1,5 +1,5 @@
 const express = require('express')
-require('dotenv').config
+require('dotenv').config()
 const db = require('./config/connection')
 const path = require('path')
 
@@ -38,7 +38,9 @@ async function startServer() {
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static('../client/dist'))
         
+        // when there's a request to any route besides /graphql
         app.get('*', (req, res) => {
+            // then return the appropriate page based on the /dist folder
             res.sendFile(path.join(__dirname, '../client/dist/index.html'))
         })
     }

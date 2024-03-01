@@ -4,6 +4,7 @@ $gray: #808080;
 $light-brown: #A67C52;
 $grass-green: #669900;
 $buttercream-yellow: #F2E085;
+$cream: #F0EAD2;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -32,6 +33,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -42,7 +44,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  
+
 }
 
 h1 {
@@ -51,7 +53,8 @@ h1 {
 }
 
 
-button, .btn {
+button,
+.btn {
   border-radius: 16px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -62,35 +65,39 @@ button, .btn {
   cursor: pointer;
   transition: border-color 0.25s;
   color: $white-smoke;
-  margin:10px;
-  text-shadow:-4px 4px 20px $gray;
+  margin: 10px;
+  text-shadow: -4px 4px 20px $gray;
 
 }
-button:hover, .btn:hover {
-  box-shadow:-4px 4px 10px $gray, 4px -4px 20px $white-smoke, 4px -4px 10px $gray, -4px 4px 20px $white-smoke;
+
+button:hover,
+.btn:hover {
+  box-shadow: -4px 4px 10px $gray, 4px -4px 20px $white-smoke, 4px -4px 10px $gray, -4px 4px 20px $white-smoke;
   transition: 0.2s ease-out;
-  color:$white-smoke;
+  color: $white-smoke;
 }
 
 
-footer{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   // background:#669900;
-  height:120px;
-  img{
+  height: 120px;
+
+  img {
     filter: blur(3px);
   }
-  p{
-    position:absolute;
-    margin:auto;
-    padding:0;
-    font-size:.8rem;
-    left:0;
-    right:0;
-    bottom:0;
+
+  p {
+    position: absolute;
+    margin: auto;
+    padding: 0;
+    font-size: .8rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
 
@@ -106,11 +113,13 @@ footer{
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: $cream;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -119,47 +128,74 @@ footer{
 // GENERAL
 
 // the mj-title will change
-.mj-text{
+.mj-text {
   font-family: "Sniglet", system-ui;
   font-style: normal;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-  color:white;
+  color: white;
 }
 
 
-.cow-pattern-image{
-  width: 50%; /* Each image takes up half of the container width */
+.cow-pattern-image {
+  width: 50%;
+  /* Each image takes up half of the container width */
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the area without distortion */
+  object-fit: cover;
+  /* Ensure the image covers the area without distortion */
   filter: blur(16px);
 }
 
-.cow-pattern-backdrop{
+.cow-pattern-backdrop {
   display: flex;
-  width: 200%; /* 100% for each image */
-  height: 100vh; /* Full viewport height */
-  position: absolute; /* Position it over the entire page */
+  width: 200%;
+  /* 100% for each image */
+  height: 100vh;
+  /* Full viewport height */
+  position: absolute;
+  /* Position it over the entire page */
   top: 0;
   left: 0;
-  animation: slide 120s linear infinite; /* Adjust speed as necessary */
+  animation: slide 120s linear infinite;
+  /* Adjust speed as necessary */
   overflow: hidden;
-  z-index:-1000;
+  z-index: -1000;
 }
 
 
 // Admin
 
-.adminControl{
-  position:absolute;
-  top:0;
-  left:10px;
-  z-index:100;
+.adminControl {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 100;
   font-family: "Sniglet", system-ui;
-  p{
-    font-size:24px;
-    margin:0;
+
+  p {
+    font-size: 24px;
+    margin: 0;
   }
-  button{
-    padding:5px;
+
+  button {
+    padding: 5px;
   }
+}
+
+// AuthForm controls for input fields
+.note-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note-form input {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+  align-items: center;
+}
+
+.note-form form .submit{
+  background-color: rgb(173, 193, 120);
 }
