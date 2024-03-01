@@ -27,9 +27,16 @@ const typeDefs = gql`
         message: String
     }
 
+    type mooData {
+        date: Int
+        moodRanking: Int
+        user: User
+    }
+
     type Query {
         authenticate: User
         getUserNotes: [Journal]
+        graphMood: [mooData]
     }
 
     type Mutation {
@@ -37,6 +44,9 @@ const typeDefs = gql`
         loginUser(email: String!, password: String!): User
         logoutUser: Success
         generatePrompt(type: String!): Prompt
+        newEntry(prompt: String!, text: String!, moodRanking: Int!, user_id: String!): Success
+        updateEntry(text: String!, user_id: String!): Success
+        deleteEntry: Success
     }
 
 `
