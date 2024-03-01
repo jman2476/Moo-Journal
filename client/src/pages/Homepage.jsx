@@ -32,8 +32,7 @@ function Homepage() {
                         <h3>Start your <span className=''> MooJournaling </span> journey.</h3>
                         <span>
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
-                            <NavLink className="btn" to='/login'>Login</NavLink>
-                            <NavLink className="btn" to='/sign_up'>Sign Up</NavLink>
+                            <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
                         </span> 
                     </>   
                 }           
