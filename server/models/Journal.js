@@ -16,6 +16,7 @@ const journalSchema = new Schema({
         min: 1,
         max: 10
     },
+    //  maybe add field for emotions/moods (input via small text box)
 
     user: {
         type: Schema.Types.ObjectId,
@@ -26,4 +27,5 @@ const journalSchema = new Schema({
 })
 
 const Journal = model('Journal', journalSchema)
+
 module.exports = Journal

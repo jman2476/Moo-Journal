@@ -8,8 +8,8 @@ const promptSchema = new Schema({
     },
     // category: {
     //     type: String,
-    //     enum: ['Personal', 'Fun', 'Creative'],
-    //     default: 'Personal'
+    //     enum: ['Light', 'Whole', 'Half-Half'],
+    //     default: 'Whole'
     //   }
     journal: {
         type: Schema.Types.ObjectId,
@@ -18,4 +18,5 @@ const promptSchema = new Schema({
 })
 
 const Prompt = model('Prompt', promptSchema)
+
 module.exports= Prompt
