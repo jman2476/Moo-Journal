@@ -2,27 +2,27 @@ import { useStore } from '../store'
 // import LightEntryEditor from '../components/LightEntryEditor'
 // import HeavyEntryEditor from '../components/HeavyEntryEditor'
 
-function Entry() {
+// function Entry() {
 
-    const { state, setState } = useStore()
-    return (
-        <>
-            <h1>Light Entry</h1>
+// //     const { state, setState } = useStore()
+// //     return (
+// //         <>
+// //             <h1>Light Entry</h1>
 
-            <LightEntryEditor />
+// //             <LightEntryEditor />
 
-            {/* <h1>{state.entryType} Entry</h1>
-            {state.entryType === 'Heavy' ? (
-                <>
-                    <HeavyEntryEditor/>
-                </>
-            ) : (
-                <>
-                    <LightEntryEditor/>
-                </>
-            )} */}
-        </>
-    )
-}
+// //             {/* <h1>{state.entryType} Entry</h1>
+// //             {state.entryType === 'Heavy' ? (
+// //                 <>
+// //                     <HeavyEntryEditor/>
+// //                 </>
+// //             ) : (
+// //                 <>
+// //                     <LightEntryEditor/>
+// //                 </>
+// //             )} */}
+// //         </>
+// //     )
+// }
 
-export default Entry
+// export default Entry
