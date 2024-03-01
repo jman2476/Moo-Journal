@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "client:build": "cd ./client && npm run build",
-    "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"",
-    "install":"concurrently \"cd ./client && npm i\" \"cd ./server && npm i\"", 
+    "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"", 
     "install:client": "cd ./client && npm i",
-    "install:server": "cd ./server && npm i",
-    "save": "git add -A && git commit -m \"ready for deploy\"",
+    "install": "cd ./server && npm i",
+    "add": "git add -A",
+    "commit": "git add -A && git commit -m \"ready for deploy\"",
     "push:heroku": "git push heroku main",
-    "deploy": "npm run client:build && npm run save && npm run push:heroku",
-    "start": "cd ./server && npm start"
+    "deploy": "npm run client:build && npm run add && npm run commit && npm run push:heroku",
+    "start": "cd ./server && npm start",
+    "start:testwin" : "cd ./server && set NODE_ENV=production npm start",
+    "start:testmac": "cd ./server && NODE_ENV=production npm start"
   },
   "keywords": [],
   "author": "",
