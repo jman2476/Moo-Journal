@@ -9,7 +9,7 @@ async function generatePrompt(type) {
   const completion = await openai.chat.completions.create({
     messages: [
       { "role": "system", "content": "You are a helpful assistant that generates reflective journal prompts." },
-      { "role": "user", "content": `I want a fun journaling prompt` },
+      { "role": "user", "content": `I want a ${type} journaling prompt` },
     ],
     model: "gpt-3.5-turbo",
   });

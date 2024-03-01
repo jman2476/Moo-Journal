@@ -6,14 +6,13 @@ function PromptBox({type}){
 
     const [prompt, setPrompt] = useState('')
     const [test] = useMutation(TEST)
-    // const [generatePrompt, {data, loading, error}] = useMutation(GENERATE_PROMPT)
+    const [generatePrompt, {data, loading, error}] = useMutation(GENERATE_PROMPT)
     const renderPromptText = async () => {
         try {
-            // const res = await generatePrompt({variables:{type}})
+            const res = await generatePrompt({variables:{type}})
 
-            // setPrompt(response.data.generatePrompt)
-            const testText = await test()
-            setPrompt(testText.data.test.message)
+            console.log(res)
+            setPrompt(res.data.generatePrompt.prompt)
         } catch (err) {
             console.error(err)
         }   
@@ -22,7 +21,6 @@ function PromptBox({type}){
 
     return (
         <div>
-            <h2>This is a {type} prompt</h2>
             <p>{prompt}</p>
             <button onClick={renderPromptText}>Generate Prompt</button>
         </div>
