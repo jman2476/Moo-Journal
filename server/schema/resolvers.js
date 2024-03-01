@@ -1,19 +1,21 @@
-// TODO: import models
-const { sign, verify } = require('jsonwebtoken')
-const { GraphQLError } = require('graphql')
-const generatePrompt = require('../helpers/generatePrompt2')
+// TODO: import resolver
+const user_resolver = require('./lib/userResolver')
+const prompt_resolver = require('./lib/promptResolver')
+const journal_resolver = require('./lib/journalResolver')
+
 
 const resolvers = {
-  Mutation: {
-    async generatePrompt(_, args, { res }) {
+    Query: {
+        ...user_resolver.queries,
+        ...prompt_resolver.queries,
+        ...journal_resolver.queries
+    },
 
-      const prompt = await generatePrompt(args.type)
-      return {
-        prompt: prompt
-      }
-      // return(prompt)
+    Mutation: {
+        ...user_resolver.mutations,
+        ...prompt_resolver.mutations,
+        ...journal_resolver.mutations,
     }
-  }
 }
 
 module.exports = resolvers

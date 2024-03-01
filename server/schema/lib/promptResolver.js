@@ -1,9 +1,9 @@
-const generatePrompt = require('../helpers/generatePrompt2')
+const generatePrompt = require('../../helpers/generatePrompt2')
 
 module.exports = {
-    queries: {
+    // queries: {
 
-    },
+    // },
     
     mutations: {
         async generatePrompt(_, args, { res }) {
