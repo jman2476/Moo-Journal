@@ -11,7 +11,7 @@ export function StoreProvider({children}){
 
     const [state, setState] = useState({
         user:{ _id:1, username:'cjswayne'},  // simulated
-        user:null, // simulated
+        // user:null, // simulated
         loading: true
     })
 
