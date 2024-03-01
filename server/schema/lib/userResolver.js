@@ -31,11 +31,12 @@ module.exports = {
     },
 
     mutations: {
-        async registerUser(_, args, { res }) {
+        async registerUser(_, {username, email, password}, { res }) {
+            
             try {
-                const user = await User.create(args)
+                const user = await User.create({username, email, password})
 
-                const token = createToken(user._id)
+                const token = genToken(user._id)
 
                 res.cookie('token', token, {httpOnly: true})
 

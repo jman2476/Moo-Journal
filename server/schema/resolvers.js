@@ -6,7 +6,7 @@ const resolvers = {
         ...user_resolver.queries
     },
     Mutation: {
-        ...user_resolver.mutaions
+        ...user_resolver.mutations
     }
 }
 
