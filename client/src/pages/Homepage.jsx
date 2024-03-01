@@ -6,6 +6,7 @@ import {CowPatternBg, AddNewEntry } from '../components';
 import '../styles/pages/homepage.scss'
 
 import {useStore} from '../store'
+import { LOGOUT_USER } from '../graphql/mutations';
 
 function Homepage() {
 
@@ -25,6 +26,7 @@ function Homepage() {
                             <NavLink className="btn" to='/my_journal'>
                             <span className='mj-text fw8'>Go To My MooJournal</span>
                             </NavLink>
+                            
                         </span> 
                     </>
                     :
