@@ -3,20 +3,23 @@ const { model, Schema } = require('mongoose')
 const promptSchema = new Schema({
     text: {
         type: String,
-        required: true,
-        minLength: [5, 'Your journal entry must be at least 5 characters long']
+        required: true
     },
-    // category: {
-    //     type: String,
-    //     enum: ['Light', 'Whole', 'Half-Half'],
-    //     default: 'Whole'
-    //   }
+    cream: {
+        type: String,
+        enum: ['Light', 'Heavy'],
+        default: 'Heavy'
+    },
     journal: {
         type: Schema.Types.ObjectId,
         ref: 'Journal'
+    },
+    counter: {
+        type: Number,
+        required: true
     }
 })
 
 const Prompt = model('Prompt', promptSchema)
 
-module.exports= Prompt
+module.exports = Prompt
