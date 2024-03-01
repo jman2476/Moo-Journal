@@ -4,4 +4,3 @@ export { default as AuthForm } from './AuthForm';
 export { default as HeavyEntry } from './HeavyEntry';
 export { default as LightEntry } from './LightEntry';
 export { default as MyMooJournal } from './MyMooJournal';
-export { default as NewJournalEntry } from './NewJournalEntry';

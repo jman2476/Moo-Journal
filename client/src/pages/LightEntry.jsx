@@ -47,7 +47,6 @@ const LightEntry = () => {
 
     return (
         <div>
-        <p>This is the page in the folder</p>
             <button onClick={() => applyStyle('SMALL')}>Small</button>
             <button onClick={() => applyStyle('MEDIUM')}>Medium</button>
             <button onClick={() => applyStyle('LARGE')}>Large</button>
