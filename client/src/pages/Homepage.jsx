@@ -2,37 +2,27 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 
 import { useState } from 'react'
-import { getUserName } from '../../services/userService';
-import AdminControl from '../components/AdminControl';
 import CowPatternBg from '../components/CowPatternBg';
-import NewEntry from '../components/NewEntry'
+import AddNewEntry from '../components/AddNewEntry'
 import '../styles/pages/homepage.scss'
+
+import {useStore} from '../store'
 
 function Homepage() {
 
-    const [isLoggedIn, setLoggedIn] = useState(true)
-    const [userName, setUserName] = useState(getUserName())
-
-    const adminObj = {
-        runFxn(){
-            setLoggedIn(!isLoggedIn)
-        },
-        msg:'Change Logged in state'
-    }
+    const { state, setState } = useStore()
 
     return (
         <>
-            <AdminControl adminObj={adminObj} />
             {/* <CowPatternBg/> */}
 
             <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
                 <h1  className="modak-regular">MooJournal</h1>
-                { isLoggedIn ? 
+                { state.user ? 
                     <>
-                        <h3>Welcome back, <span className='mj-text'>{userName}</span></h3>
+                        <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
                         <span>
-                            {/* <NavLink className="btn" to='/new_entry'>Start Writing</NavLink> */}
-                            <NewEntry />
+                            <AddNewEntry />
                             <NavLink className="btn" to='/my_journal'><span className='mj-text fw8'>Go To My MooJournal</span></NavLink>
                         </span> 
                     </>
@@ -41,8 +31,7 @@ function Homepage() {
                         <h3>Start your <span className=''> MooJournaling </span> journey.</h3>
                         <span>
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
-                            <NavLink className="btn" to='/login'>Login</NavLink>
-                            <NavLink className="btn" to='/sign_up'>Sign Up</NavLink>
+                            <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
                         </span> 
                     </>   
                 }           

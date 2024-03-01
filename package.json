@@ -6,6 +6,7 @@
   "scripts": {
     "client:build": "cd ./client && npm run build",
     "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"",
+    "install":"concurrently \"cd ./client && npm i\" \"cd ./server && npm i\"", 
     "install:client": "cd ./client && npm i",
     "install:server": "cd ./server && npm i",
     "save": "git add -A && git commit -m \"ready for deploy\"",
