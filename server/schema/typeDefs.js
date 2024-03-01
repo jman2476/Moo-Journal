@@ -12,7 +12,7 @@ const typeDefs = gql`
     type Journal {
         _id: ID
         prompt: String
-        moodRanking: Number
+        moodRanking: Int
         user: User
         createdAt: String
         updatedAt: String
@@ -23,11 +23,14 @@ const typeDefs = gql`
     }
 
     type Query {
-        hello: String
+        authenticate: User
+        getUserNotes: [Journal]
     }
 
     type Mutation {
-        
+        registerUser(username: String!, email: String!, password: String!): User
+        loginUser(email: String!, password: String!): User
+        logoutUser: Success
     }
 `;
 
