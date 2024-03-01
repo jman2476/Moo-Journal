@@ -19,6 +19,10 @@ const typeDefs = gql`
         updatedAt: String
     }
 
+    type Prompt {
+        prompt:String
+    }
+
     type Success {
         message: String
     }
@@ -32,26 +36,10 @@ const typeDefs = gql`
         registerUser(username: String!, email: String!, password: String!): User
         loginUser(email: String!, password: String!): User
         logoutUser: Success
+        generatePrompt(type: String!): Prompt
     }
 
-  type Journal {
-    text:String
-  }
-
-  type Success {
-    message: String
-  }
-
-  type Prompt {
-    prompt:String
-  }
-
-  type Mutation {
-    generatePrompt(type: String!): Prompt
-
-  }
-
-`;
+`
 
 
 module.exports = typeDefs

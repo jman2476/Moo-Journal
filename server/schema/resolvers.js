@@ -7,7 +7,7 @@ const resolvers = {
   Mutation: {
     async generatePrompt(_, args, { res }) {
 
-      const prompt = await generatePrompt(args.type);
+      const prompt = await generatePrompt(args.type)
       return {
         prompt: prompt
       }
