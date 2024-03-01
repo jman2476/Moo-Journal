@@ -18,19 +18,6 @@ module.exports = {
                 console.log(err)
                 throw new GraphQLError(err)
             }
-        },
-        async test(_, args, {res}){
-            try {
-
-                const prompt = await generatePrompt()
-
-                return {
-                    message: prompt
-                }
-            } catch (err) {
-                console.log(err)
-                throw new GraphQLError(err)
-            }
         }
     }
 }
