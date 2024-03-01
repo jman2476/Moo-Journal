@@ -1,2 +1,3 @@
 JWT_SECRET='superdupersecret'
 API_KEY= (nothint yet, bet change if needed)
+OPENAI_API_KEY_1='<ask cjs for it></ask>'
