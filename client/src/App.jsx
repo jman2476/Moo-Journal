@@ -10,9 +10,7 @@ import { Homepage, About, AuthForm, Entry, MyMooJournal,  LightEntry, HeavyEntry
 
 
 // Components
-import LoadingIndicator from './components/LoadingIndicator'
-import Footer from './components/Footer'
-
+import { LoadingIndicator, Footer } from './components'
 
 
 
