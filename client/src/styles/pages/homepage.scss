@@ -7,13 +7,14 @@
     text-shadow:-4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
     color:black;
   
-    > h1{
+    > h1, h1 > a{
       font-family: "Sniglet", system-ui;
       font-weight: 800;    
       font-size:120px;
       margin:0;
       text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
       color:white;
+      text-decoration: none;
     }
     > h3{
   

@@ -49,8 +49,9 @@ function App() {
         <LoadingIndicator />
         :
       <>
+      <Homepage />
         <Routes>
-          <Route path="/" element={<Homepage />}/>
+          {/* <Route path="/" element={<Homepage />}/> */}
           <Route path="/about" element={<About />}/>
           <Route path="/auth" element={<AuthForm />}/>
           <Route path="/my_journal" element={<MyMooJournal />}/>

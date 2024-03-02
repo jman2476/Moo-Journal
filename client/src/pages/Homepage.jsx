@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 
 import { useState } from 'react'
@@ -13,6 +13,7 @@ function Homepage() {
 
     const { state, setState } = useStore()
     const [logoutUser] = useMutation(LOGOUT_USER)
+    const location = useLocation(); // Get the current location
 
     const handleLogout = async () => {
         await logoutUser()
@@ -25,12 +26,17 @@ function Homepage() {
 
     }
 
+        // Determine if we're at the root path
+    const isRootPath = location.pathname === '/';
+
+        // Dynamic className based on the current path
+    const headerClassName = isRootPath ? 'homepage' : 'not-homepage';
+
     return (
         <>
-            {/* <CowPatternBg/> */}
-
-            <div className='homepage' style={{ position: 'relative', zIndex: 1 }}>
-                <h1 className="modak-regular">MooJournal</h1>
+            <header className={headerClassName}>
+            
+                <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                 {state.user ?
                     <>
                         <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
@@ -53,7 +59,7 @@ function Homepage() {
                         </span>
                     </>
                 }
-            </div>
+            </header>
 
         </>
     );

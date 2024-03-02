@@ -42,7 +42,6 @@ function AuthForm() {
 
             navigate('/')
         } catch (err) {
-            console.log(err)
             setFormData({
                 ...formData,
                 errorMessage: err.message
