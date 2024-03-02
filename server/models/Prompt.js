@@ -10,14 +10,12 @@ const promptSchema = new Schema({
         enum: ['Light', 'Heavy'],
         default: 'Heavy'
     },
-    journal: {
-        type: Schema.Types.ObjectId,
-        ref: 'Journal'
-    },
-    counter: {
-        type: Number,
-        required: true
+    usageCount:{
+        type:Number,
+        default:0
     }
+}, {
+    timestamps: true
 })
 
 const Prompt = model('Prompt', promptSchema)
