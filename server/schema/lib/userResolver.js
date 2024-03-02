@@ -38,10 +38,11 @@ module.exports = {
                 const token = genToken(user._id)
 
                 res.cookie('token', token, {httpOnly: true})
+                console.log(user)
 
                 return user
             } catch (err) {
-                console.log(err)
+                // console.log(err)
 
                 if (err.code === 11000) {
                     throw new GraphQLError('A user with these credentials already exists')
@@ -50,9 +51,10 @@ module.exports = {
                 if (err.errors) {
                     let errors = []
 
-                    for (let prop in err.errors) {
-                        errors.push(err.errors[prop].message)
-                    }
+          for (let prop in err.errors) {
+            errors.push(err.errors[prop].message)
+          }
+
 
                     throw new GraphQLError(errors)
                 }
@@ -77,17 +79,24 @@ module.exports = {
     
                 const token = genToken(user._id)
     
-                res.cookies('token', token, {httpOnly: true})
+                res.cookie('token', token, {httpOnly: true})
     
                 return user
             } catch (err) {
-                console.log(err)
+                console.log('login error', err);
+
+                if (err.errors) {
+                    let errors = Object.values(err.errors).map((val) => val.message);
+                    throw new GraphQLError(errors);
+                } else {
+                    throw err;
+                }
             }
         },
 
         logoutUser(_, __, { res }) {
             try {
-                res.clearCookies('token')
+                res.clearCookie('token')
 
                 return {message: 'Log out successful'}
             } catch (err) {

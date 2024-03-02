@@ -22,7 +22,7 @@ const userSchema = new Schema(
         },
         password: {
             type: String,
-            required: true,
+            required: [true, 'You must enter a password'],
             minLength: [5, 'Your password must be at least 5 characters long.']
         },
         journal: [{
@@ -33,7 +33,7 @@ const userSchema = new Schema(
     }
 )
 
-userSchema.methods,validatePass = async function (formPass) {
+userSchema.methods.validatePass = async function (formPass) {
     const validPass = await compare(formPass, this.password);
 
     return validPass

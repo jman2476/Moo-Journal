@@ -3,7 +3,7 @@ import { useStore } from '../store'
 import { useNavigate } from 'react-router-dom'
 
 import { useMutation } from '@apollo/client'
-import { SIGNUP_USER, LOGIN_USER } from '../graphql/mutations'
+import { REGISTER_USER, LOGIN_USER } from '../graphql/mutations'
 
 function AuthForm() {
     const navigate = useNavigate()
@@ -15,7 +15,7 @@ function AuthForm() {
         password: '',
         isLogin: true
     })
-    const [authenticateUser] = useMutation(formData.isLogin ? LOGIN_USER : SIGNUP_USER, {
+    const [authenticateUser] = useMutation(formData.isLogin ? LOGIN_USER : REGISTER_USER, {
         variables: formData
     })
 
@@ -23,7 +23,7 @@ function AuthForm() {
         e.preventDefault()
 
         try {
-            const resolverName = formData.isLogin ? 'loginUser' : 'signUpUser'
+            const resolverName = formData.isLogin ? 'loginUser' : 'registerUser'
 
             const { data: userData } = await authenticateUser()
 
@@ -42,6 +42,7 @@ function AuthForm() {
 
             navigate('/')
         } catch (err) {
+            console.log(err)
             setFormData({
                 ...formData,
                 errorMessage: err.message
@@ -57,12 +58,27 @@ function AuthForm() {
     }
 
     return (
-        <div className="note-form">
-            <h1 className="text-center">{formData.isLogin ? 'Log In' : 'Sign Up'}</h1>
+        <div className="authform justify-center w-100">
 
-            <form onSubmit={handleSubmit} className="column">
+            <div className="flex flex-column tl">
+                {formData.isLogin ? (
+                    <>
+                        <h1 className="bb pb3 ma0">Log In</h1>
+                        <p className="ma0 pb3 p f5 pointer">Not a User? <span onClick={() => setFormData({ ...formData,  errorMessage:'', isLogin: false })} className="underline-hover">Sign Up</span></p>
+
+                    </>
+                ) : (
+                    <>
+
+                        <h1 className="bb pb3 ma0">Sign Up</h1>
+                        <p className="ma0 pb3 pt1 f5 pointer">Already a User? <span onClick={() => setFormData({ ...formData, errorMessage:'',isLogin: true })} className="underline-hover">Log In</span></p>
+                    </>
+                )}
+            </div>
+
+
+            <form onSubmit={handleSubmit} className="flex flex-column items-end">
                 {formData.errorMessage && <p className="error text-center">{formData.errorMessage}</p>}
-
                 {!formData.isLogin && (
                     <input
                         name="username"
@@ -85,17 +101,8 @@ function AuthForm() {
                     type="password"
                     placeholder="Enter your password" />
 
-                {/* <button className="btn submit">Submit</button> */}
-
-                <div className="row justify-center auth-status-wrap">
-                    <button className={`btn ${formData.isLogin ? 'active submit' : ''}`} onClick={() => setFormData({ ...formData, isLogin: true })}>
-                        {formData.isLogin ? 'Submit' : 'Login'}
-                    </button>
-                    <span>|</span>
-                    <button className={`btn ${formData.isLogin ? 'active' : 'submit'}`}onClick={() => setFormData({ ...formData, isLogin: false })}>
-                        {formData.isLogin ? 'Sign Up' : 'Submit'}      
-                    </button>
-                </div>
+                <button className="btn">{formData.isLogin ? 'Log In' : 'Sign Up' }</button>
+            
             </form>
         </div>
     )

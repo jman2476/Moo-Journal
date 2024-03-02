@@ -17,17 +17,19 @@ export const GENERATE_PROMPT = gql`
 }
 `
 
-
-// export const GENERATE_PROMPT = gql`
-//     mutation GeneratePrompt($type: String!){
-//         generatePrompt(type: $type) {
-//             text
-//         }
-//     }
-// `
 export const SIGNUP_USER = gql`
   mutation SignUpUser($username: String!, $email: String!, $password: String!) {
     signUpUser(username: $username, email: $email, password: $password) {
+      _id
+      email
+      username
+    }
+  }
+`
+
+export const REGISTER_USER = gql`
+  mutation RegisterUser($username: String!, $email: String!, $password: String!) {
+    registerUser(username: $username, email: $email, password: $password) {
       _id
       email
       username
