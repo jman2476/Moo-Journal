@@ -12,7 +12,7 @@ const typeDefs = gql`
 
     type Journal {
         _id: ID
-        prompt: String
+        prompt: Prompt
         moodRanking: Int
         user: User
         createdAt: String
@@ -20,7 +20,12 @@ const typeDefs = gql`
     }
 
     type Prompt {
-      prompt:String
+        _id: ID
+        text:String
+        cream:String
+        usageCount:Int
+        createdAt: String
+        updatedAt: String
     }
 
     type Success {
@@ -49,8 +54,6 @@ const typeDefs = gql`
         updateEntry(text: String!, user_id: String!): Success
         deleteEntry: Success
     }
-
-
 `;
 
 

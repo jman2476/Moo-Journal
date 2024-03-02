@@ -4,7 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
-
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +46,8 @@
 
 .read-the-docs {
   color: #888;
+}
+.contributor {
+  display: flex;
+  flex-direction: row;
 }

@@ -12,8 +12,13 @@ export const TEST = gql`
 export const GENERATE_PROMPT = gql`
   mutation Mutation($type: String!) {
     generatePrompt(type: $type) {
-      prompt
-    }
+    _id
+    cream
+    createdAt
+    text
+    updatedAt
+    usageCount
+  }
 }
 `
 
