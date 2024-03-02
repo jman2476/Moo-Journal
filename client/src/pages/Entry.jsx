@@ -1,7 +1,5 @@
-import React from 'react'
+import { PromptBox, EditorComponent } from "../components"
 import { useState } from 'react'
-
-import {EditorComponent, PromptBox} from '../components'
 
 const styleMap = {
     'SMALL':{ fontSize: 12 },
@@ -11,9 +9,17 @@ const styleMap = {
 }
 
 import { EditorState, RichUtils } from 'draft-js';
-// import EditorComponent from './EditorComponent';
 
-const LightEntry = () => {
+
+
+
+
+
+
+
+
+function Entry(){
+
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
     const handleEditorStateChange = (newState) => {
@@ -36,11 +42,12 @@ const LightEntry = () => {
     };
 
     return (
-        <div>
-        {/* <h2>Light Journal Entry</h2> */}
-        <PromptBox type={'Light'}/>
+        <>
+            {/* <h1>Entry</h1> */}
+        <PromptBox/>
 
-            <button onClick={() => applyStyle('SMALL')}>Small</button>
+
+        <button onClick={() => applyStyle('SMALL')}>Small</button>
             <button onClick={() => applyStyle('MEDIUM')}>Medium</button>
             <button onClick={() => applyStyle('LARGE')}>Large</button>
             <button onClick={() => applyStyle('HIGHLIGHT')}>Highlight</button>
@@ -49,8 +56,10 @@ const LightEntry = () => {
                 customStyleMap={styleMap}
                 onEditorStateChange={handleEditorStateChange}
             />
-        </div>
-    );
-};
 
-export default LightEntry;
+
+        </>
+    )
+}
+
+export default Entry
