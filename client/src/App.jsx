@@ -20,43 +20,44 @@ function App() {
 
   const simulateLoading = (toggle) => {
 
-    if(toggle){
+    if (toggle) {
       const delayedFunction = () => {
-        setLoading(false)    
+        setLoading(false)
       };
-  
+
       // Set a timeout to execute the function after 10 seconds
       const timeoutId = setTimeout(delayedFunction, 2000);
-  
+
       // Clean-up function to clear the timeout if the component unmounts
       return () => clearTimeout(timeoutId);
     } else {
-      setLoading(false)    
+      setLoading(false)
     }
   }
-  
+
   useEffect(() => {
     // If you want to simulate loading screen
     // simulateLoading(false)
 
-    setLoading(false)    
+    setLoading(false)
   })
 
 
   return (
 
-      loading ?
-        <LoadingIndicator />
-        :
+    loading ?
+      <LoadingIndicator />
+      :
       <>
+        <Homepage />
         <Routes>
-          <Route path="/" element={<Homepage />}/>
-          <Route path="/about" element={<About />}/>
-          <Route path="/auth" element={<AuthForm />}/>
-          <Route path="/my_journal" element={<MyMooJournal />}/>
-          <Route path="/light_entry" element={<LightEntry />}/>
-          <Route path="/heavy_entry" element={<HeavyEntry />}/>
-          <Route path="*" element={<NotFound />}/>
+          <Route path="/"/>
+          <Route path="/about" element={<About />} />
+          <Route path="/auth" element={<AuthForm />} />
+          <Route path="/my_journal" element={<MyMooJournal />} />
+          <Route path="/light_entry" element={<LightEntry />} />
+          <Route path="/heavy_entry" element={<HeavyEntry />} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 
