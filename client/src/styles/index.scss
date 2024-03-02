@@ -183,18 +183,12 @@ footer {
   background: rgb(173, 193, 120);
   border-radius: 20px;
   min-width: 600px;
+  margin:auto;
   min-height: 300px;
-  padding: 50px;
-
-  // form {
-  //   .submit {
-  //     // background-color: rgb(173, 193, 120);
-  //     text-decoration: underline;
-  //   }
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
+  padding: 40px 40px 30px;
+  color:white;
+  font-family: "Sniglet", system-ui;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   input {
     margin-bottom: 10px;
     width: 100%;
@@ -205,5 +199,17 @@ footer {
     border-radius: 5px;
     outline: none;
     border: none;
+  }
+
+}
+
+@media(max-width:480px){
+
+  #root{
+    padding:0;
+  }
+  .authform {
+    padding: 20px;
+    min-width: 375px;
   }
 }

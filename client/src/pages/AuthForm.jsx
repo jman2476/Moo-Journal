@@ -57,20 +57,20 @@ function AuthForm() {
     }
 
     return (
-        <div className="authform justify-center">
+        <div className="authform justify-center w-100">
 
             <div className="flex flex-column tl">
                 {formData.isLogin ? (
                     <>
                         <h1 className="bb pb3 ma0">Log In</h1>
-                        <p className="ma0 pb3 p f5 pointer">Not a User? <span onClick={() => setFormData({ ...formData, isLogin: false })} className="b hover-white">Sign Up</span></p>
+                        <p className="ma0 pb3 p f5 pointer">Not a User? <span onClick={() => setFormData({ ...formData, isLogin: false })} className="underline-hover">Sign Up</span></p>
 
                     </>
                 ) : (
                     <>
 
                         <h1 className="bb pb3 ma0">Sign Up</h1>
-                        <p className="ma0 pb3 pt1 f5 pointer">Already a User? <span onClick={() => setFormData({ ...formData, isLogin: true })} className="b hover-white">Log In</span></p>
+                        <p className="ma0 pb3 pt1 f5 pointer">Already a User? <span onClick={() => setFormData({ ...formData, isLogin: true })} className="underline-hover">Log In</span></p>
 
 
                     </>
