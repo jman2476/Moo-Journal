@@ -17,10 +17,7 @@ module.exports = {
                     cream:args.type
                 })
                 
-                console.log(typeof savedPrompt, savedPrompt)
-                return {
-                    prompt: prompt
-                }
+                return savedPrompt
             } catch (err) {
                 console.log(err)
                 throw new GraphQLError(err)
