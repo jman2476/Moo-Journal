@@ -14,9 +14,7 @@ module.exports = {
         newEntry: proteck(async (_, args, { req, res, user_id }) => {
             try {
                 const user = await User.findById(user_id) 
-                console.log(user)
                 const prompt = await Prompt.findById(args.prompt_id)
-                console.log(prompt)
 
                 const entry = await Journal.create({
                     prompt: prompt._id,
@@ -27,8 +25,12 @@ module.exports = {
                 })
 
                 // add the journal entry to the user's journal
+                user.journal.push(entry._id)
+                user.save()
 
                 // increment the prompt's uses by 1
+                prompt.usageCount += 1
+                prompt.save() 
 
 
                 return entry
