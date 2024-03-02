@@ -49,17 +49,40 @@ module.exports = {
         // allow user to update a journal entry if it has been less than 24 hrs since the entry was created
         updateEntry: proteck(async (_, args, { req, res }) => {
             try {
+                await Journal.findByIdAndUpdate(args.journal_id, {
+                    text: args.text
+                })
 
+                return { message: 'Note updated successfully' }
             } catch (err) {
                 console.log(err)
+                let errors = []
+
+                for (let prop in err.errors) {
+                    errors.push(err.errors[prop].message)
+                }
+
+                throw new GraphQLError(errors)
             }
         }),
 
-        deleteEntry: proteck(async (_, args, { req, res }) => {
+        deleteEntry: proteck(async (_, args, { req, res, user_id }) => {
             try {
-
+                await Journal.findByIdAndDelete(args.journal_id)
+                await User.findByIdAndUpdate(user_id, {
+                    $pull: {
+                        journal: args.journal_id
+                    }
+                })
             } catch (err) {
                 console.log(err)
+                let errors = []
+
+                for (let prop in err.errors) {
+                    errors.push(err.errors[prop].message)
+                }
+
+                throw new GraphQLError(errors)
             }
         }),
 
