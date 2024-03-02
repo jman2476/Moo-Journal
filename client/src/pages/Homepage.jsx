@@ -26,6 +26,8 @@ function Homepage() {
                             <NavLink className="btn" to='/my_journal'>
                             <span className='mj-text fw8'>Go To My MooJournal</span>
                             </NavLink>
+                            <span className='btn mj-text fw8'>Logout</span>
+
                             
                         </span> 
                     </>

@@ -38,6 +38,7 @@ module.exports = {
                 const token = genToken(user._id)
 
                 res.cookie('token', token, {httpOnly: true})
+                console.log(user)
 
                 return user
             } catch (err) {
