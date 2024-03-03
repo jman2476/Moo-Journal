@@ -1,21 +1,20 @@
 import { useMutation } from "@apollo/client"
 import { GENERATE_PROMPT, TEST } from "../graphql/mutations"
 import { useState, useEffect } from "react"
-import { MoodTest } from './'
 
 function PromptBox({ type }) {
 
 
     const [generatePrompt, { data, loading, error }] = useMutation(GENERATE_PROMPT)
 
-    const [currentStep, setCurrentStep] = useState('moodSelection');
+    const [currentStep, setCurrentStep] = useState('creamSelection');
     const [mood, setMood] = useState(5);
     const [creamType, setCreamType] = useState('');
     const [prompt, setPrompt] = useState("")
     const [value, setValue] = useState(5);
 
     useEffect(() => {
-        console.log('load')
+
     }, [])
 
 
@@ -29,7 +28,7 @@ function PromptBox({ type }) {
         setCreamType(type)
 
         try {
-            const res = await generatePrompt({ variables: { type, mood } })
+            const res = await generatePrompt({ variables: { type } })
             setPrompt(res.data.generatePrompt.text)
             setCurrentStep('showPrompt')
         } catch (err) {
@@ -38,23 +37,26 @@ function PromptBox({ type }) {
 
     }
 
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
-
-    const renderPromptText = async () => {
+    const genNewPrompt = async () =>{
         try {
             const res = await generatePrompt({ variables: { type } })
-            console.log(res)
             setPrompt(res.data.generatePrompt.text)
+            setCurrentStep('showPrompt')
         } catch (err) {
             console.error(err)
         }
     }
 
+    
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
+
     const renderMoodSlider = () => {
         return (
-            <div>
+            <div className="flex flex-row items center">
+            <span>
                 <input
                     type="range"
                     min="1"
@@ -63,13 +65,15 @@ function PromptBox({ type }) {
                     onChange={handleChange}
                 />
                 <p>Value: {value}</p>
-                <button onClick={() => handleMoodSelection(value)}>Select Mood</button> {/* Add this to move to the next step */}
+                </span>
+                <p className="pa1 bg-green" onClick={() => handleMoodSelection(value)}>Continue</p> {/* Add this to move to the next step */}
             </div>
         )
     }
 
     const renderCreamSelection = () => {
-        return (<div>
+        return (<div className="flex">
+        <p>Generate Prompt:</p>
             <button onClick={() => handleCreamSelection('Light')}>Light</button>
             <button onClick={() => handleCreamSelection('Heavy')}>Heavy</button>
         </div>)
@@ -78,10 +82,9 @@ function PromptBox({ type }) {
     const renderPrompt = () => {
         return (
             
-        <div>
+        <div className="tl">
             <p>{prompt}</p>
-            <p>Generate New Prompt</p>
-            <p>Restart</p>
+            <button className="pa2 ma0" onClick={() => setCurrentStep('creamSelection')}>Generate New Prompt</button>
         </div>
         
         )
@@ -90,8 +93,7 @@ function PromptBox({ type }) {
 
     const renderContentBasedOnStep = () => {
         switch (currentStep) {
-            case 'moodSelection':
-                console.log('render mood')
+            case 'newPrompt':
                 return renderMoodSlider();
             case 'creamSelection':
                 return renderCreamSelection();
