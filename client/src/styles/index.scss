@@ -110,6 +110,16 @@ footer {
     bottom: 0;
   }
 }
+
+
+// GENERAL STYLES
+
+.np{
+  pointer-events:none;
+}
+
+
+
 @media screen and (max-width: 520px) {
   footer {
     width: 100%;
@@ -227,68 +237,6 @@ footer {
     border: none;
   }
 
-}
-
-.DraftEditor-root{
-  background:#f0ead2;
-  width:1100px;
-  height:300px;
-  padding:20px;
-  overflow:auto;
-}
-
-.entry-editor{
-  background: rgb(173, 193, 120);
-    min-width:350px;
-    padding:30px 50px 0px;
-    border-radius:20px;
-    height:fit-content;
-    font-family: "Sniglet", system-ui;
-
-  
-}
-/* Styles for the slider container */
-.slider-container {
-  margin: 20px;
-}
-
-/* Styles for the slider */
-.slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 15px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (cross-browser) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1; /* Fully opaque on hover */
-}
-
-/* Styles for the slider thumb (the draggable circle) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Width of the thumb */
-  height: 25px; /* Height of the thumb */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Width of the thumb */
-  height: 25px; /* Height of the thumb */
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-
-.entry-container{
-  max-height:400px;
 }
 
 @media(max-width:480px){

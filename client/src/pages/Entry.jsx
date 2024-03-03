@@ -5,6 +5,8 @@ import {NEW_ENTRY} from '../graphql/mutations'
 import { useMutation } from '@apollo/client'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 
+import '../styles/pages/entryPage.scss'
+
 const styleMap = {
     'SMALL': { fontSize: 12 },
     'MEDIUM': { fontSize: 18 },
@@ -16,6 +18,23 @@ import { EditorState, RichUtils } from 'draft-js';
 
 
 function Entry() {
+
+    const moods = [
+        { mood: "Absolutely dreadful", color: "#4a4e69" }, // Dark gray
+        { mood: "Terri-bull", color: "#22223b" }, // Charcoal
+        { mood: "Somewhat gloomy", color: "#6b705c" }, // Olive green
+        { mood: "Barely tolerable", color: "#9a8c98" }, // Muted purple
+        { mood: "Mediocre at best", color: "#c9ada7" }, // Soft pink
+        { mood: "Accepta-bull", color: "#f2e9e4" }, // Off white
+        { mood: "Pretty good", color: "#a5a58d" }, // Khaki
+        { mood: "Udderly happy", color: "#f4a261" }, // Sandy orange
+        { mood: "Remarka-bull", color: "#2a9d8f" }, // Teal
+        { mood: "Fantastically vibrant", color: "#e9c46a" }, // Saffron
+        { mood: "Euphorically ecstatic", color: "#f72585" } // Vivid pink
+      ]
+      
+
+
     const [value, setValue] = useState(5);
 
     const { state, setState } = useStore()
@@ -56,7 +75,7 @@ function Entry() {
     const renderMoodSlider = () => {
         return (
             <div className="flex flex-column items-start w-80 mr4 pv4 tl">
-                <p className="ma0 pa0 nowrap pb2">How Do you feel Today? {value}</p>
+                <p className="ma0 pa0 nowrap pb3 np">How Do you feel Today? <span className="pa1 ph2 ml2 br3 mb1" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span></p>
             
                 <input
                     type="range"
@@ -102,12 +121,11 @@ function Entry() {
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
 
 
-            <span className="flex flex-row">
-                <p className="ph1" onClick={() => applyStyle('SMALL')}>Small</p>
-
-                <p className="ph1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
-                <p className="ph1" onClick={() => applyStyle('LARGE')}>Large</p>
-                <p className="ph1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
+            <span className="flex flex-row pointer">
+                <p className="pr1 pt0 mt1" onClick={() => applyStyle('SMALL')}>Small</p>
+                <p className="pr1 pt0 mt1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
+                <p className="pr1 pt0 mt1" onClick={() => applyStyle('LARGE')}>Large</p>
+                <p className="pr1 pt0 mt1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
             </span>
             <EditorComponent
                 editorState={editorState} // Pass the editorState to the EditorComponent

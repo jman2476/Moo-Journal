@@ -63,6 +63,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
     const renderCreamSelection = () => {
         return (
             <div className="flex flex-row items-center">
+                <p className="f5">Pick Prompt type: </p>
 
                 <button onClick={() => handleCreamSelection('Light')}>Light</button>
                 <button onClick={() => handleCreamSelection('Heavy')}>Heavy</button>
@@ -76,8 +77,12 @@ function PromptBox({ journalEntry, setJournalEntry }) {
         return (
 
             <div className="tl">
-                <p className="pb0 mb0">{prompt}</p>
-                <p className="f7 ma0 pa0 pointer hover-white " onClick={() => setCurrentStep('creamSelection')}>I Want a New Prompt</p>
+                <p className="pb0 mb0 np f4">{prompt}</p>
+                <span className="flex">
+                    <p className="f7 ma0 pa0 pointer hover-white mr2" onClick={() => setCurrentStep('creamSelection')}>I Want a New Prompt</p>
+                    <p className="f7 ma0 pa0 pointer hover-white " onClick={() => setCurrentStep('noPrompt')}>Hide Prompt</p>
+                </span>
+
             </div>
 
         )
@@ -96,18 +101,23 @@ function PromptBox({ journalEntry, setJournalEntry }) {
             <div>
                 <span className="flex flex-column items-start pr3">
                     <p className=" f4 bb ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('creamSelection')}>Generate Prompt</p>
-                    <p className="f7 ma0 pa0 pointer hover-white " onClick={() => setCurrentStep('noPrompt')}>I don't want a prompt</p>
+                    <p className="f7 ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('noPrompt')}>I don't want a prompt</p>
                 </span>
 
             </div>
         )
     }
 
+    const renderMoodTest = () => {
+        
+    }
 
     const renderContentBasedOnStep = () => {
         switch (currentStep) {
             case 'newPrompt':
                 return renderTogglePrompt();
+            case 'selectMood':
+                return renderMoodTest();
             case 'creamSelection':
                 return renderCreamSelection();
             case 'showPrompt':
