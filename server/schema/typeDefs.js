@@ -13,7 +13,7 @@ const typeDefs = gql`
     type Journal {
         _id: ID
         prompt: Prompt
-        moodRanking: Int
+        moodRanking: String
         cream: String
         user: User
         createdAt: String

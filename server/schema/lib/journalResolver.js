@@ -1,7 +1,7 @@
 const { GraphQLError } = require('graphql')
 const { Journal, User, Prompt } = require('../../models')
 const dayjs = require('dayjs')
-const { proteck } = require('../../config/auth')
+const { proteck, verToken } = require('../../config/auth')
 
 module.exports = {
     queries: {

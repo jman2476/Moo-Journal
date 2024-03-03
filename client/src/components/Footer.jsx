@@ -35,7 +35,7 @@ function Footer() {
             <div>
                 <ul style={contributorStyles} className='contributor fl w-25'>
                     {contributors.map((contributor, index) => (
-                        <ul key={index}>
+                        <li className="nowrap flex items-center" key={index}>
                             {contributor.name}
                             <div className='icons'>
                                 <a href={contributor.github} target="_blank" rel="noopener noreferrer">
@@ -47,7 +47,7 @@ function Footer() {
                                 </a>
                             </div>
 
-                        </ul>
+                        </li>
                     ))}
                 </ul>
                 <div className='feedback'>

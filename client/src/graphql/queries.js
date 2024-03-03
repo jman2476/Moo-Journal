@@ -8,3 +8,4 @@ export const AUTHENTICATE = gql`
         }
     }
 `
+export const GET_USER_NOTES = gql``

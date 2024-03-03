@@ -1,6 +1,9 @@
 import { PromptBox, EditorComponent } from "../components"
 import { useState, useEffect } from 'react'
 import { useStore } from '../store'
+import {NEW_ENTRY} from '../graphql/mutations'
+import { useMutation } from '@apollo/client'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 const styleMap = {
     'SMALL': { fontSize: 12 },
@@ -16,17 +19,18 @@ function Entry() {
     const [value, setValue] = useState(5);
 
     const { state, setState } = useStore()
+    const navigate = useNavigate()
 
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [journalEntry, setJournalEntry] = useState({})
 
-
+    const [newEntry] = useMutation(NEW_ENTRY, {variables: journalEntry })
     useEffect(() => {
         setJournalEntry({
             promptId:null,
             text:null,
-            moodRanking:null
+            moodRanking:5
         })
         console.log('entry', journalEntry)
     }, [])
@@ -72,8 +76,11 @@ function Entry() {
         })
     };
 
-    const submitEntry = () => {
+    const submitEntry = async () => {
         console.log(editorState)
+        const data = await newEntry()
+        console.log(data)
+        navigate('/')
 
     }
 

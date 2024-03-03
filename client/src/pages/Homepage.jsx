@@ -11,6 +11,8 @@ import { LOGOUT_USER } from '../graphql/mutations';
 
 function Homepage() { 
 
+    const navigate = useNavigate()
+
     const { state, setState } = useStore()
     const [logoutUser] = useMutation(LOGOUT_USER)
     const location = useLocation(); // Get the current location
