@@ -16,6 +16,13 @@ module.exports = {
                 // return in the form {[dates], [moodRanking]}
             } catch (err) {
                 console.log(err)
+                let errors = []
+
+                for (let prop in err.errors) {
+                    errors.push(err.errors[prop].message)
+                }
+
+                throw new GraphQLError(errors)
             }
         })
     },
