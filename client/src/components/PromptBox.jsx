@@ -13,7 +13,20 @@ function PromptBox({ journalEntry, setJournalEntry }) {
     const [prompt, setPrompt] = useState("")
     const [value, setValue] = useState(5);
 
-
+    const moods = [
+        { mood: "Absolutely dreadful", color: "#4a4e69" }, // Dark gray
+        { mood: "Terri-bull", color: "#22223b" }, // Charcoal
+        { mood: "Somewhat gloomy", color: "#6b705c" }, // Olive green
+        { mood: "Barely tolerable", color: "#9a8c98" }, // Muted purple
+        { mood: "Mediocre at best", color: "#c9ada7" }, // Soft pink
+        { mood: "Accepta-bull", color: "#f2e9e4" }, // Off white
+        { mood: "Pretty good", color: "#a5a58d" }, // Khaki
+        { mood: "Udderly happy", color: "#f4a261" }, // Sandy orange
+        { mood: "Remarka-bull", color: "#2a9d8f" }, // Teal
+        { mood: "Fantastically vibrant", color: "#e9c46a" }, // Saffron
+        { mood: "Euphorically ecstatic", color: "#f72585" } // Vivid pink
+      ]
+      
 
 
     const handleMoodSelection = (value) => {
@@ -39,20 +52,15 @@ function PromptBox({ journalEntry, setJournalEntry }) {
 
     }
 
-    const genNewPrompt = async () => {
-        try {
-            const res = await generatePrompt({ variables: { type } })
-            setJournalEntry({
-                ...journalEntry,
-                promptId: res.data.generatePrompt._id
-            })
-
-            setPrompt(res.data.generatePrompt.text)
-            setCurrentStep('showPrompt')
-        } catch (err) {
-            console.error(err)
-        }
-    }
+    const handleMoodChange = (event) => {
+        const value = event.target.value;
+        console.log('type', typeof +value)
+        setValue(value);
+        setJournalEntry({
+            ...journalEntry,
+            moodRanking:+value
+        })
+    };
 
 
 
@@ -100,7 +108,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
         return (
             <div>
                 <span className="flex flex-column items-start pr3">
-                    <p className=" f4 bb ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('creamSelection')}>Generate Prompt</p>
+                    <p className=" f4 bb ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('selectMood')}>Generate Prompt</p>
                     <p className="f7 ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('noPrompt')}>I don't want a prompt</p>
                 </span>
 
@@ -108,8 +116,31 @@ function PromptBox({ journalEntry, setJournalEntry }) {
         )
     }
 
-    const renderMoodTest = () => {
-        
+    const renderMoodSlider = () => {
+        return (
+            <div className="flex flex-column items-start w-100 mr4 pb3 tl wrap">
+            <span className="flex items-center justify-between w-100 pb2">
+            <p className="ma0 pa0 nowrap np f4">How Do you feel Today? </p>
+            
+            <span className="pa1 ph2 ml2 br3 mb1" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span>
+            </span>
+           
+            <span className="flex flex-row nowrap w-100">
+            <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value={value}
+                    onChange={handleMoodChange}
+                    className="slider w-100"
+                />
+            <button className="pv2 ph3 br3 mr0" onClick={() => setCurrentStep('creamSelection')}>Continue</button>
+
+            </span>
+
+                
+            </div>
+        )
     }
 
     const renderContentBasedOnStep = () => {
@@ -117,7 +148,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
             case 'newPrompt':
                 return renderTogglePrompt();
             case 'selectMood':
-                return renderMoodTest();
+                return renderMoodSlider();
             case 'creamSelection':
                 return renderCreamSelection();
             case 'showPrompt':
