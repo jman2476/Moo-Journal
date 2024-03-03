@@ -1,4 +1,6 @@
 const { sign, verify } = require('jsonwebtoken')
+const { GraphQLError } = require('graphql')
+
 
 function genToken(user_id) {
     const token = sign({user_id}, process.env.JWT_SECRET)
@@ -18,7 +20,7 @@ function verToken(token) {
 }
 
 function proteck(resolver) {
-    return async function (_, args, {req, resolver}) {
+    return async function (_, args, {req, res}) {
         const token = req.cookies.token // grabs the token from the cookie jar
 
         if (!token) {
@@ -30,6 +32,7 @@ function proteck(resolver) {
 
             return resolver(_,args, {req, res, user_id})
         } catch (err) {
+            console.log(err)
             throw new GraphQLError('Your token is invalid')
         }
     }
