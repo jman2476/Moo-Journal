@@ -36,13 +36,16 @@ function Entry() {
     }, [])
 
     const handleEditorStateChange = (newState) => {
-        setEditorState(newState);
+
         
         const contentState = newState.getCurrentContent();
         setJournalEntry({
             ...journalEntry,
             text:contentState.getPlainText()
         })
+
+
+        setEditorState(newState);
         console.log(contentState.getPlainText());
     };
 
@@ -61,22 +64,31 @@ function Entry() {
                     max="10"
                     value={value}
                     onChange={handleMoodChange}
-                    className="slider w-100 "
+                    className="slider w-100"
                 />
             </div>
         )
     }
     const handleMoodChange = (event) => {
         const value = event.target.value;
-
+        console.log('type', typeof +value)
         setValue(value);
         setJournalEntry({
             ...journalEntry,
-            moodRanking:value
+            moodRanking:+value
         })
     };
 
     const submitEntry = async () => {
+
+        const textData = journalEntry?.text
+        console.log(journalEntry?.text)
+        console.log(journalEntry?.text.length)
+
+        if(journalEntry?.text && journalEntry?.text.length < 50 || !journalEntry?.text.length){
+            return alert('must be more than 100 chars')
+        }
+
         console.log(editorState)
         const data = await newEntry()
         console.log(data)
