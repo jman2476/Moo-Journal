@@ -81,12 +81,20 @@ footer {
   left: 0;
   right: 0;
   // background:#669900;
-  height: 120px;
-
-  img {
-    filter: blur(3px);
+  height: 200px;
+  .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
-
+  .feedback {
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+    padding: 25px;
+    
+  }
+  
   p {
     position: absolute;
     margin: auto;
@@ -196,6 +204,7 @@ footer {
     padding: 25px 15px;
     align-items: center;
     background: #f0ead2;
+    color: #a67c52;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -204,6 +213,10 @@ footer {
 }
 
 @media(max-width:480px){
+
+  * {
+    box-sizing: border-box;
+  }
 
   #root{
     padding:10px;
