@@ -2,7 +2,8 @@ const { model, Schema } = require('mongoose')
 
 const journalSchema = new Schema({
     prompt: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Prompt'
     },
     cream: {
         type: String,
