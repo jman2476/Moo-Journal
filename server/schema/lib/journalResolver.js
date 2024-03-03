@@ -26,6 +26,20 @@ module.exports = {
                 const user = await User.findById(user_id) 
                 const prompt = await Prompt.findById(args.prompt_id)
 
+                if (!prompt) {
+                    const entry = await Journal.create({
+                        text: args.text,
+                        moodRanking: 5,
+                        user: user_id
+                    })
+    
+                    // add the journal entry to the user's journal
+                    user.journal.push(entry._id)
+                    user.save()
+    
+                    return entry
+                }
+
                 const entry = await Journal.create({
                     prompt: prompt._id,
                     cream: prompt.cream,
