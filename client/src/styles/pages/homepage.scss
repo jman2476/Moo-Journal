@@ -21,6 +21,12 @@
       font-weight: 400;
       font-style: normal;
     }
+
+    @media(max-width: 480px) {
+      > h1, h1 > a {
+        font-size: 15vw;
+      }
+    }
   }
 
   .not-homepage{
@@ -59,6 +65,17 @@
       display:flex;
       flex-direction: column;
       align-items: start;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    @media(max-width: 480px) {
+      > h1, h1 > a {
+        font-size: 15vw;
+      }
     }
   }
   
