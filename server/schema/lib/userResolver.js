@@ -1,6 +1,6 @@
 const { GraphQLError } = require('graphql')
 const { genToken, verToken, proteck } = require('../../config/auth')
-const { User } = require('../../models')
+const { User, Prompt, Journal } = require('../../models')
 
 module.exports = {
     queries: {
@@ -24,7 +24,13 @@ module.exports = {
 
         getUserEntries: proteck(async (_, __, {user_id}) => {
             const user = await User.findById(user_id).populate('journal')
-
+ 
+            // for each journal entry, populate the prompt and user data by id
+            for (let i = 0; i < user.journal.length; i++){
+                await user.journal[i].populate('prompt')
+                await user.journal[i].populate('user')
+                
+            }
             return user.journal
         }) 
     },

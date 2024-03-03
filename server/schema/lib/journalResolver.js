@@ -21,7 +21,7 @@ module.exports = {
     },
 
     mutations: {
-        newEntry: proteck(async (_, args, { req, res, user_id }) => {
+        newEntry: proteck(async (_, args, { user_id }) => {
             try {
                 const user = await User.findById(user_id) 
                 const prompt = await Prompt.findById(args.prompt_id)
@@ -57,7 +57,7 @@ module.exports = {
         }),
 
         // allow user to update a journal entry if it has been less than 24 hrs since the entry was created
-        updateEntry: proteck(async (_, args, { req, res }) => {
+        updateEntry: proteck(async (_, args, {}) => {
             
             try {
                 const currentTime = dayjs()
@@ -87,7 +87,7 @@ module.exports = {
             }
         }),
 
-        deleteEntry: proteck(async (_, args, { req, res, user_id }) => {
+        deleteEntry: proteck(async (_, args, { user_id }) => {
             try {
                 await Journal.findByIdAndDelete(args.journal_id)
                 await User.findByIdAndUpdate(user_id, {
