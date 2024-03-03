@@ -42,8 +42,6 @@ module.exports = {
 
                 return user
             } catch (err) {
-                // console.log(err)
-
                 if (err.code === 11000) {
                     throw new GraphQLError('A user with these credentials already exists')
                 }

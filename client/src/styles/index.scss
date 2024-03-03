@@ -93,6 +93,11 @@ footer {
     margin-right: 50px;
     padding: 25px;
     
+  // background:#669900; // nice
+  height: 120px;
+
+  img {
+    filter: blur(3px);
   }
   
   p {

@@ -100,7 +100,7 @@ function AuthForm() {
                     type="password"
                     placeholder="Enter your password" />
 
-                <button className="btn">{formData.isLogin ? 'Log In' : 'Sign Up' }</button>
+                <button className="btn">{formData.isLogin ? 'Continue' : 'Start MyMooJournal Journey' }</button>
             
             </form>
         </div>
