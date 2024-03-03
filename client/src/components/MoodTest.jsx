@@ -17,8 +17,9 @@ function MoodTest() {
           max="10" // Maximum value
           value={value} // Current value
           onChange={handleChange} // Function to call when the value changes
+          className="slider"
         />
-        <p>Value: {value}</p> {/* Display the current value */}
+        <p className="ma0 pa0">Value: {value}</p> {/* Display the current value */}
       </div>
     )
 }

@@ -32,24 +32,27 @@ function Entry() {
     };
     const renderMoodSlider = () => {
         return (
-            <div className="flex flex-row items-center">
-            <span>
+            <div className="flex flex-column items-start w-80 mr4 pv4 tl">
+                <p className="ma0 pa0 nowrap pb2">How Do you feel Today? {value}</p>
+            
                 <input
                     type="range"
                     min="1"
                     max="10"
                     value={value}
                     onChange={handleChange}
+                    className="slider w-100 "
                 />
-                <p>Value: {value}</p>
-                </span>
-                <p className="pa1 bg-green" onClick={() => handleMoodSelection(value)}>Continue</p> {/* Add this to move to the next step */}
             </div>
         )
     }
     const handleChange = (event) => {
         setValue(event.target.value);
     };
+
+    const submitEntry = () => {
+        console.log(editorState)
+    }
 
 
     return (
@@ -70,9 +73,9 @@ function Entry() {
                 onEditorStateChange={handleEditorStateChange}
             />
 
-            <span className="flex justify-between">
+            <span className="flex justify-between items-center">
             {renderMoodSlider()}
-            <button>Submit</button>
+            <button onClick={() => submitEntry()}>Submit</button>
 
             </span>
 

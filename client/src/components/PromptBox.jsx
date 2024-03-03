@@ -53,24 +53,6 @@ function PromptBox({ type }) {
         setValue(event.target.value);
     };
 
-    const renderMoodSlider = () => {
-        return (
-            <div className="flex flex-row items center">
-            <span>
-                <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={value}
-                    onChange={handleChange}
-                />
-                <p>Value: {value}</p>
-                </span>
-                <p className="pa1 bg-green" onClick={() => handleMoodSelection(value)}>Continue</p> {/* Add this to move to the next step */}
-            </div>
-        )
-    }
-
     const renderCreamSelection = () => {
         return (<div className="flex">
         <p>Generate Prompt:</p>
