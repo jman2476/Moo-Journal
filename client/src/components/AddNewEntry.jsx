@@ -17,17 +17,14 @@ function AddNewEntry() {
         entryType: 'Light'
     }
 
-
-
-
     return (
         <>
             {hideNewEntry ?
-                <button onClick={() => { setNewEntry(false) }} className="btn">New Entry</button>
+                <button onClick={() => { setNewEntry(false) }} className="btn">Start New Entry</button>
                 :
                 <span>
-                    <NavLink className="btn" to='/light_entry'><span className='mj-text fw8'>Light</span></NavLink>
-                    <NavLink className="btn" to='/heavy_entry'><span className='mj-text fw8'>Heavy</span></NavLink>
+                    <NavLink onClick={() => { setNewEntry(true) }} className="btn" to='/light_entry'><span className='mj-text fw8'>Light</span></NavLink>
+                    <NavLink onClick={() => { setNewEntry(true) }} className="btn" to='/heavy_entry'><span className='mj-text fw8'>Heavy</span></NavLink>
 
                 </span>
             }
