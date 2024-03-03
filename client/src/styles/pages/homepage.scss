@@ -22,10 +22,29 @@
       font-style: normal;
     }
 
-    @media(max-width: 480px) {
-      > h1, h1 > a {
-        font-size: 15vw;
-      }
+    @media only screen and (max-device-width: 480px) {
+      // body {
+      //   float: none;
+      //   width: 100%;
+      // }
+
+      // > h1, h1 > a {
+      //   font-size: 15vw;
+      // }
+
+      // .btn {
+      //   display: block;
+      //   width: 100%;
+      //   margin-bottom: 10px;
+      // }
+
+      // .logoContainer {
+      //   padding: 10px;
+      // }
+
+      // h3 {
+      //   font-size: 4vw;
+      // }
     }
   }
 
@@ -69,6 +88,7 @@
 
     .btn {
       display: inline-block;
+      margin-left: auto;
       text-decoration: none;
     }
 

@@ -4,11 +4,11 @@ import linkedIn from '../assets/LI-icon.png'
 
 function Footer() {
     const contributors = [
-        { name: 'Charles Swayne', github: 'https://github.com/cjswayne', linkedIn: 'in/charles-swayne-42b277284' },
-        { name: 'Jeremy McKeegan', github: 'https://github.com/jman2476', linkedIn: 'in/' },
-        { name: 'Shannon Tice', github: 'https://github.com/shannontice', linkedIn: 'in/' },
-        { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'in/' },
-        { name: 'Jasvinder Saini', github: 'https://github.com/jsaini1727', linkedIn: 'in/' },
+        { name: 'Charles Swayne', github: 'https://github.com/cjswayne', linkedIn: 'https://www.linkedin.com/in/charles-swayne-42b277284' },
+        { name: 'Jeremy McKeegan', github: 'https://github.com/jman2476', linkedIn: 'https://www.linkedin.com/in/' },
+        { name: 'Shannon Tice', github: 'https://github.com/shannontice', linkedIn: 'https://www.linkedin.com/in/' },
+        { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'https://www.linkedin.com/in/winston-james-jr' },
+        { name: 'Jasvinder Saini', github: 'https://github.com/jsaini1727', linkedIn: 'https://www.linkedin.com/in/jasvinder-saini2769' },
 
     ];
     const footerStyles = {
