@@ -5,8 +5,18 @@ const { proteck } = require('../../config/auth')
 
 module.exports = {
     queries: {
-        graphMood: proteck(async (_, args, { req, res }) => {
+        graphMood: proteck(async (_, args, { req, res, user_id }) => {
+            try {
+                // get array of journal entries for user
+                const userEntries = await User.findById(user_id).journal
+                // make an array of the dates of each entry
+                let dates = []
+                // make an array of the moodRanking
 
+                // return in the form {[dates], [moodRanking]}
+            } catch (err) {
+                console.log(err)
+            }
         })
     },
 

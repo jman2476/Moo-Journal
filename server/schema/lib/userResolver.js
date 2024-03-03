@@ -22,10 +22,10 @@ module.exports = {
             }
         },
 
-        getUserNotes: proteck(async (_, __, {user_id}) => {
-            const user = await User.findById(user_id).populate('journals')
+        getUserEntries: proteck(async (_, __, {user_id}) => {
+            const user = await User.findById(user_id).populate('journal')
 
-            return user.journals
+            return user.journal
         }) 
     },
 
