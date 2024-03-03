@@ -1,5 +1,5 @@
 import { PromptBox, EditorComponent } from "../components"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useStore } from '../store'
 
 const styleMap = {
@@ -19,10 +19,26 @@ function Entry() {
 
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [journalEntry, setJournalEntry] = useState({})
+
+
+    useEffect(() => {
+        setJournalEntry({
+            promptId:null,
+            text:null,
+            moodRanking:null
+        })
+        console.log('entry', journalEntry)
+    }, [])
 
     const handleEditorStateChange = (newState) => {
         setEditorState(newState);
+        
         const contentState = newState.getCurrentContent();
+        setJournalEntry({
+            ...journalEntry,
+            text:contentState.getPlainText()
+        })
         console.log(contentState.getPlainText());
     };
 
@@ -40,24 +56,31 @@ function Entry() {
                     min="1"
                     max="10"
                     value={value}
-                    onChange={handleChange}
+                    onChange={handleMoodChange}
                     className="slider w-100 "
                 />
             </div>
         )
     }
-    const handleChange = (event) => {
-        setValue(event.target.value);
+    const handleMoodChange = (event) => {
+        const value = event.target.value;
+
+        setValue(value);
+        setJournalEntry({
+            ...journalEntry,
+            moodRanking:value
+        })
     };
 
     const submitEntry = () => {
         console.log(editorState)
+
     }
 
 
     return (
         <div className="entry-editor">
-            <PromptBox />
+            <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
 
 
             <span className="flex flex-row">

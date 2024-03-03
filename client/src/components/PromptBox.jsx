@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client"
 import { GENERATE_PROMPT, TEST } from "../graphql/mutations"
 import { useState, useEffect } from "react"
 
-function PromptBox({ type }) {
+function PromptBox({ journalEntry, setJournalEntry }) {
 
 
     const [generatePrompt, { data, loading, error }] = useMutation(GENERATE_PROMPT)
@@ -13,9 +13,7 @@ function PromptBox({ type }) {
     const [prompt, setPrompt] = useState("")
     const [value, setValue] = useState(5);
 
-    useEffect(() => {
 
-    }, [])
 
 
     const handleMoodSelection = (value) => {
@@ -29,6 +27,10 @@ function PromptBox({ type }) {
 
         try {
             const res = await generatePrompt({ variables: { type } })
+            setJournalEntry({
+                ...journalEntry,
+                promptId: res.data.generatePrompt._id
+            })
             setPrompt(res.data.generatePrompt.text)
             setCurrentStep('showPrompt')
         } catch (err) {
@@ -40,6 +42,11 @@ function PromptBox({ type }) {
     const genNewPrompt = async () =>{
         try {
             const res = await generatePrompt({ variables: { type } })
+            setJournalEntry({
+                ...journalEntry,
+                promptId: res.data.generatePrompt._id
+            })
+            
             setPrompt(res.data.generatePrompt.text)
             setCurrentStep('showPrompt')
         } catch (err) {
