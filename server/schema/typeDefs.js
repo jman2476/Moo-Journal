@@ -15,6 +15,7 @@ const typeDefs = gql`
         prompt: Prompt
         moodRanking: String
         cream: String
+        text: String
         user: User
         createdAt: String
         updatedAt: String
@@ -41,7 +42,7 @@ const typeDefs = gql`
 
     type Query {
         authenticate: User
-        getUserNotes: [Journal]
+        getUserEntries: [Journal]
         graphMood: [mooData]
     }
 
