@@ -60,6 +60,7 @@ button,
   font-weight: 500;
   font-family: inherit;
   background-color: #a67c52;
+  text-decoration: none;
   cursor: pointer;
   transition: border-color 0.25s;
   color: $white-smoke;
@@ -196,6 +197,7 @@ footer {
     padding: 25px 15px;
     align-items: center;
     background: #f0ead2;
+    color: #a67c52;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -203,11 +205,17 @@ footer {
 
 }
 
+
 @media(max-width:480px){
+  
+  * {
+    box-sizing: border-box;
+  }
 
   #root{
     padding:10px;
   }
+  
   .authform {
     padding: 20px;
     min-width: 375px;
