@@ -120,21 +120,21 @@ function Entry() {
         <div className="entry-editor">
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
 
-
+{/* 
             <span className="flex flex-row pointer">
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('SMALL')}>Small</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('LARGE')}>Large</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
-            </span>
+            </span> */}
             <EditorComponent
                 editorState={editorState} // Pass the editorState to the EditorComponent
                 customStyleMap={styleMap}
                 onEditorStateChange={handleEditorStateChange}
             />
 
-            <span className="flex justify-between items-center">
-            {renderMoodSlider()}
+            <span className="flex justify-end items-end w-100 pv2 mt2">
+            {/* {renderMoodSlider()} */}
             <button onClick={() => submitEntry()}>Submit</button>
 
             </span>
