@@ -1,11 +1,13 @@
 import grass from '../assets/Green-grass-clipart-free-pictures.png'
+import github from '../assets/Github-icon.png'
+import linkedIn from '../assets/LI-icon.png'
 
 function Footer() {
     const contributors = [
         { name: 'Charles Swayne', github: 'https://github.com/cjswayne', linkedIn: 'in/charles-swayne-42b277284' },
         { name: 'Jeremy McKeegan', github: 'https://github.com/jman2476', linkedIn: 'in/' },
         { name: 'Shannon Tice', github: 'https://github.com/shannontice', linkedIn: 'in/' },
-        { name: 'Winston Jr James', github: 'https://github.com/', linkedIn: 'in/' },
+        { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'in/' },
         { name: 'Jasvinder Saini', github: 'https://github.com/jsaini1727', linkedIn: 'in/' },
 
     ];
@@ -13,31 +15,43 @@ function Footer() {
         position: 'absolute',
         backgroundImage: `url(${grass})`,
         backgroundSize: 'cover',
-        opacity: 0.6,
+
     };
     const contributorStyles = {
         listStyleType: 'none',
-        padding: '10px',
+        padding: '5px',
         fontWeight: 'bold',
+        color: 'black'
     };
+    const iconStyles = {
+        width: '20px',
+        height: '20px',
+        margin: '2px',
+    }
 
     return (
         <footer style={footerStyles}>
-            {/* The image is included as a background in the const footerStyles */}
-            {/* <img 
-            src={grass} 
-            alt="Grass"></img> */}
+
             <div>
-                <ul style={contributorStyles} className='contributor text-center fl w-100'>
+                <ul style={contributorStyles} className='contributor fl w-25'>
                     {contributors.map((contributor, index) => (
                         <ul key={index}>
-                            <a href={contributor.github} target="_blank" rel="noopener noreferrer">{contributor.name}</a> -
-                            <a href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            {contributor.name}
+                            <div className='icons'>
+                                <a href={contributor.github} target="_blank" rel="noopener noreferrer">
+                                    <img src={github} alt="GitHub Icon" style={iconStyles} />
+                                </a>
+                                <a href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                                    <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
+
+                                </a>
+                            </div>
+
                         </ul>
                     ))}
                 </ul>
-                <div>
-                    <a href="#about">About</a> | <a href="#feedback">Feedback</a>
+                <div className='feedback'>
+                    <a href="#about">  About</a> | <a href="#feedback">  Feedback  </a>
                 </div>
             </div>
         </footer>
