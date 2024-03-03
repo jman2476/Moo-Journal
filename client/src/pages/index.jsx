@@ -6,3 +6,4 @@ export { default as Homepage } from './Homepage';
 export { default as LightEntry } from './LightEntry';
 export { default as MyMooJournal } from './MyMooJournal';
 export { default as NotFound } from './NotFound'
+export { default as Feedback } from './Feedback'

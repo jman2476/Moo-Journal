@@ -90,16 +90,14 @@ footer {
     flex-direction: row;
     justify-content: center;
   }
+
   .feedback {
     position: absolute;
-    right: 0;
-    margin-right: 50px;
-    padding: 25px;
+    right: 70px;
     color: black;
-  
-  // background:#669900; // nice
-  height: 140px;
-  }  
+
+  }
+
   p {
     position: absolute;
     margin: auto;
@@ -120,16 +118,17 @@ footer {
 
 
 
+
 @media screen and (max-width: 520px) {
   footer {
     width: 100%;
-    .feedback{
-      padding: 0px;
+
+    .feedback {
       margin-right: 125px;
       position: absolute;
       justify-content: center;
     }
-    
+
   }
 }
 
@@ -218,12 +217,13 @@ footer {
   background: rgb(173, 193, 120);
   border-radius: 20px;
   min-width: 600px;
-  margin:auto;
+  margin: auto;
   min-height: 300px;
   padding: 40px 40px 30px;
-  color:white;
+  color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+
   input {
     margin-bottom: 10px;
     width: 100%;
@@ -239,15 +239,60 @@ footer {
 
 }
 
-@media(max-width:480px){
+.feedbackform {
+  background: rgb(173, 193, 120);
+  border-radius: 20px;
+  min-width: 600px;
+  margin: auto;
+  min-height: 300px;
+  padding: 40px 40px 30px;
+  color: white;
+  font-family: "Sniglet", system-ui;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+
+  input,
+  textarea {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    padding: 25px 15px;
+    align-items: center;
+    background: #f0ead2;
+    color: #a67c52;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  button {
+    border-radius: 16px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #a67c52;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: $white-smoke;
+    margin: 10px;
+    text-shadow: -4px 4px 20px $gray;
+  }
+
+
+}
+
+@media(max-width:480px) {
 
   * {
     box-sizing: border-box;
   }
 
-  #root{
-    padding:10px;
+  #root {
+    padding: 10px;
   }
+
   .authform {
     padding: 20px;
     min-width: 375px;
