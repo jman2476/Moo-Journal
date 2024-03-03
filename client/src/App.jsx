@@ -6,7 +6,7 @@ import 'tachyons'
 import './App.css'
 
 // Pages
-import { Homepage, About, AuthForm, MyMooJournal, LightEntry, HeavyEntry, NotFound } from './pages';
+import { Homepage, About, AuthForm, Feedback, MyMooJournal, LightEntry, HeavyEntry, NotFound } from './pages';
 
 
 // Components
@@ -54,6 +54,7 @@ function App() {
           <Route path="/"/>
           <Route path="/about" element={<About />} />
           <Route path="/auth" element={<AuthForm />} />
+          
           <Route path="/my_journal" element={<MyMooJournal />} />
           <Route path="/light_entry" element={<LightEntry />} />
           <Route path="/heavy_entry" element={<HeavyEntry />} />
