@@ -48,10 +48,21 @@ module.exports = {
 
         // allow user to update a journal entry if it has been less than 24 hrs since the entry was created
         updateEntry: proteck(async (_, args, { req, res }) => {
+            
             try {
-                await Journal.findByIdAndUpdate(args.journal_id, {
-                    text: args.text
-                })
+                const currentTime = dayjs()
+                const entry = await Journal.findById(args.journal_id)
+                const entryTime = dayjs(entry.createdAt)
+                
+                // check if it has been 24hrs or more, and if true, return an error
+                if (currentTime.diff(entryTime) > 86400000) {
+                    throw new GraphQLError('This entry is too old to edit')
+                }
+
+                // update the entry with the new text
+                entry.text = args.text
+                entry.save()
+
 
                 return { message: 'Note updated successfully' }
             } catch (err) {
