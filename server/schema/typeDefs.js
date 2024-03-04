@@ -35,15 +35,15 @@ const typeDefs = gql`
     }
 
     type mooData {
-        date: [String]
-        moodRanking: [Int]
-        user: User
+        x: String
+        y: Int
+        # user: User
     }
 
     type Query {
         authenticate: User
         getUserEntries: [Journal]
-        graphMood: mooData
+        graphMood: [mooData]
     }
 
     type Mutation {
