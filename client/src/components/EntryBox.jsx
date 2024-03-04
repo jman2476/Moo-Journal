@@ -1,6 +1,6 @@
 import { Editor, EditorState, convertFromRaw, createWithContent } from 'draft-js';
 import { useState, useEffect } from "react"
-import {styleMap} from '../lib/editorStyleMap'
+import {styleMap} from '../utils/editorStyleMap'
 
 
 function EntryBox({fetchedEditorStateString}) {

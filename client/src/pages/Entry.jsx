@@ -4,11 +4,11 @@ import { useStore } from '../store'
 import {NEW_ENTRY} from '../graphql/mutations'
 import { useMutation } from '@apollo/client'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
-import moods from '../lib/moods'
+import moods from '../utils/moods'
 
 import '../styles/pages/entryPage.scss'
 
-import {styleMap} from '../lib/editorStyleMap'
+import {styleMap} from '../utils/editorStyleMap'
 
 import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 

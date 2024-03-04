@@ -1,13 +1,13 @@
 // This will be the equivalent of the user's dashboard
 import { GET_USER_NOTES } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
-import moods from '../lib/moods'
+import moods from '../utils/moods'
 import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
 import {EntryBox} from '../components'
 
 import { useState, useEffect } from "react"
-import {styleMap} from '../lib/editorStyleMap'
+import {styleMap} from '../utils/editorStyleMap'
 function MyMooJournal() {
 
     const [showPrompt, setShowPrompt] = useState(true);
