@@ -36,15 +36,16 @@ function Footer() {
     const contributorStyles = {
         listStyleType: 'none',
         lineHeight: 1,
+        fontSize: '12px',
         color: 'black',
         display: 'flex',
         alignItems: 'flex-end',
         marginLeft: '25px',
-        marginTop: '70px'
+        marginTop: '110px'
     }
     const iconStyles = {
-        width: '20px',
-        height: '20px',
+        width: '15px',
+        height: '15px',
         marginLeft: '5px',
     }
 
