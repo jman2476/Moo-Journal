@@ -6,7 +6,7 @@ dotenv.config();
 
 
 // Initialize OpenAI client
-const openai = new OpenAI({ apiKey: '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' });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_1 });
 
 /**
  * Generates a journaling prompt based on the type of reflection and the user's mood.
