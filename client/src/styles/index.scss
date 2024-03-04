@@ -66,6 +66,7 @@ button,
   color: $white-smoke;
   margin: 10px;
   text-shadow: -4px 4px 20px $gray;
+  height:min-content;
 }
 
 
@@ -115,6 +116,16 @@ footer {
     bottom: 0;
   }
 }
+
+
+// GENERAL STYLES
+
+.np{
+  pointer-events:none;
+}
+
+
+
 
 @media screen and (max-width: 520px) {
   footer {
