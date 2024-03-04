@@ -3,7 +3,6 @@
   width: 100%;
   box-sizing: border-box;
   max-width: 1000px;
-  font-family: "Sniglet", system-ui;
   background-color: #f0ead2;
   // overflow:hidden;
   height: fit-content;
@@ -19,7 +18,7 @@
 .entry-container {
   max-height: 700px;
   overflow-y: auto;
-  overflow-x: visible;
+  overflow-x: clip;
   box-sizing: border-box; /* Include padding and margin in the element's width calculation */
   padding:10px;
 }

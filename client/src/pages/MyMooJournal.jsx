@@ -28,7 +28,7 @@ function MyMooJournal() {
     const togglePrompt = (entry) => {
         // Determine the text to display based on the showPrompt state
         const displayText = showPrompt[entry._id] ? entry.prompt.text : truncateText(entry.prompt.text, 105); // Adjust 100 to your desired length
-    
+
         return (
             <>
                 <p className="ma0 pa0">{displayText}</p>
@@ -38,11 +38,11 @@ function MyMooJournal() {
             </>
         );
     };
-    
+
     const toggleEntry = (entry) => {
         // Similar approach for entry text
         const displayText = showEntry[entry._id] ? entry.text : truncateText(entry.text, 105); // Adjust 100 to your desired length
-    
+
         return (
             <>
                 <p className="ma0 pa0">{displayText}</p>
@@ -52,13 +52,13 @@ function MyMooJournal() {
             </>
         );
     };
-    
+
 
     function truncateText(text, maxLength) {
         if (text.length <= maxLength) return text;
         return text.substr(0, maxLength) + '...';
     }
-    
+
 
 
     const togglePromptVis = (id) => {
@@ -93,7 +93,7 @@ function MyMooJournal() {
             {/* <h1>MyMooJournal</h1> */}
             {/* <button onClick={() => console.log(entryData)}>Get notes</button> */}
             <div className="entry-container overflow-auto flex flex-column items-start ">
-            <h2 className="fw1 mr2">My Journal Entries</h2>
+                <h2 className="fw1 mr2 bb">My Journal Entries</h2>
                 {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
                 {entryData?.getUserEntries.map((entry, index) => (
                     <div style={{
@@ -101,14 +101,19 @@ function MyMooJournal() {
                         borderStyle: 'solid', // Ensure the border is visible by setting a style
                         borderWidth: '3px' // Set a default border width
                     }} key={entry._id} className="ba br4 ma2 journalEntryCard tl">
- 
 
 
 
-                        <h4 className="w-100 flex justify-between ma2 mt3 mj-text nowrap flex-wrap">{dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')}<span className="pa1 ph2 ml1 br3 mb1 mr2" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>Mood: {moods[entry.moodRanking].mood}</span></h4>
-                        
-                        
-                        
+
+                        <h4 className="w-100 flex justify-between ma2 mt3 mj-text nowrap flex-wrap">
+                            {dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')}
+                            <span className="pa1 ph2 ml1 br3 mb1 mr2" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
+                                Mood: {moods[entry.moodRanking].mood}
+                            </span>
+                        </h4>
+
+
+
                         <div className="promptEntryBox ma2">
                             {togglePrompt(entry)}
 
@@ -123,7 +128,7 @@ function MyMooJournal() {
 
 
 
-                        
+
                     </div>
                 ))}
             </div>
