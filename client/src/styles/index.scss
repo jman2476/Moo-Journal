@@ -64,9 +64,14 @@ button,
   cursor: pointer;
   transition: border-color 0.25s;
   color: $white-smoke;
-  margin: 10px;
+  margin: 0px 10px;
   text-shadow: -4px 4px 20px $gray;
   height:min-content;
+}
+
+.footStyle {
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -99,7 +104,8 @@ footer {
 
   .feedback {
     display: flex;
-    position: absolute;
+    // position: absolute;
+    align-items: flex-end;
     bottom: 7px;
     right: 5px;
     color: black;
@@ -302,7 +308,7 @@ footer {
   
   
     .feedback {
-      position: absolute;
+      // position: absolute;
       right: 70px;
       color: black;
   

@@ -39,15 +39,17 @@ function Footer() {
         fontSize: '12px',
         color: 'black',
         display: 'flex',
-        alignItems: 'flex-end',
+        // alignItems: 'flex-end',
         marginLeft: '25px',
-        marginTop: '110px'
+        // marginTop: '110px'
+        flexDirection: 'column'
     }
     const iconStyles = {
         width: '15px',
         height: '15px',
         marginLeft: '5px',
     }
+
 
     return (
         <footer style={{ position: 'absolute' }}>
@@ -56,18 +58,20 @@ function Footer() {
                 {contributors.map((contributor, index) => (
                     <div style={contributorStyles} className='contributor no-wrap' key={index}>
                         {contributor.name}
-                        <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
-                            <img src={github} alt="GitHub Icon" style={iconStyles} />
-                        </a>
-                        <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
-                            <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
-                        </a>
-                        <div className='feedback pr4'>
-                            <a className="btn" href="about">About</a><span></span>
-                            <a className="btn" href="feedback">Feedback</a>
+                        <div className='footStyle'>
+                            <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
+                                <img src={github} alt="GitHub Icon" style={iconStyles} />
+                            </a>
+                            <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                                <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
+                            </a>
                         </div>
                     </div>
                 ))}
+                <div className='feedback pr4'>
+                    <a className="btn" href="about">About</a><span></span>
+                    <a className="btn" href="feedback">Feedback</a>
+                </div>
             </div>
         </footer>
     )
