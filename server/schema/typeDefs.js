@@ -13,7 +13,7 @@ const typeDefs = gql`
     type Journal {
         _id: ID
         prompt: Prompt
-        moodRanking: Int
+        moodRanking: String
         cream: String
         text: String
         user: User
@@ -52,7 +52,7 @@ const typeDefs = gql`
         logoutUser: Success
         generatePrompt(type: String!): Prompt
         test: Success
-        newEntry(prompt_id: String!, text: String!, moodRanking: Int!): Journal
+        newEntry(prompt_id: String, text: String!, moodRanking: Int!): Journal
         updateEntry(journal_id: String!, text: String!): Success
         deleteEntry(journal_id: String!): Success
     }

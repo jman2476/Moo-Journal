@@ -66,6 +66,7 @@ button,
   color: $white-smoke;
   margin: 10px;
   text-shadow: -4px 4px 20px $gray;
+  height:min-content;
 }
 
 button:hover,
@@ -89,16 +90,14 @@ footer {
     flex-direction: row;
     justify-content: center;
   }
+
   .feedback {
     position: absolute;
-    right: 0;
-    margin-right: 50px;
-    padding: 25px;
+    right: 70px;
     color: black;
-  
-  // background:#669900; // nice
-  height: 140px;
-  }  
+
+  }
+
   p {
     position: absolute;
     margin: auto;
@@ -109,16 +108,27 @@ footer {
     bottom: 0;
   }
 }
+
+
+// GENERAL STYLES
+
+.np{
+  pointer-events:none;
+}
+
+
+
+
 @media screen and (max-width: 520px) {
   footer {
     width: 100%;
-    .feedback{
-      padding: 0px;
+
+    .feedback {
       margin-right: 125px;
       position: absolute;
       justify-content: center;
     }
-    
+
   }
 }
 
@@ -207,12 +217,13 @@ footer {
   background: rgb(173, 193, 120);
   border-radius: 20px;
   min-width: 600px;
-  margin:auto;
+  margin: auto;
   min-height: 300px;
   padding: 40px 40px 30px;
-  color:white;
+  color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+
   input {
     margin-bottom: 10px;
     width: 100%;
@@ -230,19 +241,14 @@ footer {
 
 
 @media(max-width:480px){
-  
-  * {
-    box-sizing: border-box;
-  }
 
   * {
     box-sizing: border-box;
   }
 
-  #root{
-    padding:10px;
+  #root {
+    padding: 10px;
   }
-  
   .authform {
     padding: 20px;
     min-width: 375px;
