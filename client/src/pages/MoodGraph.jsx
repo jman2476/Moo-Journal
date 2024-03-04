@@ -1,19 +1,31 @@
 import { useState, useEffect } from 'react'
 import { GRAPH_MOOD } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
+import { Line } from 'react-chartjs-2'
 
 
 function MoodGraph() {
 
+    const {loading, error, data} = useQuery(GRAPH_MOOD)
 
+    useEffect(() => {
+        console.log(data.graphMood)
+    }, [])
+ 
+// console.log(data.graphMood.moodRanking)
+// const dataObj = { 
+//     labels: data.graphMood.date,
+//     datasets: [{
+//         data: data.graphMood.moodRanking}],
+// }
 
-const {loading, error, data} = useQuery(GRAPH_MOOD)
-// const {user, moodRanking, date} = 
-console.log(data)
 
     return (
         <div className="graph-mood">
-            <canvas id="mood_graph"></canvas>
+            {/* <Line 
+                // options={}
+                data={dataObj}
+                /> */}
         </div>
     )
 }
