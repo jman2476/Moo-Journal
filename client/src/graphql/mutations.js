@@ -98,15 +98,27 @@ export const DELETE_HEAVYENTRY = gql`
   }
 `
 export const NEW_ENTRY = gql`
-mutation newEntry($promptId: String!, $text: String!, $moodRanking: Int!) {
+mutation newEntry($promptId: String, $text: String!, $moodRanking: Int!) {
   newEntry(prompt_id: $promptId, text: $text, moodRanking: $moodRanking) {
     _id
-    user {
-      username
-    }
     prompt {
+      _id
       text
+      cream
+      usageCount
+      createdAt
+      updatedAt
     }
+    moodRanking
+    cream
+    text
+    user {
+      _id
+      username
+      email
+    }
+    createdAt
+    updatedAt
   }
 }
 

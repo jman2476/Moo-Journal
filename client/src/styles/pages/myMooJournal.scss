@@ -1,0 +1,19 @@
+.journalEntryCard{
+    padding:10px;
+    max-width:1000px;
+    font-family:'Sniglet', system-ui;
+}
+
+/* TruncateText.css */
+.truncate {
+    white-space: nowrap; /* Prevent text from wrapping to a new line */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+    display: block; /* or inline-block, depending on your layout */
+    max-width: 100%; /* Adjust based on the parent container's width */
+  }
+  
+
+#root{
+    flex:1;
+  }
