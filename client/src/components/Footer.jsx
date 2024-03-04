@@ -11,17 +11,27 @@ function Footer() {
         { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'in/winston-james-jr' },
 
     ];
-    const footerStyles = {
+
+    const backgroundStyles = {
         position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         backgroundImage: `url(${grass})`,
         backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        filter: 'blur(3px)',
+        zIndex: '-1',
     };
 
     const contentStyles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        flexDirection:'row',
+        flexDirection: 'row',
+        marginTop: '35px',
     }
     const contributorStyles = {
         listStyleType: 'none',
@@ -35,32 +45,30 @@ function Footer() {
     const iconStyles = {
         width: '20px',
         height: '20px',
-        marginLeft: '15px',
+        marginLeft: '5px',
     }
 
     return (
-        <footer style={footerStyles}>
+        <footer style={{ position: 'absolute' }}>
+            <div style={backgroundStyles}></div>
             <div style={contentStyles}>
-                <li style={contributorStyles} className='contributor no-wrap'>
-                    {contributors.map((contributor, index) => (
-                        <ul style={contributorStyles} className='contributor no-wrap'key={index}>
-                            {contributor.name}
-                            <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
-                                <img src={github} alt="GitHub Icon" style={iconStyles} />
-                            </a>
-                            <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
-                                <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
-
-                            </a>
-                        </ul>
-                    ))}
-                </li>
-                <div className='feedback'>
-                    <a href="#about">  About</a> | <a href="#feedback">  Feedback  </a>
-                </div>
+                {contributors.map((contributor, index) => (
+                    <div style={contributorStyles} className='contributor no-wrap' key={index}>
+                        {contributor.name}
+                        <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
+                            <img src={github} alt="GitHub Icon" style={iconStyles} />
+                        </a>
+                        <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                            <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
+                        </a>
+                        <div className='feedback pr4'>
+                            <a className="btn" href="about">About</a><span></span>
+                            <a className="btn" href="feedback">Feedback</a>
+                        </div>
+                    </div>
+                ))}
             </div>
         </footer>
     )
 }
-
 export default Footer
