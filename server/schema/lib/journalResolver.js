@@ -9,6 +9,7 @@ module.exports = {
             try {
                 // get array of journal entries for user
                 const userEntries = await User.findById(user_id).populate('journal')
+                const userName = userEntries.username
                 console.log(userEntries)
                 // make an array of the dates of each entry
                 let dates = []
@@ -24,9 +25,11 @@ module.exports = {
                 console.log(dates)
                 console.log(moodRankings)
 
-                // return {
-
-                // }
+                return {
+                    date: dates,
+                    moodRanking: moodRankings,
+                    user: userName
+                }
             } catch (err) {
                 console.log(err)
                 let errors = []

@@ -32,3 +32,14 @@ query getUserEntries {
     }
   }
 }`
+
+export const GRAPH_MOOD = gql`
+  query graphMood{
+    graphMood {
+      date
+      moodRanking
+      user {
+        username
+      }
+    }
+  }`
