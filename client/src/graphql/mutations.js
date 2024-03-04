@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client'
+import { gql } from '@apollo/client'
 
 export const TEST = gql`
   mutation Test {
@@ -98,28 +98,28 @@ export const DELETE_HEAVYENTRY = gql`
   }
 `
 export const NEW_ENTRY = gql`
-mutation newEntry($promptId: String, $text: String!, $moodRanking: Int!) {
-  newEntry(prompt_id: $promptId, text: $text, moodRanking: $moodRanking) {
-    _id
-    prompt {
+  mutation newEntry($text: String!, $moodRanking: Int!, $promptId: String, $editorState: String!) {
+    newEntry(text: $text, moodRanking: $moodRanking, prompt_id: $promptId, editorState: $editorState) {
       _id
-      text
+      prompt {
+        _id
+        text
+        cream
+        usageCount
+        createdAt
+        updatedAt
+      }
+      moodRanking
       cream
-      usageCount
+      text
+      user {
+        _id
+        username
+        email
+      }
       createdAt
       updatedAt
+      editorState
     }
-    moodRanking
-    cream
-    text
-    user {
-      _id
-      username
-      email
-    }
-    createdAt
-    updatedAt
   }
-}
-
 `

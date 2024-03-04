@@ -15,7 +15,7 @@ const styleMap = {
     'HIGHLIGHT': { backgroundColor: 'yellow' },
 }
 
-import { EditorState, RichUtils } from 'draft-js';
+import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 
 
 function Entry() {
@@ -32,25 +32,26 @@ function Entry() {
     useEffect(() => {
         setJournalEntry({
             promptId:null,
-            text:null,
-            moodRanking:null
+            text:"",
+            moodRanking:5
         })
         console.log('entry', journalEntry)
     }, [])
 
     const handleEditorStateChange = (newState) => {
-        console.log(journalEntry)
 
-        
+        const rawEditorState = convertToRaw(editorState.getCurrentContent());
+        const serializedEditorState = JSON.stringify(rawEditorState);
+
         const contentState = newState.getCurrentContent();
         setJournalEntry({
             ...journalEntry,
-            text:contentState.getPlainText()
+            text:contentState.getPlainText(),
+            editorState:serializedEditorState
         })
 
 
         setEditorState(newState);
-        console.log(contentState.getPlainText());
     };
 
     const applyStyle = (style) => {
@@ -75,7 +76,6 @@ function Entry() {
     }
     const handleMoodChange = (event) => {
         const value = event.target.value;
-        console.log('type', typeof +value)
         setValue(value);
         setJournalEntry({
             ...journalEntry,
@@ -85,16 +85,18 @@ function Entry() {
 
     const submitEntry = async () => {
 
-        const textData = journalEntry?.text
-        console.log(journalEntry?.text)
-        console.log(journalEntry?.text.length)
 
         if(journalEntry?.text && journalEntry?.text.length < 10 || !journalEntry?.text.length){
             return alert('must be more than 10 chars')
         }
-
+        console.log('entry', journalEntry)
         console.log(editorState)
-        const data = await newEntry()
+        const data = await newEntry({
+            variables:{
+                ...journalEntry,
+                editorState:journalEntry.editorState
+            }
+        })
         console.log(data)
         navigate('/')
 
@@ -105,13 +107,13 @@ function Entry() {
         <div className="entry-editor">
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
 
-{/* 
+
             <span className="flex flex-row pointer">
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('SMALL')}>Small</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('LARGE')}>Large</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
-            </span> */}
+            </span>
             <EditorComponent
                 editorState={editorState} // Pass the editorState to the EditorComponent
                 customStyleMap={styleMap}

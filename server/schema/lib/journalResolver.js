@@ -31,6 +31,7 @@ module.exports = {
                         prompt:args.promptId,
                         text: args.text,
                         moodRanking: args.moodRanking,
+                        editorState:args.editorState,
                         user: user_id
                     })
     

@@ -105,9 +105,11 @@ function MyMooJournal() {
 
 
 
-                        <h4 className="w-100 flex justify-between ma2 mt3 mj-text nowrap flex-wrap">
-                            {dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')}
-                            <span className="pa1 ph2 ml1 br3 mb1 mr2" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
+                        <h4 className="w-100 flex justify-between ma2 mt3 nowrap flex-wrap">
+                            <span className="mj-text">
+                                {dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')}
+                            </span>
+                            <span className="pa1 ph2 ml1 br3 mb1 mr2 fw1" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
                                 Mood: {moods[entry.moodRanking].mood}
                             </span>
                         </h4>
@@ -115,7 +117,9 @@ function MyMooJournal() {
 
 
                         <div className="promptEntryBox ma2">
-                            {togglePrompt(entry)}
+
+                        
+                            { entry.prompt ? togglePrompt(entry) : <></>}
 
                             {toggleEntry(entry)}
                         </div>
