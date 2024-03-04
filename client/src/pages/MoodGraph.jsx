@@ -7,25 +7,26 @@ import { Line } from 'react-chartjs-2'
 function MoodGraph() {
 
     const {loading, error, data} = useQuery(GRAPH_MOOD)
+    console.log(data)
+    // console.log(data.graphMood)
 
-    useEffect(() => {
-        console.log(data.graphMood)
-    }, [])
+    // useEffect(() => {
+    // }, [])
  
 // console.log(data.graphMood.moodRanking)
-// const dataObj = { 
-//     labels: data.graphMood.date,
-//     datasets: [{
-//         data: data.graphMood.moodRanking}],
-// }
+// const dataObj = 
 
 
     return (
         <div className="graph-mood">
-            {/* <Line 
+            {data && <Line 
                 // options={}
-                data={dataObj}
-                /> */}
+                data={{ 
+                    labels: data.graphMood.date.map(date => new Date(date).toLocaleDateString()),
+                    datasets: [{
+                        data: data.graphMood.moodRanking}],
+                }}
+                />}
         </div>
     )
 }
