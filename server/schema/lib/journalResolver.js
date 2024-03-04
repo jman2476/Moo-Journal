@@ -44,6 +44,22 @@ module.exports = {
 
                 throw new GraphQLError(errors)
             }
+        }),
+        getEntryById: proteck(async (_, args, {req, res, user_id}) => {
+            try {
+                const entry = await Journal.findById(args.journal_id)
+
+                return entry
+            } catch (err) {
+                console.log(err)
+                let errors = []
+
+                for (let prop in err.errors) {
+                    errors.push(err.errors[prop].message)
+                }
+
+                throw new GraphQLError(errors)
+            }
         })
     },
 
