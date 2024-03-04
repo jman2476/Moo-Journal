@@ -250,34 +250,80 @@ footer {
   }
 
   footer {
-    height: 50px;
-    // padding: 10px; /* Adjust padding as needed */
-    top: auto;
-    bottom: -27vh;
-
-    .feedback {
-      padding: 10px;
-      /* Adjust padding as needed */
-      margin-right: 0;
+    position: unset;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    // background:#669900;
+    height: 200px;
+  
+    .icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
     }
-
+  
+  
+    .feedback {
+      position: absolute;
+      right: 70px;
+      color: black;
+  
+      // background:#669900; // nice
+      height: 140px;
+    }
+  
     p {
-      position: static;
-      margin: 10px 0;
-      /* Adjust margin as needed */
-      text-align: center;
+      position: absolute;
+      margin: auto;
+      padding: 0;
+      font-size: 0.8rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
   }
+
+  // footer {
+  //   height: 100px;
+  //   // padding: 10px; /* Adjust padding as needed */
+  //   top: auto;
+  //   bottom: -50vh;
+
+  //   .feedback {
+  //     padding: 10px;
+  //     margin-right: 0;
+  //   }
+
+  //   p {
+  //     position: static;
+  //     margin: 10px 0;
+  //     /* Adjust margin as needed */
+  //     text-align: center;
+  //   }
+  // }
 
   .authform {
-    min-width: max-content;
-    width: 100%;
-    /* Adjust width as needed */
-    margin: 15vw;
-    /* Adjust margin as needed */
-    margin-top: 30vh;
-    padding: 20px;
+    background: rgb(173, 193, 120);
+    border-radius: 20px;
+    min-width: 300px;
+    // margin: 10vw;
+    margin-top: 10vh;
+    // margin: auto;
+    min-height: 300px;
+    padding: 40px 40px 30px;
+    color: white;
+    color: white;
+    font-family: "Sniglet", system-ui;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   }
+
+  // .authform {
+  //   min-width: max-content;
+  //   width: 100%;
+  //   margin: 35vw;
+  //   padding: 20px;
+  // }
 
   .cow-pattern-image {
     // width: 100%;
@@ -320,19 +366,16 @@ footer {
   .adminControl {
     position: static;
     margin: 10px;
-    /* Adjust margin as needed */
     text-align: center;
   }
 
   h1 {
     font-size: 2em;
-    /* Adjust font size as needed */
   }
 
   button,
   .btn {
-    font-size: 0.8em;
-    /* Adjust font size as needed */
+    font-size: 1em;
   }
 }
 

@@ -22,30 +22,6 @@
       font-style: normal;
     }
 
-    @media only screen and (max-device-width: 480px) {
-      // body {
-      //   float: none;
-      //   width: 100%;
-      // }
-
-      // > h1, h1 > a {
-      //   font-size: 15vw;
-      // }
-
-      // .btn {
-      //   display: block;
-      //   width: 100%;
-      //   margin-bottom: 10px;
-      // }
-
-      // .logoContainer {
-      //   padding: 10px;
-      // }
-
-      // h3 {
-      //   font-size: 4vw;
-      // }
-    }
   }
 
   .not-homepage{
@@ -92,41 +68,51 @@
       text-decoration: none;
     }
 
-    @media only screen and (max-width: 600px) {
-      body {
-        min-width: 320px;
-        // display: flex;
-        // --r-globalnav-height: 48px;
-        // width: auto!important;
-        // overflow-x: hidden!important;
-        // overflow-y: scroll; /* has to be scroll, not auto */
-        // -webkit-overflow-scrolling: touch;
-        // // flex-direction: column;
-        // align-items: safe;
-      }
+    @media (max-width: 600px) {
+
+
+      // body {
+      //   min-width: 600px !important;
+      //   display: flex;
+      //   --r-globalnav-height: 48px;
+      //   width: auto!important;
+      //   overflow-x: hidden!important;
+      //   overflow-y: scroll; /* has to be scroll, not auto */
+      //   -webkit-overflow-scrolling: touch;
+      //   // flex-direction: column;
+      //   align-items: safe;
+      // }
 
       .logoContainer {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin-left: 20vw;
-        margin-top: 5vh;
+      //   margin-left: 50vw;
+      //   margin: 0 auto;
+      //   margin-top: 5vh;
       }
 
-      .btn {
-        text-decoration: none;
-        // display: inline-flex;
-        // margin-left: 5%;
-        // align-items: ;
-        // margin-left: 10vw;
-        // margin-right: 1px;
-        // margin-left: 40vw;
-      }
+      // .btn {
+      //   text-decoration: none;
+      //   display: inline-block;
+      //   margin-left: 5%;
+      //   align-items: ;
+      //   margin-left: 10vw;
+      //   margin-right: 1px;
+      //   margin-left: 50vw;
+      // }
 
       .btn-container {
-        margin-left: 27%;
-        margin-right: -25%;
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 30px;
+      //   padding: 20px 3%;
+      //   margin: 0 auto;
+      //   margin-left: 50vw; 
       }
+      
 
     }
 
