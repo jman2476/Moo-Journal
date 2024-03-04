@@ -178,6 +178,10 @@ footer {
 
 .active {
   text-decoration: underline;
+  background-color: $cream;
+  color: black;
+  border: $light-brown 3px solid;
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -229,6 +233,7 @@ footer {
   /* Adjust speed as necessary */
   overflow: hidden;
   z-index: -1000;
+  opacity: 65%;
 }
 
 // Admin
