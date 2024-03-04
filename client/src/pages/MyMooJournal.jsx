@@ -1,6 +1,7 @@
 // This will be the equivalent of the user's dashboard
 import { GET_USER_NOTES } from '../graphql/queries'
-import { useQuery } from '@apollo/client'
+import { DELETE_ENTRY } from '../graphql/mutations'
+import { useQuery, useMutation } from '@apollo/client'
 import moods from '../utils/moods'
 import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
@@ -13,18 +14,21 @@ function MyMooJournal() {
     const [showPrompt, setShowPrompt] = useState(true);
     const [showEntry, setShowEntry] = useState(true);
     
-    const { data: entryData, refetch } = useQuery(GET_USER_NOTES)
+    const { data: entryData, refetch: refetchUserEntries } = useQuery(GET_USER_NOTES)
 
     console.log(entryData)
 
     useEffect(() => {
-        refetch()
-    }, [refetch])
+        refetchUserEntries()
+    }, [refetchUserEntries])
 
     const getDate = (timestamp) => {
         const date = new Date(timestamp);
         return date.toLocaleString()
     }
+
+    const [removeEntry] = useMutation(DELETE_ENTRY)
+    
 
 
 
@@ -84,8 +88,16 @@ function MyMooJournal() {
 
     }
 
-    const deleteEntry = () => {
+    const deleteEntry = async (journalId) => {
+        console.log(journalId)
+        const msg = await removeEntry({
+            variables: {
+                journalId:journalId
+            } 
+        })
 
+        console.log(msg)
+        refetchUserEntries()
     }
 
 
@@ -128,7 +140,7 @@ function MyMooJournal() {
 
                         <div className="justify-end flex">
                             <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => editEntry()}>Edit Entry</button>
-                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry()}>Delete Entry</button>
+                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry(entry._id)}>Delete Entry</button>
                         </div>
 
 
