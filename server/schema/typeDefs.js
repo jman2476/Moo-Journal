@@ -45,6 +45,7 @@ const typeDefs = gql`
         authenticate: User
         getUserEntries: [Journal]
         graphMood: [mooData]
+        getEntryById(journal_id: String!): Journal
     }
 
     type Mutation {
