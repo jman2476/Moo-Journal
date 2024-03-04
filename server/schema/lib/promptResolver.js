@@ -10,7 +10,7 @@ module.exports = {
     mutations: {
         async generatePrompt(_, args, { res }) {
             try {
-                const prompt = await generatePrompt(args.type)
+                const prompt = await generatePrompt(args.type, args.moodValue)
 
                 const savedPrompt = await Prompt.create({
                     text:prompt,
