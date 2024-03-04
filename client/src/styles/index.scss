@@ -69,6 +69,8 @@ button,
   height:min-content;
 }
 
+
+
 button:hover,
 .btn:hover {
   box-shadow: -4px 4px 10px $gray, 4px -4px 20px $white-smoke,
@@ -84,6 +86,9 @@ footer {
   right: 0;
   // background:#669900;
   height: 200px;
+  font-family: "Sniglet", system-ui;
+  font-style: normal;
+
 
   .icons {
     display: flex;
@@ -92,9 +97,12 @@ footer {
   }
 
   .feedback {
+    display: flex;
     position: absolute;
-    right: 70px;
+    bottom: 7px;
+    right: 5px;
     color: black;
+
 
   }
 
@@ -127,6 +135,14 @@ footer {
       margin-right: 125px;
       position: absolute;
       justify-content: center;
+
+      a {
+        text-decoration: none;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
   }
