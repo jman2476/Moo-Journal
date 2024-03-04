@@ -7,7 +7,9 @@ $buttercream-yellow: #f2e085;
 $cream: #f0ead2;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Sniglet", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  // font-family:  system-ui;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -115,6 +117,7 @@ footer {
     right: 0;
     bottom: 0;
   }
+
 }
 
 
@@ -313,4 +316,12 @@ footer {
     padding: 20px;
     min-width: 375px;
   }
+
+  button:hover,
+.btn:hover {
+  box-shadow: -1px 1px 5px $gray, 1px -1px 10px $white-smoke,
+    1px -1px 5px $gray, -1px 1px 10px $white-smoke;
+  transition: 0.2s ease-out;
+  color: $white-smoke;
+}
 }

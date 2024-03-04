@@ -1,23 +1,39 @@
-.journalEntryCard{
-    padding:10px 20px;
-    max-width:1000px;
-    font-family:'Sniglet', system-ui;
-    background-color: #f0ead2;
-
+.journalEntryCard {
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1000px;
+  font-family: "Sniglet", system-ui;
+  background-color: #f0ead2;
+  // overflow:hidden;
+  height: fit-content;
 }
 
 /* TruncateText.css */
 .truncate {
-    white-space: nowrap; /* Prevent text from wrapping to a new line */
-    overflow: hidden; /* Hide overflowed text */
-    text-overflow: ellipsis; /* Add ellipsis to overflowed text */
-    display: block; /* or inline-block, depending on your layout */
-    max-width: 100%; /* Adjust based on the parent container's width */
-  }
-  .entry-container{
-    max-height:700px;
-  }
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+  width: 100%;
+}
+.entry-container {
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: visible;
+  box-sizing: border-box; /* Include padding and margin in the element's width calculation */
+  padding:10px;
+}
 
-#root{
-    flex:1;
+.promptEntryBox {
+  width: 100%;
+  p {
+    width: inherit;
   }
+  // background:black;
+  // height:10px;
+  overflow: hidden;
+}
+
+#root {
+  flex: 1;
+}
