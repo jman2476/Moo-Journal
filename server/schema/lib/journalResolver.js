@@ -1,7 +1,7 @@
 const { GraphQLError } = require('graphql')
 const { Journal, User, Prompt } = require('../../models')
 const dayjs = require('dayjs')
-const { proteck } = require('../../config/auth')
+const { proteck, verToken } = require('../../config/auth')
 
 module.exports = {
     queries: {
@@ -25,6 +25,20 @@ module.exports = {
             try {
                 const user = await User.findById(user_id) 
                 const prompt = await Prompt.findById(args.prompt_id)
+
+                if (!prompt) {
+                    const entry = await Journal.create({
+                        text: args.text,
+                        moodRanking: 5,
+                        user: user_id
+                    })
+    
+                    // add the journal entry to the user's journal
+                    user.journal.push(entry._id)
+                    user.save()
+    
+                    return entry
+                }
 
                 const entry = await Journal.create({
                     prompt: prompt._id,

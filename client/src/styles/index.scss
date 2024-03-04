@@ -66,6 +66,7 @@ button,
   color: $white-smoke;
   margin: 10px;
   text-shadow: -4px 4px 20px $gray;
+  height:min-content;
 }
 
 button:hover,
@@ -90,11 +91,10 @@ footer {
     justify-content: center;
   }
 
+
   .feedback {
     position: absolute;
-    right: 0;
-    margin-right: 50px;
-    padding: 25px;
+    right: 70px;
     color: black;
 
     // background:#669900; // nice
@@ -212,11 +212,14 @@ footer {
   border-radius: 20px;
   min-width: 600px;
   margin: auto;
+  margin: auto;
   min-height: 300px;
   padding: 40px 40px 30px;
   color: white;
+  color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+
 
   input {
     margin-bottom: 10px;

@@ -37,7 +37,7 @@ const LightEntry = () => {
 
     return (
         <div>
-        <h2>Light Journal Entry</h2>
+        {/* <h2>Light Journal Entry</h2> */}
         <PromptBox type={'Light'}/>
 
             <button onClick={() => applyStyle('SMALL')}>Small</button>

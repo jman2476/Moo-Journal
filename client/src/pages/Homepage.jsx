@@ -11,6 +11,8 @@ import { LOGOUT_USER } from '../graphql/mutations';
 
 function Homepage() { 
 
+    const navigate = useNavigate()
+
     const { state, setState } = useStore()
     const [logoutUser] = useMutation(LOGOUT_USER)
     const location = useLocation(); // Get the current location
@@ -43,7 +45,7 @@ function Homepage() {
                         <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
                         </span>
                         <span>
-                            <AddNewEntry />
+                            <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
                             <NavLink className="btn" to='/my_journal'>
                                 <span className='mj-text fw8'>Go To My MooJournal</span>
                             </NavLink>
