@@ -24,6 +24,10 @@ const journalSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    editorState:{
+        type: String,
+        required:true
     }
 }, {
     timestamps: true
