@@ -92,8 +92,46 @@
       text-decoration: none;
     }
 
+    @media only screen and (max-width: 600px) {
+      body {
+        min-width: 320px;
+        // display: flex;
+        // --r-globalnav-height: 48px;
+        // width: auto!important;
+        // overflow-x: hidden!important;
+        // overflow-y: scroll; /* has to be scroll, not auto */
+        // -webkit-overflow-scrolling: touch;
+        // // flex-direction: column;
+        // align-items: safe;
+      }
+
+      .logoContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20vw;
+        margin-top: 5vh;
+      }
+
+      .btn {
+        text-decoration: none;
+        // display: inline-flex;
+        // margin-left: 5%;
+        // align-items: ;
+        // margin-left: 10vw;
+        // margin-right: 1px;
+        // margin-left: 40vw;
+      }
+
+      .btn-container {
+        margin-left: 27%;
+        margin-right: -25%;
+      }
+
+    }
+
     @media(max-width: 480px) {
-      > h1, h1 > a {
+      > h1, h1 > a { 
         font-size: 15vw;
       }
     }

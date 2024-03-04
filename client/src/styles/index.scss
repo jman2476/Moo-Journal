@@ -89,16 +89,18 @@ footer {
     flex-direction: row;
     justify-content: center;
   }
+
   .feedback {
     position: absolute;
     right: 0;
     margin-right: 50px;
     padding: 25px;
     color: black;
-  
-  // background:#669900; // nice
-  height: 140px;
-  }  
+
+    // background:#669900; // nice
+    height: 140px;
+  }
+
   p {
     position: absolute;
     margin: auto;
@@ -109,6 +111,7 @@ footer {
     bottom: 0;
   }
 }
+
 // @media screen and (max-width: 480px) {
 //   footer {
 //     width: 100%;
@@ -119,7 +122,7 @@ footer {
 //       position: absolute;
 //       justify-content: center;
 //     }
-    
+
 //   }
 // }
 
@@ -208,12 +211,13 @@ footer {
   background: rgb(173, 193, 120);
   border-radius: 20px;
   min-width: 600px;
-  margin:auto;
+  margin: auto;
   min-height: 300px;
   padding: 40px 40px 30px;
-  color:white;
+  color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+
   input {
     margin-bottom: 10px;
     width: 100%;
@@ -229,59 +233,108 @@ footer {
 
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
   body {
-    display: flex;
-    // flex-direction: column;
-    align-items: center;
+    min-width: 320px;
+    // display: flex;
+    // --r-globalnav-height: 48px;
+    // width: auto!important;
+    // overflow-x: hidden!important;
+    // overflow-y: scroll; /* has to be scroll, not auto */
+    // -webkit-overflow-scrolling: touch;
+    // // flex-direction: column;
+    // align-items: safe;
   }
 
   footer {
-    height: auto;
-    padding: 10px; /* Adjust padding as needed */
+    height: 50px;
+    // padding: 10px; /* Adjust padding as needed */
+    top: auto;
+    bottom: -27vh;
+
     .feedback {
-      padding: 10px; /* Adjust padding as needed */
+      padding: 10px;
+      /* Adjust padding as needed */
       margin-right: 0;
     }
+
     p {
       position: static;
-      margin: 10px 0; /* Adjust margin as needed */
+      margin: 10px 0;
+      /* Adjust margin as needed */
       text-align: center;
     }
   }
 
   .authform {
-    min-width: auto;
-    width: 90%; /* Adjust width as needed */
-    margin: 10px; /* Adjust margin as needed */
+    min-width: max-content;
+    width: 100%;
+    /* Adjust width as needed */
+    margin: 15vw;
+    /* Adjust margin as needed */
+    margin-top: 30vh;
     padding: 20px;
   }
 
   .cow-pattern-image {
-    width: 100%; /* Adjust width as needed */
+    // width: 100%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(16px);
+
   }
 
   .cow-pattern-backdrop {
-    width: 100%; /* Adjust width as needed */
+    // width: 100%;
+    display: flex;
+    width: 200%;
+    /* 100% for each image */
+    height: 100vh;
+    /* Full viewport height */
+    position: absolute;
+    /* Position it over the entire page */
+    top: 0;
+    left: 0;
+    animation: slide 120s linear infinite;
+    /* Adjust speed as necessary */
+    overflow: hidden;
+    z-index: -1000;
+  }
+
+  .about {
+    min-width: auto;
+    width: 100%;
+    margin: 20vw;
+    margin-top: 30vh;
+    padding: 20px;
+
+    p {
+      text-align: justify;
+    }
   }
 
   .adminControl {
     position: static;
-    margin: 10px; /* Adjust margin as needed */
+    margin: 10px;
+    /* Adjust margin as needed */
     text-align: center;
   }
 
   h1 {
-    font-size: 2em; /* Adjust font size as needed */
+    font-size: 2em;
+    /* Adjust font size as needed */
   }
 
   button,
   .btn {
-    font-size: 0.8em; /* Adjust font size as needed */
+    font-size: 0.8em;
+    /* Adjust font size as needed */
   }
 }
+
 // @media only screen and (max-device-width: 480px){
-  
+
 
 //   // * {
 //   //   box-sizing: border-box;
@@ -290,7 +343,7 @@ footer {
 //   #root{
 //     padding:10px;
 //   }
-  
+
 //   .authform {
 //     display: block;
 //     margin-block-start: 1em;
