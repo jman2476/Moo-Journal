@@ -9,16 +9,22 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 
 function MoodGraph() {
 
-    const [userData, setUserData] = useState([])
+    // const [userData, setUserData] = useState([])
     
-    useEffect(() => {
+    // useEffect(() => {
         const { loading, error, data } = useQuery(GRAPH_MOOD)
         console.log(data)
-        setUserData(data)
-    }, [])
 
-    // console.log(data.graphMood.moodRanking)
-    // const dataObj = 
+        // setUserData(data)
+        // }, [])
+        let userData = []
+for (let i in data.graphMood) {
+    userData.push({x: data.graphMood.moodRanking[i]})
+}
+    // data.push({
+    //     x: dayjs(userEntries.journal[entry].createdAt).format(),
+    //     y: userEntries.journal[entry].moodRanking
+    // })
 
 
     return (

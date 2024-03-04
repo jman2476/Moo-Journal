@@ -36,9 +36,10 @@ query getUserEntries {
 export const GRAPH_MOOD = gql`
   query graphMood{
     graphMood {
-      mooData {
-        x
-        y
+      date
+      moodRanking
+      user {
+        username
       }
     }
   }`
