@@ -4,16 +4,18 @@ import { useQuery } from '@apollo/client'
 import moods from '../lib/moods'
 import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
+import {EntryBox} from '../components'
 
 import { useState, useEffect } from "react"
-
+import {styleMap} from '../lib/editorStyleMap'
 function MyMooJournal() {
-    console.log(moods)
 
     const [showPrompt, setShowPrompt] = useState(true);
     const [showEntry, setShowEntry] = useState(true);
+    
     const { data: entryData, refetch } = useQuery(GET_USER_NOTES)
 
+    console.log(entryData)
 
     useEffect(() => {
         refetch()
@@ -23,6 +25,7 @@ function MyMooJournal() {
         const date = new Date(timestamp);
         return date.toLocaleString()
     }
+
 
 
     const togglePrompt = (entry) => {
@@ -102,14 +105,11 @@ function MyMooJournal() {
                         borderWidth: '3px' // Set a default border width
                     }} key={entry._id} className="ba br4 ma2 journalEntryCard tl">
 
-
-
-
                         <h4 className="w-100 flex justify-between ma2 mt3 nowrap flex-wrap">
                             <span className="mj-text">
                                 {dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')}
                             </span>
-                            <span className="pa1 ph2 ml1 br3 mb1 mr2 fw1" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
+                            <span className="pa1 ph2 ml1 br3 mb1 mr2 fw1 ba b--black" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
                                 Mood: {moods[entry.moodRanking].mood}
                             </span>
                         </h4>
@@ -121,7 +121,8 @@ function MyMooJournal() {
                         
                             { entry.prompt ? togglePrompt(entry) : <></>}
 
-                            {toggleEntry(entry)}
+                            {/* {toggleEntry(entry)} */}
+                            <EntryBox fetchedEditorStateString={entry.editorState} />
                         </div>
 
 

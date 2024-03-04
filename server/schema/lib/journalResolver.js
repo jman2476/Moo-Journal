@@ -44,10 +44,11 @@ module.exports = {
 
                 const entry = await Journal.create({
                     prompt: prompt._id,
-                    cream: prompt.cream,
                     text: args.text,
                     moodRanking: args.moodRanking,
-                    user: user_id
+                    user: user_id,
+                    editorState:args.editorState,
+
                 })
 
                 // add the journal entry to the user's journal

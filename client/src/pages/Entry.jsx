@@ -8,12 +8,7 @@ import moods from '../lib/moods'
 
 import '../styles/pages/entryPage.scss'
 
-const styleMap = {
-    'SMALL': { fontSize: 12 },
-    'MEDIUM': { fontSize: 18 },
-    'LARGE': { fontSize: 24 },
-    'HIGHLIGHT': { backgroundColor: 'yellow' },
-}
+import {styleMap} from '../lib/editorStyleMap'
 
 import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 
@@ -93,8 +88,7 @@ function Entry() {
         console.log(editorState)
         const data = await newEntry({
             variables:{
-                ...journalEntry,
-                editorState:journalEntry.editorState
+                ...journalEntry
             }
         })
         console.log(data)
