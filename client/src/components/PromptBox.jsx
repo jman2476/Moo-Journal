@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client"
 import { GENERATE_PROMPT } from "../graphql/mutations"
 import { useState, useEffect } from "react"
 import dayjs from 'dayjs';
+import moods from '../utils/moods'
 
 function PromptBox({ journalEntry, setJournalEntry }) {
 
@@ -12,20 +13,6 @@ function PromptBox({ journalEntry, setJournalEntry }) {
     const [creamType, setCreamType] = useState('');
     const [prompt, setPrompt] = useState("")
     const [value, setValue] = useState(5);
-
-    const moods = [
-        { mood: "Absolutely dreadful", color: "#4a4e69" }, // Dark gray
-        { mood: "Terri-bull", color: "#22223b" }, // Charcoal
-        { mood: "Somewhat gloomy", color: "#6b705c" }, // Olive green
-        { mood: "Barely tolerable", color: "#9a8c98" }, // Muted purple
-        { mood: "Mediocre at best", color: "#c9ada7" }, // Soft pink
-        { mood: "Accepta-bull", color: "#f2e9e4" }, // Off white
-        { mood: "Pretty good", color: "#a5a58d" }, // Khaki
-        { mood: "Udderly happy", color: "#f4a261" }, // Sandy orange
-        { mood: "Remarka-bull", color: "#2a9d8f" }, // Teal
-        { mood: "Fantastically vibrant", color: "#e9c46a" }, // Saffron
-        { mood: "Euphorically ecstatic", color: "#f72585" } // Vivid pink
-      ]
 
     const handleCreamSelection = async (type) => {
 
@@ -103,7 +90,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
     const renderTogglePrompt = () => {
         return (
             <div>
-                <span className="flex flex-column items-start pr3">
+                <span className="flex flex-column items-start pr3 mb2">
                     <p className=" f4 ma0 pa0 pointer hover-white" onClick={() => setCurrentStep('creamSelection')}>Give Me a Prompt</p>
                     <span className="flex bt">
                     <p className="f7 ma0 pa0 pointer hover-white mr2" onClick={() => setCurrentStep('noPrompt')}>I don't want a prompt</p>

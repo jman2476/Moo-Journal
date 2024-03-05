@@ -1,13 +1,13 @@
 // This will be the equivalent of the user's dashboard
 import { GET_USER_NOTES } from '../graphql/queries'
 import { DELETE_ENTRY } from '../graphql/mutations'
-import { useQuery, useMutation, useRef  } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client'
 import moods from '../utils/moods'
 import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
 import { EntryBox } from '../components'
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 
 import { useStore } from '../store'
 
@@ -19,7 +19,9 @@ function MyMooJournal() {
     const [editingEntryId, setEditingEntryId] = useState(null);
     const [toggleExpandCollapse, setToggleExpandCollapse] = useState(true);
     const [contentHeights, setContentHeights] = useState({})
-
+    const [scrollPosition, setScrollPosition] = useState(0)
+    
+    const scrollableDivRef = useRef(null)
 
     const { state, setState } = useStore()
 
@@ -132,11 +134,10 @@ function MyMooJournal() {
 
 
     const openEntry = (entryId) => {
-        console.log(entryId)
-        console.log('before', toggleExpandCollapse)
+        handleScrollPosition('save')
+
         setEditingEntryId(entryId)
         setToggleExpandCollapse(false)
-        console.log('after', toggleExpandCollapse)
 
         setEntryVis(entryId, true)
         setPromptVis(entryId, true)
@@ -147,7 +148,7 @@ function MyMooJournal() {
     }
 
     const closeEntry = (entryId) => {
-        console.log('hello?')
+        handleScrollPosition('restore')
         setEditingEntryId(null)
         setToggleExpandCollapse(true)
 
@@ -171,7 +172,17 @@ function MyMooJournal() {
         refetchUserEntries()
     }
 
-
+    const handleScrollPosition = (handleCase) => {
+        if(scrollableDivRef?.current){
+            switch(handleCase) {
+                case 'save':
+                    setScrollPosition(scrollableDivRef.current.scrollTop)
+                default:
+                    scrollableDivRef.current.scrollTop = scrollPosition;
+            }
+            console.log(scrollPosition)
+        }
+    }
 
     return (
 
@@ -181,7 +192,7 @@ function MyMooJournal() {
         <div className="relative">
         {/* <div className="blur absolute bottom-0 w-100"></div> */}
 
-            <div className="entry-container overflow-auto flex flex-column-reverse items-start mt5">
+            <div className="entry-container overflow-auto flex flex-column-reverse items-start mt5" ref={scrollableDivRef}>
                 {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
                 {entryData?.getUserEntries.map((entry, index) => (
                     <div style={{

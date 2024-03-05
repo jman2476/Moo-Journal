@@ -129,18 +129,12 @@ function Entry() {
         }
     }
 
-    // const toggleDropdown = (id) => {
-    //     if(openDrop)
-    // }
-    
-
-
     return (
         <div className="entry-editor">
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry} />
 
 
-            <span className="flex flex-row pointer pb4">
+            <span className="flex flex-row pointer pb3">
 
                 {renderStyleDropdowns()}
 
