@@ -107,7 +107,7 @@ module.exports = {
                 entry.save()
 
 
-                return { message: 'Note updated successfully' }
+                return { message: 'Journal entry updated successfully' }
             } catch (err) {
                 console.log(err)
                 let errors = []
@@ -122,12 +122,15 @@ module.exports = {
 
         deleteEntry: proteck(async (_, args, { user_id }) => {
             try {
-                await Journal.findByIdAndDelete(args.journal_id)
+                await Journal.findByIdAndDelete(args.journal_id) // ARGS
                 await User.findByIdAndUpdate(user_id, {
                     $pull: {
                         journal: args.journal_id
                     }
                 })
+
+                return { message: 'Journal Entry deleted successfully' }
+
             } catch (err) {
                 console.log(err)
                 let errors = []

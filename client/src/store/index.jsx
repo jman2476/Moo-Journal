@@ -11,7 +11,8 @@ export function StoreProvider({children}){
 
     const [state, setState] = useState({
         user:null,
-        loading: true
+        loading: true,
+        bgBlur:false
     })
 
     useEffect(() => {

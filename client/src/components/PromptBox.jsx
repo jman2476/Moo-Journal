@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client"
-import { GENERATE_PROMPT, TEST } from "../graphql/mutations"
+import { GENERATE_PROMPT } from "../graphql/mutations"
 import { useState, useEffect } from "react"
 import dayjs from 'dayjs';
 

@@ -12,9 +12,12 @@ import { Homepage, About, AuthForm, Feedback, MyMooJournal, NotFound, Entry } fr
 // Components
 import { LoadingIndicator, Footer } from './components'
 
+import { useStore } from './store'
 
 
 function App() {
+
+  const { state, setState } = useStore()
 
   const [loading, setLoading] = useState(true)
 
@@ -49,13 +52,14 @@ function App() {
       <LoadingIndicator />
       :
       <>
+        {state.bgBlur && <div className="modal-backdrop"></div>}
         <Homepage />
         <Routes>
           <Route path="/"/>
           <Route path="/about" element={<About />} />
           <Route path="/entry" element={<Entry />} />
           <Route path="/auth" element={<AuthForm />} />
-          
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/my_journal" element={<MyMooJournal />} />
           <Route path="*" element={<NotFound />} />
 

@@ -6,6 +6,49 @@
   background-color: #f0ead2;
   // overflow:hidden;
   height: fit-content;
+
+  .DraftEditor-root{
+    height:fit-content;
+    padding:0;
+    z-index:0;
+  }
+  
+  .hideEntry{
+    height:fit-content;
+    max-height:50px;
+    overflow:hidden;
+  }
+
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(20px);
+  z-index: 3;
+}
+
+.editEntryModal{
+  position:fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index:5;
+  margin:auto;
+  overflow-y:auto;
+  overflow-x:clip;
+  max-height:90%;
+
+  .DraftEditor-root{
+    min-height:fit-content;
+    max-height:300px;
+    padding:0;
+    z-index:0;
+  }
 }
 
 /* TruncateText.css */
