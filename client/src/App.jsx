@@ -55,7 +55,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/entry" element={<Entry />} />
           <Route path="/auth" element={<AuthForm />} />
-          
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/my_journal" element={<MyMooJournal />} />
           <Route path="/light_entry" element={<LightEntry />} />
           <Route path="/heavy_entry" element={<HeavyEntry />} />
