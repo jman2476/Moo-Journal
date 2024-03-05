@@ -18,13 +18,14 @@ function Dropdown({ label, options, onChange }) {
                     {options.map((option, index) => (
                         <li
                             key={index}
-                            className="dropdown-item"
+                            className="dropdown-item pointer"
                             onClick={() => {
                                 onChange(option)
                                 toggleDropdown()
+                                console.log(option)
                             }}
                         >
-                            {option.label}
+                           <p>{option.label}</p> 
                         </li>
                     ))}
                 </ul>

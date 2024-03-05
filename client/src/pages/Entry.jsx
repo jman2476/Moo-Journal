@@ -20,7 +20,7 @@ function Entry() {
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [journalEntry, setJournalEntry] = useState({})
-
+    const [openDropdown, setOpenDropdown] = useState(null)
  
 
     const [newEntry] = useMutation(NEW_ENTRY, { variables: journalEntry })
@@ -89,42 +89,50 @@ function Entry() {
 
     const createStyleMap = (styles) => {
 
-        styles.reduce((acc, option) => {
+        return styles.reduce((acc, option) => {
                 acc[option.style] = option.css
                 return acc
             }, {})
     }
 
-    const renderStyleButtons = () => {
-        return combinedStyleConfig.map((option, index) => {
-            const applyStyle = () => {
-                let newState;
-
-                if (option.type === 'inline') {
-                    newState = RichUtils.toggleInlineStyle(editorState, option.style)
-                } else if (option.type === 'block') {
-                    newState = RichUtils.toggleBlockType(editorState, option.style)
-                }
-
-                if (newState) {
-                    handleEditorStateChange(newState)
-                }
-            }
-
-            return (
-                <button key={index} className={option.className} onClick={applyStyle}>
-                    {option.label}
-                </button>
-            )
-
-
-        })
-    }
-
-
     const customStyleMap = createStyleMap(combinedStyleConfig)
 
     const groupedStyles = groupStylesByCategory(combinedStyleConfig)
+
+    const renderStyleDropdowns = () => {
+        return Object.keys(groupedStyles).map((category) => (
+            <Dropdown 
+                key={category}
+                label={category}
+                options={groupedStyles[category].map(style => ({
+                    label:style.label,
+                    style:style.style
+                }))}
+                onChange={(option) => applyStyle(option.style)}
+            />
+        ))
+    }
+
+    const applyStyle = (styleName) => {
+        const selectedStyle = combinedStyleConfig.find(style => style.style === styleName) 
+        let newState
+
+        if(selectedStyle.type === 'inline'){
+            newState = RichUtils.toggleInlineStyle(editorState, styleName)
+
+        } else if(selectedStyle.type === 'block'){
+            newState = RichUtils.toggleBlockType(editorState, styleName)
+        }
+
+        if(newState){
+            setEditorState(newState)
+        }
+    }
+
+    // const toggleDropdown = (id) => {
+    //     if(openDrop)
+    // }
+    
 
 
     return (
@@ -132,8 +140,9 @@ function Entry() {
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry} />
 
 
-            <span className="flex flex-row pointer">
-                {renderStyleButtons()}
+            <span className="flex flex-row pointer pb4">
+
+                {renderStyleDropdowns()}
 
             </span>
             <EditorComponent
@@ -147,21 +156,6 @@ function Entry() {
                 <button onClick={() => submitEntry()}>Submit</button>
 
             </span>
-
-            <Dropdown
-                label="Text Size"
-                options={[
-                    { label: 'Small', style: 'SMALL' },
-                    { label: 'Medium', style: 'MEDIUM' },
-                    { label: 'Large', style: 'LARGE' }
-                ]}
-                onChange={(option) => {
-                    console.log(option.style); // Here, you would apply the style
-                    // For example: applyStyle(option.style)
-                }}
-            />
-
-
         </div>
     )
 }

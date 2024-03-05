@@ -6,6 +6,7 @@
   background-color: #f0ead2;
   // overflow:hidden;
   height: fit-content;
+  z-index:2;
 
   .DraftEditor-root{
     height:fit-content;
@@ -48,6 +49,9 @@
     max-height:300px;
     padding:0;
     z-index:0;
+  }
+  .promptEntryBox > p{
+    margin-bottom:10px;
   }
 }
 

@@ -1,14 +1,13 @@
 // This will be the equivalent of the user's dashboard
 import { GET_USER_NOTES } from '../graphql/queries'
 import { DELETE_ENTRY } from '../graphql/mutations'
-import { useQuery, useMutation } from '@apollo/client'
+import { useQuery, useMutation, useRef  } from '@apollo/client'
 import moods from '../utils/moods'
 import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
 import { EntryBox } from '../components'
 
 import { useState, useEffect, useCallback } from "react"
-import { styleMap } from '../utils/editorStyleMap'
 
 import { useStore } from '../store'
 
@@ -50,7 +49,7 @@ function MyMooJournal() {
             <>
                 <p className="ma0 pa0">{displayText}</p>
                 {
-                    toggleExpandCollapse &&
+                    true &&
 
                     <p className="f7 ma0 pa0 mb2 pointer hover-white " onClick={() => togglePromptVis(entry._id)}>
                         <span className="bt">
@@ -67,9 +66,6 @@ function MyMooJournal() {
     const toggleEntry = (entry) => {
         // Similar approach for entry text
         const displayText = showEntry[entry._id] ? entry.text : truncateText(entry.text, 105); // Adjust 100 to your desired length
-
-        console.log('contentheights', contentHeights)
-        console.log(`content height of ${entry._id}`, contentHeights[entry._id])
         return (
             <>
                 <div className={showEntry[entry._id] ? "" : "hideEntry"}>
@@ -89,7 +85,6 @@ function MyMooJournal() {
         );
     };
     const handleHeightChange = useCallback((id, height) => {
-        console.log('id', id, 'height', height)
         setContentHeights(prevHeights => {
             // Only update if height is different to prevent unnecessary updates
             if (prevHeights[id] !== height) {
@@ -120,13 +115,31 @@ function MyMooJournal() {
         })))
     }
 
+    const setPromptVis = (id, isVisible) => {
+        setShowPrompt((prevShowPrompt) => ({
+            ...prevShowPrompt,
+            [id]: isVisible
+        }))
+    }
+
+    const setEntryVis = (id, isVisible) => {
+        setShowEntry((prevShowEntry => ({
+            ...prevShowEntry,
+            [id]: isVisible
+        })))
+    }
+
 
 
     const openEntry = (entryId) => {
+        console.log(entryId)
+        console.log('before', toggleExpandCollapse)
         setEditingEntryId(entryId)
         setToggleExpandCollapse(false)
-        toggleEntryVis(entryId)
-        togglePromptVis(entryId)
+        console.log('after', toggleExpandCollapse)
+
+        setEntryVis(entryId, true)
+        setPromptVis(entryId, true)
         setState({
             ...state,
             bgBlur: true
@@ -134,10 +147,12 @@ function MyMooJournal() {
     }
 
     const closeEntry = (entryId) => {
+        console.log('hello?')
         setEditingEntryId(null)
         setToggleExpandCollapse(true)
-        toggleEntryVis(entryId)
-        togglePromptVis(entryId)
+
+        setEntryVis(entryId, false)
+        setPromptVis(entryId, false)
         setState({
             ...state,
             bgBlur: false
@@ -161,12 +176,10 @@ function MyMooJournal() {
     return (
 
         <>
-            {/* <h1>MyMooJournal</h1> */}
-            {/* <button onClick={() => console.log(entryData)}>Get notes</button> */}
-                {/* <h2 className="fw1 mr2 tl"><span className="bb">My Journal Entries</span></h2> */}
+
 
         <div className="relative">
-        <div className="blur absolute bottom-0 w-100"></div>
+        {/* <div className="blur absolute bottom-0 w-100"></div> */}
 
             <div className="entry-container overflow-auto flex flex-column-reverse items-start mt5">
                 {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
@@ -207,14 +220,14 @@ function MyMooJournal() {
                                     <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => closeEntry(entry._id)}>Go Back</button>
 
                                 ) : (
-                                    <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => openEntry(entry._id)}>Open Entry</button>
+                                    <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => openEntry(entry._id)}>Open</button>
 
                                 )
                             }
 
 
 
-                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry(entry._id)}>Delete Entry</button>
+                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry(entry._id)}>Delete</button>
                         </div>
 
 

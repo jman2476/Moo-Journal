@@ -21,20 +21,20 @@ export function StoreProvider({children}){
             setState({
                 ...state,
                 user:userData.authenticate,
-                // loading:false
+                loading:false
             })
         }
     }, [userData])
 
     useEffect(() => {
 
-        setTimeout(() => {
-        console.log('page loaded')
+        // setTimeout(() => {
+        // console.log('page loaded')
 
-            setState({
-                ...state,
-                loading:false
-            })        }, 2000);
+        //     setState({
+        //         ...state,
+        //         loading:false
+        //     })        }, 2000);
 
 
 

@@ -104,22 +104,22 @@ export const combinedStyleConfig = [
         className: 'editor-button-font-family-monospace',
         category:'font-family'
     },
-    {
-        style: 'TEXT_ALIGN_CENTER',
-        css: { textAlign: 'center' },
-        label: 'Center Align',
-        type: 'block',
-        className: 'editor-button-text-align-center',
-        category:'text-align'
-    }, // Note: Text alignment may require additional handling
-    {
-        style: 'TEXT_ALIGN_RIGHT',
-        css: { textAlign: 'right' },
-        label: 'Right Align',
-        type: 'block',
-        className: 'editor-button-text-align-right',
-        category:'text-align'
-    }, // Note: Text alignment may require additional handling
+    // {
+    //     style: 'TEXT_ALIGN_CENTER',
+    //     css: { textAlign: 'center' },
+    //     label: 'Center Align',
+    //     type: 'block',
+    //     className: 'editor-button-text-align-center',
+    //     category:'text-align'
+    // }, // Note: Text alignment may require additional handling
+    // {
+    //     style: 'TEXT_ALIGN_RIGHT',
+    //     css: { textAlign: 'right' },
+    //     label: 'Right Align',
+    //     type: 'block',
+    //     className: 'editor-button-text-align-right',
+    //     category:'text-align'
+    // }, // Note: Text alignment may require additional handling
     {
         style: 'SUPERSCRIPT',
         css: { verticalAlign: 'super', fontSize: 'smaller' },
@@ -153,3 +153,5 @@ export const combinedStyleConfig = [
         category:'advanced'
     },
 ];
+
+
