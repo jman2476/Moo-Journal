@@ -38,7 +38,7 @@ function Homepage() {
         <>
             <header className={headerClassName}>
 
-              
+
                 {state.user ? (
                     <>
                         <span className="logoContainer">
@@ -50,7 +50,7 @@ function Homepage() {
                             )}
 
                         </span>
-                        <span>
+                        <span className="dashboardBtn">
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
                             <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>

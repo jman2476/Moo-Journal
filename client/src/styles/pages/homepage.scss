@@ -1,130 +1,310 @@
 // HOMEPAGE STYLES
 
 .homepage {
+  // width: 100vw;;
+  font-family: "Sniglet", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: -4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+  color: black;
+
+  >h1,
+  h1>a {
+    font-family: "Sniglet", system-ui;
+    font-weight: 800;
+    font-size: 120px;
+    margin: 0;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    color: white;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .logoContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  h3 {
+
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 600px) {
+
+
+    // body {
+    //   min-width: 600px !important;
+    //   display: flex;
+    //   --r-globalnav-height: 48px;
+    //   width: auto!important;
+    //   overflow-x: hidden!important;
+    //   overflow-y: scroll; /* has to be scroll, not auto */
+    //   -webkit-overflow-scrolling: touch;
+    //   // flex-direction: column;
+    //   align-items: safe;
+    // }
+
+    .logoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+      //   margin-left: 50vw;
+      //   margin: 0 auto;
+      //   margin-top: 5vh;
+    }
+
+    // .btn {
+    // padding-right: 1px;
+    //   text-decoration: none;
+    //   display: inline-block;
+    //   margin-left: 5%;
+    //   align-items: ;
+    //   margin-left: 10vw;
+    //   margin-right: 1px;
+    //   margin-left: 50vw;
+    // }
+
+    .btn-container {
+      display: flex;
+      // flex-direction: column;
+      justify-content: space-between;
+      margin-top: 30px;
+      //   padding: 20px 3%;
+      //   margin: 0 auto;
+      //   margin-left: 50vw; 
+    }
+
+  }
+
+}
+
+.not-homepage {
+  padding: 20px 3%;
+  font-family: "Sniglet", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: -4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+  // color:black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  flex-wrap: wrap;
+
+  h1,
+  h1>a {
+    font-family: "Sniglet", system-ui;
+    font-weight: 800;
+    font-size: 70px;
+    margin: 0;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    color: white;
+    text-decoration: none;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+  }
+
+  .logoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .btn {
+    flex: 1;
+    display: inline-block;
+    margin-left: auto;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+
+
+    // body {
+    //   min-width: 600px !important;
+    //   display: flex;
+    //   --r-globalnav-height: 48px;
+    //   width: auto!important;
+    //   overflow-x: hidden!important;
+    //   overflow-y: scroll; /* has to be scroll, not auto */
+    //   -webkit-overflow-scrolling: touch;
+    //   // flex-direction: column;
+    //   align-items: safe;
+    // }
+
+    .logoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+      //   margin-left: 50vw;
+      //   margin: 0 auto;
+      //   margin-top: 5vh;
+    }
+
+    // .btn {
+    // padding-right: 1px;
+    //   text-decoration: none;
+    //   display: inline-block;
+    //   margin-left: 5%;
+    //   align-items: ;
+    //   margin-left: 10vw;
+    //   margin-right: 1px;
+    //   margin-left: 50vw;
+    // }
+
+    .btn-container {
+      display: flex;
+      // flex-direction: row;
+      justify-content: space-evenly;
+      margin-top: 30px;
+      //   padding: 20px 3%;
+      //   margin: 0 auto;
+      //   margin-left: 50vw; 
+    }
+
+
+  }
+
+  // @media(max-width: 480px) {
+  //   > h1, h1 > a { 
+  //     font-size: 15vw;
+  //   }
+  // }
+}
+
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage {
     // width: 100vw;;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: auto;
     font-family: "Sniglet", system-ui;
     font-weight: 400;
     font-style: normal;
-    text-shadow:-4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
-    color:black;
-  
-    > h1, h1 > a{
+    text-shadow: -4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+    color: black;
+
+    >h1,
+    h1>a {
       font-family: "Sniglet", system-ui;
-      font-weight: 800;    
-      font-size:120px;
-      margin:0;
+      font-weight: 800;
+      font-size: 14vw;
+      margin: 0;
       text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-      color:white;
+      color: white;
       text-decoration: none;
       padding: 0;
     }
 
-    .logoContainer{
-      display:flex;
+    .logoContainer {
+      display: flex;
       flex-direction: column;
+      // margin-bottom: 5px;
       height: 100%;
       justify-content: space-evenly;
       align-items: center;
     }
 
-    h3{
-  
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin-top: 30px;
+
+    }
+
+    .btn {
+      margin-bottom: 15px;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    h3 {
+
       font-weight: 400;
       font-style: normal;
+      margin-top: 0;
       margin-bottom: 60px;
     }
-
-    @media (max-width: 600px) {
-
-
-      // body {
-      //   min-width: 600px !important;
-      //   display: flex;
-      //   --r-globalnav-height: 48px;
-      //   width: auto!important;
-      //   overflow-x: hidden!important;
-      //   overflow-y: scroll; /* has to be scroll, not auto */
-      //   -webkit-overflow-scrolling: touch;
-      //   // flex-direction: column;
-      //   align-items: safe;
-      // }
-
-      .logoContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 600px;
-      //   margin-left: 50vw;
-      //   margin: 0 auto;
-      //   margin-top: 5vh;
-      }
-
-      // .btn {
-        // padding-right: 1px;
-      //   text-decoration: none;
-      //   display: inline-block;
-      //   margin-left: 5%;
-      //   align-items: ;
-      //   margin-left: 10vw;
-      //   margin-right: 1px;
-      //   margin-left: 50vw;
-      // }
-
-      .btn-container {
-        display: flex;
-        // flex-direction: column;
-        justify-content: space-between;
-        margin-top: 30px;
-      //   padding: 20px 3%;
-      //   margin: 0 auto;
-      //   margin-left: 50vw; 
-      }
-      
-
-    }
-
-    @media(max-width: 480px) {
-      > h1, h1 > a { 
-        font-size: 15vw;
+    
+    .dashboardBtn {
+      display: flex;
+      flex-direction: column;
+      .btn {
+        margin-left: 60px;
+        margin-right: 60px;
       }
     }
 
   }
 
-  .not-homepage{
-    padding:20px 3%;
+  .not-homepage {
+    padding: 20px 3%;
     font-family: "Sniglet", system-ui;
     font-weight: 400;
     font-style: normal;
-    text-shadow:-4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
+    text-shadow: -4px 4px 20px #808080, 2px 2px 20px white, -4px -4px 20px white;
     // color:black;
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    flex-wrap:wrap;
-  
-     h1, h1 > a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    flex-wrap: wrap;
+
+    h1,
+    h1>a {
       font-family: "Sniglet", system-ui;
-      font-weight: 800;    
-      font-size:70px;
-      margin:0;
+      font-weight: 800;
+      font-size: 14vw;
+      margin: 0;
       text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-      color:white;
+      color: white;
       text-decoration: none;
     }
-     h3{
+
+    h3 {
       font-weight: 400;
       font-style: normal;
     }
 
-    .logoContainer{
-      display:flex;
+    .logoContainer {
+      display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
@@ -134,71 +314,18 @@
       flex: 1;
       display: inline-block;
       margin-left: auto;
+      margin-top: 10px;
       text-decoration: none;
     }
-
-    @media (max-width: 600px) {
-
-
-      // body {
-      //   min-width: 600px !important;
-      //   display: flex;
-      //   --r-globalnav-height: 48px;
-      //   width: auto!important;
-      //   overflow-x: hidden!important;
-      //   overflow-y: scroll; /* has to be scroll, not auto */
-      //   -webkit-overflow-scrolling: touch;
-      //   // flex-direction: column;
-      //   align-items: safe;
-      // }
-
-      .logoContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 600px;
-      //   margin-left: 50vw;
-      //   margin: 0 auto;
-      //   margin-top: 5vh;
-      }
-
-      // .btn {
-        // padding-right: 1px;
-      //   text-decoration: none;
-      //   display: inline-block;
-      //   margin-left: 5%;
-      //   align-items: ;
-      //   margin-left: 10vw;
-      //   margin-right: 1px;
-      //   margin-left: 50vw;
-      // }
-
-      .btn-container {
-        display: flex;
-        // flex-direction: column;
-        justify-content: space-evenly;
-        margin-top: 30px;
-      //   padding: 20px 3%;
-      //   margin: 0 auto;
-      //   margin-left: 50vw; 
-      }
-      
-
-    }
-
-    @media(max-width: 480px) {
-      > h1, h1 > a { 
-        font-size: 15vw;
-      }
-    }
   }
-  
-  
+
   @keyframes moveRight {
-    0% { transform: translateX(-100px); }
-    100% { transform: translateX(100%); }
+    0% {
+      transform: translateX(-100px);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
   }
-  
-
-
+}

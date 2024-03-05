@@ -55,7 +55,7 @@ function Entry() {
     };
     const renderMoodSlider = () => {
         return (
-            <div className="flex flex-column items-start w-80 mr4 pv4 tl">
+            <div className="flex flex-column items-start w-80 mr4 pv4 tl moodMobile">
                 <p className="ma0 pa0 nowrap pb3 np">How Do you feel Today? <span className="pa1 ph2 ml2 br3 mb1" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span></p>
             
                 <input
@@ -116,7 +116,7 @@ function Entry() {
 
             <span className="flex justify-end items-end w-100 pv2 mt2">
             {/* {renderMoodSlider()} */}
-            <button onClick={() => submitEntry()}>Submit</button>
+            <button className="entrySubmitBtn" onClick={() => submitEntry()}>Submit</button>
 
             </span>
 

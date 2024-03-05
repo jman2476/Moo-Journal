@@ -1,66 +1,173 @@
+.DraftEditor-root {
+  background: #f0ead2;
+  flex: 1;
+  height: 300px;
+  padding: 20px;
+  overflow: auto;
+}
 
-.DraftEditor-root{
-    background:#f0ead2;
-    flex:1;
-    height:300px;
-    padding:20px;
-    overflow:auto;
+.entry-editor {
+  background: rgb(173, 193, 120);
+  min-width: 350px;
+  padding: 30px 50px 0px;
+  border-radius: 20px;
+  height: fit-content;
+  font-family: "Sniglet", system-ui;
+  position: relative;
+  flex: 1;
+  z-index: 100;
+
+}
+
+/* Styles for the slider container */
+.slider-container {
+  margin: 20px;
+}
+
+/* Styles for the slider */
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 15px;
+  /* Specified height */
+  background: #d3d3d3;
+  /* Grey background */
+  outline: none;
+  /* Remove outline */
+  opacity: 0.7;
+  /* Set transparency (cross-browser) */
+  -webkit-transition: .2s;
+  /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+  /* Fully opaque on hover */
+}
+
+/* Styles for the slider thumb (the draggable circle) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 25px;
+  /* Width of the thumb */
+  height: 25px;
+  /* Height of the thumb */
+  background: #4CAF50;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  /* Width of the thumb */
+  height: 25px;
+  /* Height of the thumb */
+  background: #4CAF50;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+#root {
+  flex: 1;
+}
+
+@media(max-width: 480px) {
+  .DraftEditor-root {
+    background: #f0ead2;
+    flex: 1;
+    height: 300px;
+    padding: 10px;
+    overflow: auto;
   }
-  
-  .entry-editor{
+
+  // .moodMobile {
+  // margin-bottom: 0;
+  // padding-bottom: 0;
+  // }
+
+  .entry-editor {
     background: rgb(173, 193, 120);
-      min-width:350px;
-      padding:30px 50px 0px;
-      border-radius:20px;
-      height:fit-content;
-      font-family: "Sniglet", system-ui;
-    position:relative;
-    flex:1;
-    z-index:100;
-    
+    min-width: 350px;
+    margin-top: 90px;
+    margin-left: auto;
+    // margin-right: 10px;
+    padding: 15px 35px 15px 50px;
+    border-radius: 20px;
+    height: fit-content;
+    font-family: "Sniglet", system-ui;
+    position: relative;
+    flex: 1;
+    z-index: 100;
+
   }
+
+  .entrySubmitBtn {
+    margin-right: -30px;
+  }
+
   /* Styles for the slider container */
   .slider-container {
     margin: 20px;
   }
-  
+
   /* Styles for the slider */
   .slider {
-    -webkit-appearance: none; /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* Override default CSS styles */
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 15px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (cross-browser) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 100%;
+    /* Full-width */
+    height: 15px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (cross-browser) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
     transition: opacity .2s;
   }
-  
+
   .slider:hover {
-    opacity: 1; /* Fully opaque on hover */
+    opacity: 1;
+    /* Fully opaque on hover */
   }
-  
+
   /* Styles for the slider thumb (the draggable circle) */
   .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 25px; /* Width of the thumb */
-    height: 25px; /* Height of the thumb */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    /* Width of the thumb */
+    height: 25px;
+    /* Height of the thumb */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
   }
-  
+
   .slider::-moz-range-thumb {
-    width: 25px; /* Width of the thumb */
-    height: 25px; /* Height of the thumb */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    /* Width of the thumb */
+    height: 25px;
+    /* Height of the thumb */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
   }
-  
-  
- 
-  
-  #root{
-    flex:1;
-  }
+
+
+}
