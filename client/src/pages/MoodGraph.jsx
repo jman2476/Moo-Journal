@@ -17,17 +17,19 @@ function MoodGraph() {
         if (data) {
             let dataOrganizer = []
             let histOrganizer = [
-                { mood: 0, amnt: 0 },
-                { mood: 1, amnt: 0 },
-                { mood: 2, amnt: 0 },
-                { mood: 3, amnt: 0 },
-                { mood: 4, amnt: 0 },
-                { mood: 5, amnt: 0 },
-                { mood: 6, amnt: 0 },
-                { mood: 7, amnt: 0 },
-                { mood: 8, amnt: 0 },
-                { mood: 9, amnt: 0 },
-                { mood: 10, amnt: 0 }
+
+                {mood: 0, count: 0},
+                {mood: 1, count: 0},
+                {mood: 2, count: 0},
+                {mood: 3, count: 0},
+                {mood: 4, count: 0},
+                {mood: 5, count: 0},
+                {mood: 6, count: 0},
+                {mood: 7, count: 0},
+                {mood: 8, count: 0},
+                {mood: 9, count: 0},
+                {mood: 10, count: 0}
+
             ]
             console.log(data.graphMood.date)
             console.log(data.graphMood.moodRanking)
@@ -38,7 +40,7 @@ function MoodGraph() {
                     date: data.graphMood.date[i],
                     moodRanking: data.graphMood.moodRanking[i]
                 })
-                histOrganizer[data.graphMood.moodRanking[i]].amnt += 1
+                histOrganizer[data.graphMood.moodRanking[i]].count += 1
             }
             setUserData(dataOrganizer)
             setHistogram(histOrganizer)
@@ -51,6 +53,7 @@ function MoodGraph() {
 
     return (
         <div className="graph-mood">
+
             <div>
                 <h2>Your Mood over time</h2>
                 {data && <LineChart width={600} height={300} data={userData}>
@@ -80,11 +83,12 @@ function MoodGraph() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="amnt" fill="#8884d8" activeBar={<Rectangle fill="brown" stroke="brown" />} />
+                        <Bar dataKey="count" fill="#8884d8" activeBar={<Rectangle fill="brown" stroke="brown" />} />
                     </BarChart>
                 }
 
             </div>
+
         </div>
     )
 }
