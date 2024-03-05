@@ -255,22 +255,37 @@ footer {
 
 }
 
+// Feedback page CSS
 .feedbackform {
   background: rgb(173, 193, 120);
   border-radius: 20px;
-  min-width: 600px;
+  min-width: 700px;
   margin: auto;
   min-height: 300px;
-  padding: 40px 40px 30px;
+  padding: 50px 50px 40px;
   color: white;
   font-family: "Sniglet", system-ui;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  
+  font-size: 16px;
+  
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    
+  }
+  h3 {
+    font-style: normal;
+    color: #213547;
+    font-weight: inherit;
+  }
 
   input,
   textarea {
     margin-bottom: 10px;
     width: 100%;
-    height: 30px;
+    height: 50px;
     padding: 25px 15px;
     align-items: center;
     background: #f0ead2;
@@ -278,6 +293,14 @@ footer {
     border-radius: 5px;
     outline: none;
     border: none;
+  }
+  textarea {
+    height: 100px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   button {
@@ -292,12 +315,14 @@ footer {
     cursor: pointer;
     transition: border-color 0.25s;
     color: $white-smoke;
-    margin: 10px;
-    text-shadow: -4px 4px 20px $gray;
+    margin-top: auto;
+    align-self: flex-end;
+   
   }
 
-
 }
+
+
 
 @media(max-width:480px) {
 
