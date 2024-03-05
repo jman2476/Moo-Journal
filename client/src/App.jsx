@@ -61,7 +61,6 @@ function App() {
           <Route path="/auth" element={<AuthForm />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/my_journal" element={<MyMooJournal />} />
-         
           <Route path="/mood_graph" element={<MoodGraph />}/>
           <Route path="*" element={<NotFound />} />
 

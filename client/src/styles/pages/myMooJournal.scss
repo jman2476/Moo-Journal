@@ -2,7 +2,7 @@
   padding: 10px 20px;
   width: 100%;
   box-sizing: border-box;
-  max-width: 1000px;
+  max-width: 1200px;
   background-color: #f0ead2;
   // overflow:hidden;
   height: fit-content;
@@ -64,7 +64,15 @@
   overflow-x: clip;
   box-sizing: border-box; /* Include padding and margin in the element's width calculation */
   padding:10px;
+
+}  
+
+.blur{
+  backdrop-filter: blur(2px);
+  height:30px;
 }
+
+.blurContainer
 
 .promptEntryBox {
   width: 100%;
