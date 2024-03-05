@@ -1,6 +1,9 @@
-import grass from '../assets/Green-grass-clipart-free-pictures.png'
+// import grass from '../assets/Green-grass-clipart-free-pictures.png'
 import github from '../assets/Github-icon.png'
 import linkedIn from '../assets/LI-icon.png'
+import grass from '../assets/Green-grass-clipart-free-pictures.png'
+import grassMobile from '../assets/Green-grass-clipart-free-pictures-mobile.png'
+import '../styles/components/footer.scss'
 
 function Footer() {
     const contributors = [
@@ -18,7 +21,7 @@ function Footer() {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage: `url(${grass})`,
+        // backgroundImage: `url(${grass})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -39,9 +42,10 @@ function Footer() {
         fontSize: '12px',
         color: 'black',
         display: 'flex',
-        alignItems: 'flex-end',
+        // alignItems: 'flex-end',
         marginLeft: '25px',
-        marginTop: '110px'
+        // marginTop: '110px'
+        flexDirection: 'column'
     }
     const iconStyles = {
         width: '15px',
@@ -49,26 +53,59 @@ function Footer() {
         marginLeft: '5px',
     }
 
+    const seeContributors = () => {
+
+    }
+
+
     return (
-        <footer style={{ position: 'absolute', zIndex: '-5' }}>
-            <div style={backgroundStyles}></div>
-            <div style={contentStyles}>
-                {contributors.map((contributor, index) => (
-                    <div style={contributorStyles} className='contributor no-wrap' key={index}>
-                        {contributor.name}
-                        <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
-                            <img src={github} alt="GitHub Icon" style={iconStyles} />
-                        </a>
-                        <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
-                            <img src={linkedIn} alt="LinkedIn Icon" style={iconStyles} />
-                        </a>
-                        <div className='feedback pr4'>
-                            <a className="btn" href="about">About</a><span></span>
-                            <a className="btn" href="feedback">Feedback</a>
-                        </div>
-                    </div>
-                ))}
+        <footer>
+            {/* <div className="backgroundStyles"></div> */}
+            <div className="footer-overlay"></div>
+            <div className="imgWrap">
+                <img className="desktop" src={grass} alt="pic of grass"></img>
+                <img className="mobile" src={grassMobile} />
             </div>
+            <div className="contributors flex pl1 justify-between">
+                <div className="flex flex-wrap f7 tl pl2 people">
+                    {contributors.map((contributor, index) => (
+                        <span className='flex pr3' key={index}>
+                            <p className="ph0">{contributor.name}</p>
+                            <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
+                                <img src={github} alt="GitHub Icon" className="iconStyles" />
+                            </a>
+                            <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                                <img src={linkedIn} alt="LinkedIn Icon" className="iconStyles" />
+                            </a>
+                        </span>
+                    ))}
+                </div>
+                <div className='feedback pr4 mb1'>
+                    <a className="black pr2" href="about">About</a><span></span>
+                    <a className="black" href="feedback">Feedback</a>
+                </div>
+            </div>
+            {/* <div className="contentStyles">
+                <div className="contributeList">
+                    <div className='feedback pr4'>
+                        <a className="btn" href="about">About</a><span></span>
+                        <a className="btn" href="feedback">Feedback</a>
+                    </div>
+                    {contributors.map((contributor, index) => (
+                        <div className='contributorStyles contributor no-wrap' key={index}>
+                            {contributor.name}
+                            <div className='footStyle'>
+                                <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
+                                    <img src={github} alt="GitHub Icon" className="iconStyles" />
+                                </a>
+                                <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                                    <img src={linkedIn} alt="LinkedIn Icon" className="iconStyles" />
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div> */}
         </footer>
     )
 }
