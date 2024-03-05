@@ -41,7 +41,8 @@ $cream: #f0ead2;
 // }
 
 body {
-  margin: 0;
+  // margin: 0; Jas commented this out and added the line below to move the body away from the head.
+  margin-top: 12rem;
   display: flex;
   place-items: center;
   // min-width: 320px;
@@ -298,6 +299,7 @@ button:hover,
 
 
 
+
 @media only screen and (max-width: 600px) {
   body {
     min-width: 320px;
@@ -494,5 +496,6 @@ button:hover,
     1px -1px 5px $gray, -1px 1px 10px $white-smoke;
   transition: 0.2s ease-out;
   color: $white-smoke;
+}
 }
 // }

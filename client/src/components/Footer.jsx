@@ -15,47 +15,47 @@ function Footer() {
 
     ];
 
-    const backgroundStyles = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        // backgroundImage: `url(${grass})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        filter: 'blur(3px)',
-        zIndex: '-1',
-    };
+    // const backgroundStyles = {
+    //     position: 'absolute',
+    //     top: 0,
+    //     left: 0,
+    //     right: 0,
+    //     bottom: 0,
+    //     // backgroundImage: `url(${grass})`,
+    //     backgroundSize: 'cover',
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundPosition: 'center',
+    //     filter: 'blur(3px)',
+    //     zIndex: '-1',
+    // };
 
-    const contentStyles = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        flexDirection: 'row',
-        marginTop: '35px',
-    }
-    const contributorStyles = {
-        listStyleType: 'none',
-        lineHeight: 1,
-        fontSize: '12px',
-        color: 'black',
-        display: 'flex',
-        // alignItems: 'flex-end',
-        marginLeft: '25px',
-        // marginTop: '110px'
-        flexDirection: 'column'
-    }
-    const iconStyles = {
-        width: '15px',
-        height: '15px',
-        marginLeft: '5px',
-    }
+    // const contentStyles = {
+    //     display: 'flex',
+    //     justifyContent: 'space-between',
+    //     alignItems: 'flex-end',
+    //     flexDirection: 'row',
+    //     marginTop: '35px',
+    // }
+    // const contributorStyles = {
+    //     listStyleType: 'none',
+    //     lineHeight: 1,
+    //     fontSize: '12px',
+    //     color: 'black',
+    //     display: 'flex',
+    //     // alignItems: 'flex-end',
+    //     marginLeft: '25px',
+    //     // marginTop: '110px'
+    //     flexDirection: 'column'
+    // }
+    // const iconStyles = {
+    //     width: '15px',
+    //     height: '15px',
+    //     marginLeft: '5px',
+    // }
 
-    const seeContributors = () => {
+    // const seeContributors = () => {
 
-    }
+    // }
 
 
     return (

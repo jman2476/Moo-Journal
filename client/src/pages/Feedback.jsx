@@ -1,10 +1,10 @@
-
+import '../styles/pages/feedbackPage.scss';
 
 function Feedback() {
 
     return (
         <div className="feedbackform justify-center w-100">
-            <h1 className="bb pb3 ma0">Give us your feedback</h1>
+            <h1 className="bb tl pb3 ma0">Give us your feedback</h1>
             <h3 style={{ textAlign:'left' }} className="ma0 pb3">Have any ideas to improve MooJournal to share with us?</h3>
 
             <form>
