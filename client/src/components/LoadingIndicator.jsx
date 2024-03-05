@@ -1,7 +1,7 @@
 import '../styles/components/loadingIndicator.scss';
+import React from 'react';
 
-
-function LoadingIndicator(){
+const LoadingIndicator = () => {
     return (
         <div className="loading-indicator mj-text fw8 f1">
             <p>
