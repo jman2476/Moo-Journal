@@ -1,34 +1,35 @@
 import { PromptBox, EditorComponent, Dropdown } from "../components"
 import { useState, useEffect } from 'react'
 import { useStore } from '../store'
-import {NEW_ENTRY} from '../graphql/mutations'
+import { NEW_ENTRY } from '../graphql/mutations'
 import { useMutation } from '@apollo/client'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import moods from '../utils/moods'
 
 import '../styles/pages/entryPage.scss'
 
-import {styleMap, combinedStyleConfig} from '../utils/editorStyleMap'
+import { styleMap, combinedStyleConfig } from '../utils/editorStyleMap'
 
 import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 
 
 function Entry() {
-    const [value, setValue] = useState(5);
 
-    const { state, setState } = useStore()
     const navigate = useNavigate()
 
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [journalEntry, setJournalEntry] = useState({})
 
-    const [newEntry] = useMutation(NEW_ENTRY, {variables: journalEntry })
+ 
+
+    const [newEntry] = useMutation(NEW_ENTRY, { variables: journalEntry })
+
     useEffect(() => {
         setJournalEntry({
-            promptId:null,
-            text:"",
-            moodRanking:5
+            promptId: null,
+            text: "",
+            moodRanking: 5
         })
         console.log('entry', journalEntry)
     }, [])
@@ -41,48 +42,57 @@ function Entry() {
         const contentState = newState.getCurrentContent();
         setJournalEntry({
             ...journalEntry,
-            text:contentState.getPlainText()
+            text: contentState.getPlainText()
         })
 
 
         setEditorState(newState);
     };
 
-    const applyStyle = (style) => {
-        const newState = RichUtils.toggleInlineStyle(editorState, style);
-        handleEditorStateChange(newState);
-    };
-
-    const customStyleMap = combinedStyleConfig.reduce((acc, option) => {
-        acc[option.style] = option.css
-        return acc
-    }, {})
-
-
     const submitEntry = async () => {
         const rawEditorState = convertToRaw(editorState.getCurrentContent());
         const serializedEditorState = JSON.stringify(rawEditorState);
 
-        if(journalEntry?.text && journalEntry?.text.length < 10 || !journalEntry?.text.length){
+        if (journalEntry?.text && journalEntry?.text.length < 10 || !journalEntry?.text.length) {
             return alert('must be more than 10 chars')
         }
 
         try {
             console.log('entry', journalEntry)
-        console.log(editorState)
-        const data = await newEntry({
-            variables:{
-                ...journalEntry,
-                editorState:serializedEditorState
-            }
-        })
-        console.log(data)
-        navigate('/my_journal')
+            console.log(editorState)
+            const data = await newEntry({
+                variables: {
+                    ...journalEntry,
+                    editorState: serializedEditorState
+                }
+            })
+            console.log(data)
+            navigate('/my_journal')
         } catch (err) {
             console.log(err)
         }
-        
+    }
 
+    const groupStylesByCategory = (styles) => {
+        return styles.reduce((acc, item) => {
+            const { category } = item
+
+            if(!acc[category]){
+                acc[category] = []
+            }
+
+            acc[category].push(item)
+
+            return acc
+        }, {})
+    }
+
+    const createStyleMap = (styles) => {
+
+        styles.reduce((acc, option) => {
+                acc[option.style] = option.css
+                return acc
+            }, {})
     }
 
     const renderStyleButtons = () => {
@@ -90,13 +100,13 @@ function Entry() {
             const applyStyle = () => {
                 let newState;
 
-                if(option.type === 'inline'){
+                if (option.type === 'inline') {
                     newState = RichUtils.toggleInlineStyle(editorState, option.style)
-                } else if(option.type === 'block') {
+                } else if (option.type === 'block') {
                     newState = RichUtils.toggleBlockType(editorState, option.style)
                 }
 
-                if(newState){
+                if (newState) {
                     handleEditorStateChange(newState)
                 }
             }
@@ -111,46 +121,19 @@ function Entry() {
         })
     }
 
-    // function Dropdown({ label, options, onChange }) {
-    //     const [isOpen, setIsOpen] = useState(false);
-    
-    //     const toggleDropdown = () => setIsOpen(!isOpen);
-    
-    //     return (
-    //         <div className="dropdown">
-    //             <button className="dropdown-button" onClick={toggleDropdown}>
-    //                 {label}
-    //             </button>
-    //             {isOpen && (
-    //                 <ul className="dropdown-menu">
-    //                     {options.map((option, index) => (
-    //                         <li
-    //                             key={index}
-    //                             className="dropdown-item"
-    //                             onClick={() => {
-    //                                 onChange(option); // Trigger the callback
-    //                                 toggleDropdown(); // Close the dropdown
-    //                             }}
-    //                         >
-    //                             {option.label}
-    //                         </li>
-    //                     ))}
-    //                 </ul>
-    //             )}
-    //         </div>
-    //     );
-    // }
-    
 
+    const customStyleMap = createStyleMap(combinedStyleConfig)
+
+    const groupedStyles = groupStylesByCategory(combinedStyleConfig)
 
 
     return (
         <div className="entry-editor">
-            <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
+            <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry} />
 
 
             <span className="flex flex-row pointer">
-            {renderStyleButtons()}
+                {renderStyleButtons()}
 
             </span>
             <EditorComponent
@@ -160,23 +143,23 @@ function Entry() {
             />
 
             <span className="flex justify-end items-end w-100 pv2 mt2">
-            {/* {renderMoodSlider()} */}
-            <button onClick={() => submitEntry()}>Submit</button>
+                {/* {renderMoodSlider()} */}
+                <button onClick={() => submitEntry()}>Submit</button>
 
             </span>
 
             <Dropdown
-    label="Text Size"
-    options={[
-        { label: 'Small', style: 'SMALL' },
-        { label: 'Medium', style: 'MEDIUM' },
-        { label: 'Large', style: 'LARGE' }
-    ]}
-    onChange={(option) => {
-        console.log(option.style); // Here, you would apply the style
-        // For example: applyStyle(option.style)
-    }}
-/>
+                label="Text Size"
+                options={[
+                    { label: 'Small', style: 'SMALL' },
+                    { label: 'Medium', style: 'MEDIUM' },
+                    { label: 'Large', style: 'LARGE' }
+                ]}
+                onChange={(option) => {
+                    console.log(option.style); // Here, you would apply the style
+                    // For example: applyStyle(option.style)
+                }}
+            />
 
 
         </div>
