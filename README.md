@@ -25,9 +25,6 @@ All of the journal entries made can be viewed on your 'My MooJournal' Dashboard.
 ## Installtion
 To install this project, follow these steps:
 
-## Installtion
-To install this project, follow these steps:
-
 1. Open your terminal.
 2. Navigate to the directory where you want to clone the project.
 3. Run the following command to clone the repository:
@@ -61,7 +58,6 @@ Add the following environment variables to the .env file:
 Backend: Mongoose, Express, Graphql, OpenAI, DayJs
 
 Frontend: HTML, SCSS, Javascript, Tachyons CSS, Vite, React, DraftJs
-
 
 ## License
 This project is licensed under the MIT License.
