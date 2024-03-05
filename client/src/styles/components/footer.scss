@@ -49,28 +49,40 @@
 
   .contributors{
     // font-size:10px;
-    align-items: end;
-    .people{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    .people span{
         // padding:0px; This was changed to padding: 10px to move the names away from border
         padding:10px;
-
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px !important;
+        padding-bottom: 2px !important;
+        // align-items: center;
+           
         p{
             margin:0px;
         }
     }
-
+  
     .feedback{
+      order: -1;
         font-size:16px;
         display:flex;
-        flex-direction:column;
-        align-items:end;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: space-between;
         // padding:0 5px 0 0px; This was changed to padding: 10px to move the about and feedback away
-        padding:10px;
+        padding: 0;
 
 
     }
     .feedback a{
-        margin:0;
+        text-decoration: none;
+        margin: 5px;
         padding:0;
     }
 

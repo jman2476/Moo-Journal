@@ -247,7 +247,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      margin-top: 30px;
+      margin-top: 0px;
 
     }
 
@@ -320,7 +320,8 @@
       flex: 1;
       display: inline-block;
       margin-left: auto;
-      margin-top: 10px;
+      margin-top: 0;
+      text-wrap: nowrap;
       text-decoration: none;
     }
   }
