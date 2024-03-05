@@ -41,8 +41,7 @@ function Entry() {
         const contentState = newState.getCurrentContent();
         setJournalEntry({
             ...journalEntry,
-            text:contentState.getPlainText(),
-            editorState:serializedEditorState
+            text:contentState.getPlainText()
         })
 
 
@@ -81,18 +80,28 @@ function Entry() {
     const submitEntry = async () => {
 
 
+        const rawEditorState = convertToRaw(editorState.getCurrentContent());
+        const serializedEditorState = JSON.stringify(rawEditorState);
+
         if(journalEntry?.text && journalEntry?.text.length < 10 || !journalEntry?.text.length){
             return alert('must be more than 10 chars')
         }
-        console.log('entry', journalEntry)
+
+        try {
+            console.log('entry', journalEntry)
         console.log(editorState)
         const data = await newEntry({
             variables:{
-                ...journalEntry
+                ...journalEntry,
+                editorState:serializedEditorState
             }
         })
         console.log(data)
-        navigate('/')
+        navigate('/my_journal')
+        } catch (err) {
+            console.log(err)
+        }
+        
 
     }
 
