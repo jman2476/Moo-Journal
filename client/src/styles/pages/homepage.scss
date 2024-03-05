@@ -19,6 +19,11 @@
       padding: 0;
     }
 
+    h1.modak-regular{
+      margin:0;
+      padding:0;
+    }
+
     .logoContainer{
       display:flex;
       flex-direction: column;
@@ -31,8 +36,8 @@
   
       font-weight: 400;
       font-style: normal;
-      margin-top: 0;
-      margin-bottom: 60px;
+      margin-top:0;
+      margin-bottom: 40px;
     }
 
     @media (max-width: 600px) {
@@ -122,13 +127,17 @@
      h3{
       font-weight: 400;
       font-style: normal;
+      padding:0;
+      margin:0 0px 20px 20px;
+      // margin-left:20px;
+
     }
 
     .logoContainer{
       display:flex;
       flex-direction: column;
       justify-content: space-evenly;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .btn {

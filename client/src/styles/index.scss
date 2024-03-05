@@ -231,6 +231,7 @@ button:hover,
   color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  max-width: 750px;
 
 
   input {
@@ -311,7 +312,7 @@ button:hover,
     // align-items: safe;
   }
 
-  footer {
+  // footer {
     // margin-top: 40px;
     // position: unset;
     // bottom: auto;
@@ -349,7 +350,7 @@ button:hover,
     //   right: 0;
     //   bottom: 0;
     // }
-  }
+  // }
 
   // footer {
   //   height: 100px;
@@ -508,6 +509,12 @@ button:hover,
   transition: 0.2s ease-out;
   color: $white-smoke;
 }
+}
+
+@media (max-width: 480px) {
+  .cow-pattern-backdrop{
+    display: none;
+  }
 }
 
 // this is a random comment

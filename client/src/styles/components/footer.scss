@@ -51,7 +51,9 @@
     // font-size:10px;
     align-items: end;
     .people{
-        padding:0px;
+        // padding:0px; This was changed to padding: 10px to move the names away from border
+        padding:10px;
+
         p{
             margin:0px;
         }
@@ -62,7 +64,9 @@
         display:flex;
         flex-direction:column;
         align-items:end;
-        padding:0 5px 0 0px;
+        // padding:0 5px 0 0px; This was changed to padding: 10px to move the about and feedback away
+        padding:10px;
+
 
     }
     .feedback a{
