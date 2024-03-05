@@ -4,14 +4,14 @@
   /* padding: 2rem; */
   text-align: center;
 }
-footer {
+/* footer {
   position: fixed;
   bottom: 0;
   width: 100;
   display: flex;
   justify-content: left;
   align-items: center;
-}
+} */
 .logo {
   height: 6em;
   padding: 1.5em;

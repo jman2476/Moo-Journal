@@ -85,47 +85,7 @@ button:hover,
   color: $white-smoke;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  // background:#669900;
-  height: 300px;
-  font-family: "Sniglet", system-ui;
-  font-style: normal;
 
-
-  .icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-
-  .feedback {
-    display: flex;
-    // position: absolute;
-    // align-items: flex-end;
-    bottom: 7px;
-    right: 5px;
-    color: black;
-
-    // background:#669900; // nice
-    // height: 140px;
-
-  }
-
-  p {
-    position: absolute;
-    margin: auto;
-    padding: 0;
-    font-size: 0.8rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
 
 // @media screen and (max-width: 480px) {
 //   footer {
@@ -149,26 +109,26 @@ footer {
 
 
 
-@media screen and (max-width: 520px) {
-  footer {
-    width: 100%;
+// @media screen and (max-width: 520px) {
+//   footer {
+//     width: 100%;
 
-    .feedback {
-      // margin-right: 125px;
-      position: absolute;
-      justify-content: center;
+//     .feedback {
+//       // margin-right: 125px;
+//       position: absolute;
+//       justify-content: center;
 
-      a {
-        text-decoration: none;
-      }
+//       a {
+//         text-decoration: none;
+//       }
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+//       &:hover {
+//         text-decoration: underline;
+//       }
+//     }
 
-  }
-}
+//   }
+// }
 
 .modak-regular {
   font-family: "Modak", system-ui;
@@ -294,7 +254,7 @@ footer {
   bottom: 0;
   background-image: url('../assets/Green-grass-clipart-free-pictures.png');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   filter: blur(3px);
   z-index: -1;
@@ -349,43 +309,43 @@ footer {
   }
 
   footer {
-    margin-top: 40px;
-    position: unset;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    // background:#669900;
-    height: 300px;
+    // margin-top: 40px;
+    // position: unset;
+    // bottom: auto;
+    // left: 0;
+    // right: 0;
+    // // background:#669900;
+    // height: 300px;
   
-    .icons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
+    // .icons {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: center;
+    // }
 
    
   
   
-    .feedback {
-      // position: absolute;
-      right: 70px;
-      color: black;
-      margin-bottom: 10px;
+    // .feedback {
+    //   // position: absolute;
+    //   right: 70px;
+    //   color: black;
+    //   margin-bottom: 10px;
   
-      // background:#669900; // nice
-      // height: 140px;
-      justify-content: center;
-    }
+    //   // background:#669900; // nice
+    //   // height: 140px;
+    //   justify-content: center;
+    // }
   
-    p {
-      position: absolute;
-      margin: auto;
-      padding: 0;
-      font-size: 0.8rem;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
+    // p {
+    //   position: absolute;
+    //   margin: auto;
+    //   padding: 0;
+    //   font-size: 0.8rem;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    // }
   }
 
   // footer {
