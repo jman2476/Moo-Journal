@@ -45,7 +45,7 @@ body {
   display: flex;
   place-items: center;
   // min-width: 320px;
-  // min-height: 100vh;
+  min-height: 100vh;
   height:100%;
 }
 
@@ -495,4 +495,6 @@ button:hover,
   transition: 0.2s ease-out;
   color: $white-smoke;
 }
-// }
+}
+
+// this is a random comment
