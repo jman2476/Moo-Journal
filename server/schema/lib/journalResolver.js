@@ -8,14 +8,38 @@ module.exports = {
         graphMood: proteck(async (_, args, { req, res, user_id }) => {
             try {
                 // get array of journal entries for user
-                const userEntries = await User.findById(user_id).journal
+                const userEntries = await User.findById(user_id).populate('journal')
+                const userName = userEntries.username
+                console.log(userEntries)
                 // make an array of the dates of each entry
                 let dates = []
                 // make an array of the moodRanking
-
+                let moodRankings = []
+                // output data
+                let data = []
                 // return in the form {[dates], [moodRanking]}
+                for (let entry in userEntries.journal) {
+                    dates.push(dayjs(userEntries.journal[entry].createdAt).format())
+                    moodRankings.push(userEntries.journal[entry].moodRanking)
+                }
+
+                // console.log(dates)
+                // console.log(moodRankings)
+
+                return {
+                    date: dates,
+                    moodRanking: moodRankings,
+                    user: userName
+                }
             } catch (err) {
                 console.log(err)
+                let errors = []
+
+                for (let prop in err.errors) {
+                    errors.push(err.errors[prop].message)
+                }
+
+                throw new GraphQLError(errors)
             }
         }),
         getEntryById: proteck(async (_, args, {req, res, user_id}) => {
