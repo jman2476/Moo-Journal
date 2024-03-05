@@ -91,7 +91,7 @@ module.exports = {
 
                 if (err.errors) {
                     let errors = Object.values(err.errors).map((val) => val.message);
-                    throw new GraphQLError(errors);
+                    throw new GraphQLError[errors];
                 } else {
                     throw err;
                 }

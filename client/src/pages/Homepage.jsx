@@ -49,6 +49,7 @@ function Homepage() {
                         </span>
                         <span>
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
+                            <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>
                                 <span className='mj-text fw8'>Go To My MooJournal</span>
                             </NavLink>
@@ -57,11 +58,13 @@ function Homepage() {
                     </>
                 ) : (
                     <>
+
                         <span className="logoContainer">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                             <h3>Start your <span className=''> MooJournaling </span> journey!</h3>
                         </span>
                         <span className="btn-container">
+
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
                         </span>

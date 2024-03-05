@@ -469,6 +469,19 @@ button:hover,
 }
 
 
+.error-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%
+  
+}
+
+.error {
+  margin-bottom: 5px;
+}
+
+
 @media(max-width:480px) {
 
   * {
