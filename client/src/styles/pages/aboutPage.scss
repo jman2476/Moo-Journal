@@ -3,7 +3,6 @@ $grass-green: #669900;
 $light-brown: #a67c52;
 
 
-
 .text-box {
     position: absolute;
     top: 50%;
@@ -17,6 +16,7 @@ $light-brown: #a67c52;
     padding: 15px;
     text-align: left;
     max-width: 800px;
+    align-items: center;
 }
 
 p {

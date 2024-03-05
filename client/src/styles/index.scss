@@ -231,6 +231,7 @@ button:hover,
   color: white;
   font-family: "Sniglet", system-ui;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  max-width: 750px;
 
 
   input {
@@ -465,6 +466,19 @@ button:hover,
 * {
   scrollbar-width: thin;
   scrollbar-color: #888 #f1f1f1;
+}
+
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%
+  
+}
+
+.error {
+  margin-bottom: 5px;
 }
 
 

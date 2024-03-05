@@ -38,36 +38,43 @@ function Homepage() {
         <>
             <header className={headerClassName}>
 
-                {state.user ?
+              
+                {state.user ? (
                     <>
                         <span className="logoContainer">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
-                            <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
+                            {state.user.username ? (
+                                <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
+                            ) : (
+                                <h3><span className='mj-text'></span></h3>
+                            )}
+
                         </span>
                         <span>
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
+                            <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>
                                 <span className='mj-text fw8'>Go To My MooJournal</span>
                             </NavLink>
                             <span onClick={() => handleLogout()} className='btn mj-text fw8'>Logout</span>
-
-
                         </span>
                     </>
-                    :
+                ) : (
                     <>
+
+
                         <span className="logoContainer">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
-
-                            <h3>Start your <span className=''> MooJournaling </span> journey.</h3></span>
+                            <h3>Start your <span className=''> MooJournaling </span> journey!</h3>
+                        </span>
                         <span className="btn-container">
+
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
                         </span>
                     </>
-                }
+                )}
             </header>
-
         </>
     );
 }
