@@ -39,7 +39,7 @@ function Homepage() {
             <header className={headerClassName}>
                 {state.user ? (
                     <>
-                        <span className="logoContainer">
+                        <span className="logoContainer tl">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                             {state.user.username ? (
                                 <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>

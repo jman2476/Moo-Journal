@@ -139,11 +139,11 @@ function MyMooJournal() {
         })
     }
 
-    const deleteEntry = async (journalId) => {
-        console.log(journalId)
+    const deleteEntry = async (entryId) => {
+        closeEntry(entryId)
         const msg = await removeEntry({
             variables: {
-                journalId: journalId
+                journalId: entryId
             }
         })
 
