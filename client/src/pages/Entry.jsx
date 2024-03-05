@@ -123,7 +123,7 @@ function Entry() {
                 onEditorStateChange={handleEditorStateChange}
             />
 
-            <span className="flex justify-end items-end w-100 pv2 mt2">
+            <span className="flex justify-end displayMoodMobile items-end w-100 pv2 mt2">
             {/* {renderMoodSlider()} */}
             <button className="entrySubmitBtn" onClick={() => submitEntry()}>Submit</button>
 
