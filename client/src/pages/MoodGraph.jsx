@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { GRAPH_MOOD } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
-
 import { LineChart, Line, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import '../styles/pages/graphMood.scss'
 
 
 
@@ -52,7 +52,6 @@ function MoodGraph() {
     return (
         <div className="graph-mood">
             <div>
-
                 <h2>Your Mood over time</h2>
                 {data && <LineChart width={600} height={300} data={userData}>
                     <XAxis dataKey="date" />
