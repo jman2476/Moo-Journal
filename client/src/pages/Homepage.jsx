@@ -37,6 +37,8 @@ function Homepage() {
     return (
         <>
             <header className={headerClassName}>
+
+              
                 {state.user ? (
                     <>
                         <span className="logoContainer">
@@ -46,6 +48,7 @@ function Homepage() {
                             ) : (
                                 <h3><span className='mj-text'></span></h3>
                             )}
+
                         </span>
                         <span>
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
@@ -58,6 +61,7 @@ function Homepage() {
                     </>
                 ) : (
                     <>
+
 
                         <span className="logoContainer">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>

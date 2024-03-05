@@ -1,3 +1,4 @@
+import '../styles/pages/feedbackPage.scss';
 
 
 function Feedback() {
