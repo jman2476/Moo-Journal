@@ -53,6 +53,10 @@ function Footer() {
         marginLeft: '5px',
     }
 
+    const seeContributors = () => {
+
+    }
+
 
     return (
         <footer>
@@ -62,24 +66,24 @@ function Footer() {
                 <img className="desktop" src={grass} alt="pic of grass"></img>
                 <img className="mobile" src={grassMobile} />
             </div>
-            <div className="w-100 contributors flex flex-row pl3 justify-between">
-            <div className="flex">
-            {contributors.map((contributor, index) => ( 
-                            <span className='flex pr3' key={index}>
-                                <p className="ph0">{contributor.name}</p>
-                                <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
-                                    <img src={github} alt="GitHub Icon" className="iconStyles" />
-                                </a>
-                                <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
-                                    <img src={linkedIn} alt="LinkedIn Icon" className="iconStyles" />
-                                </a>
-                            </span>
+            <div className="contributors flex pl1 justify-between">
+                <div className="flex flex-wrap f7 tl pl2 people">
+                    {contributors.map((contributor, index) => (
+                        <span className='flex pr3' key={index}>
+                            <p className="ph0">{contributor.name}</p>
+                            <a className='icons' href={contributor.github} target="_blank" rel="noopener noreferrer">
+                                <img src={github} alt="GitHub Icon" className="iconStyles" />
+                            </a>
+                            <a className='icons' href={contributor.linkedIn} target="_blank" rel="noopener noreferrer">
+                                <img src={linkedIn} alt="LinkedIn Icon" className="iconStyles" />
+                            </a>
+                        </span>
                     ))}
-                    </div>
-                    <div className='feedback pr4'>
-                        <a className="black pr2" href="about">About</a><span></span>
-                        <a className="black" href="feedback">Feedback</a>
-                    </div>
+                </div>
+                <div className='feedback pr4 mb1'>
+                    <a className="black pr2" href="about">About</a><span></span>
+                    <a className="black" href="feedback">Feedback</a>
+                </div>
             </div>
             {/* <div className="contentStyles">
                 <div className="contributeList">
