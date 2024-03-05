@@ -41,7 +41,7 @@ function Homepage() {
               
                 {state.user ? (
                     <>
-                        <span className="logoContainer">
+                        <span className="logoContainer tl">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                             {state.user.username ? (
                                 <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
@@ -54,7 +54,7 @@ function Homepage() {
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
                             <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>
-                                <span className='mj-text fw8'>Go To My MooJournal</span>
+                                <span className='mj-text fw8'>My MooJournal</span>
                             </NavLink>
                             <span onClick={() => handleLogout()} className='btn mj-text fw8'>Logout</span>
                         </span>
