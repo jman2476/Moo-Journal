@@ -7,18 +7,10 @@ import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
 import { EntryBox } from '../components'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { styleMap } from '../utils/editorStyleMap'
 
 import { useStore } from '../store'
-
-// Your timestamp
-const timestamp = 1709591711539;
-
-// Parse the timestamp and format the date
-const formattedDate = dayjs(timestamp).format('MM/DD/YYYY [at] hh:mm a');
-
-console.log(formattedDate); // This should print the correctly formatted date
 
 
 function MyMooJournal() {
@@ -27,6 +19,8 @@ function MyMooJournal() {
     const [showEntry, setShowEntry] = useState(true);
     const [editingEntryId, setEditingEntryId] = useState(null);
     const [toggleExpandCollapse, setToggleExpandCollapse] = useState(true);
+    const [contentHeights, setContentHeights] = useState({})
+
 
     const { state, setState } = useStore()
 
@@ -74,14 +68,16 @@ function MyMooJournal() {
         // Similar approach for entry text
         const displayText = showEntry[entry._id] ? entry.text : truncateText(entry.text, 105); // Adjust 100 to your desired length
 
+        console.log('contentheights', contentHeights)
+        console.log(`content height of ${entry._id}`, contentHeights[entry._id])
         return (
             <>
                 <div className={showEntry[entry._id] ? "" : "hideEntry"}>
-                    <EntryBox fetchedEditorStateString={entry.editorState} />
+                    <EntryBox onHeightChange={handleHeightChange} fetchedEditorStateString={entry.editorState} entryId={entry._id} />
                 </div>
 
                 {
-                    toggleExpandCollapse &&
+                    toggleExpandCollapse && contentHeights[entry._id] > 50 &&
                     <p className="f7 ma0 pa0 pointer hover-white" onClick={() => toggleEntryVis(entry._id)}>
                         <span className="bt">
                             {showEntry[entry._id] ? "Collapse" : "Expand"}
@@ -92,8 +88,17 @@ function MyMooJournal() {
             </>
         );
     };
-
-
+    const handleHeightChange = useCallback((id, height) => {
+        console.log('id', id, 'height', height)
+        setContentHeights(prevHeights => {
+            // Only update if height is different to prevent unnecessary updates
+            if (prevHeights[id] !== height) {
+                return { ...prevHeights, [id]: height };
+            }
+            return prevHeights;
+        });
+    }, []);
+    
     function truncateText(text, maxLength) {
         if (text.length <= maxLength) return text;
         return text.substr(0, maxLength) + '...';
@@ -158,8 +163,12 @@ function MyMooJournal() {
         <>
             {/* <h1>MyMooJournal</h1> */}
             {/* <button onClick={() => console.log(entryData)}>Get notes</button> */}
-            <div className="entry-container overflow-auto flex flex-column items-start ">
-                <h2 className="fw1 mr2 bb">My Journal Entries</h2>
+                {/* <h2 className="fw1 mr2 tl"><span className="bb">My Journal Entries</span></h2> */}
+
+        <div className="relative">
+        <div className="blur absolute bottom-0 w-100"></div>
+
+            <div className="entry-container overflow-auto flex flex-column-reverse items-start mt5">
                 {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
                 {entryData?.getUserEntries.map((entry, index) => (
                     <div style={{
@@ -214,7 +223,7 @@ function MyMooJournal() {
                     </div>
                 ))}
             </div>
-
+</div>
         </>
     )
 }
