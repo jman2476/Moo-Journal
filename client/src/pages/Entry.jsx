@@ -1,4 +1,4 @@
-import { PromptBox, EditorComponent } from "../components"
+import { PromptBox, EditorComponent, Dropdown } from "../components"
 import { useState, useEffect } from 'react'
 import { useStore } from '../store'
 import {NEW_ENTRY} from '../graphql/mutations'
@@ -8,7 +8,7 @@ import moods from '../utils/moods'
 
 import '../styles/pages/entryPage.scss'
 
-import {styleMap} from '../utils/editorStyleMap'
+import {styleMap, combinedStyleConfig} from '../utils/editorStyleMap'
 
 import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 
@@ -52,34 +52,14 @@ function Entry() {
         const newState = RichUtils.toggleInlineStyle(editorState, style);
         handleEditorStateChange(newState);
     };
-    const renderMoodSlider = () => {
-        return (
-            <div className="flex flex-column items-start w-80 mr4 pv4 tl">
-                <p className="ma0 pa0 nowrap pb3 np">How Do you feel Today? <span className="pa1 ph2 ml2 br3 mb1" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span></p>
-            
-                <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={value}
-                    onChange={handleMoodChange}
-                    className="slider w-100"
-                />
-            </div>
-        )
-    }
-    const handleMoodChange = (event) => {
-        const value = event.target.value;
-        setValue(value);
-        setJournalEntry({
-            ...journalEntry,
-            moodRanking:+value
-        })
-    };
+
+    const customStyleMap = combinedStyleConfig.reduce((acc, option) => {
+        acc[option.style] = option.css
+        return acc
+    }, {})
+
 
     const submitEntry = async () => {
-
-
         const rawEditorState = convertToRaw(editorState.getCurrentContent());
         const serializedEditorState = JSON.stringify(rawEditorState);
 
@@ -105,6 +85,64 @@ function Entry() {
 
     }
 
+    const renderStyleButtons = () => {
+        return combinedStyleConfig.map((option, index) => {
+            const applyStyle = () => {
+                let newState;
+
+                if(option.type === 'inline'){
+                    newState = RichUtils.toggleInlineStyle(editorState, option.style)
+                } else if(option.type === 'block') {
+                    newState = RichUtils.toggleBlockType(editorState, option.style)
+                }
+
+                if(newState){
+                    handleEditorStateChange(newState)
+                }
+            }
+
+            return (
+                <button key={index} className={option.className} onClick={applyStyle}>
+                    {option.label}
+                </button>
+            )
+
+
+        })
+    }
+
+    // function Dropdown({ label, options, onChange }) {
+    //     const [isOpen, setIsOpen] = useState(false);
+    
+    //     const toggleDropdown = () => setIsOpen(!isOpen);
+    
+    //     return (
+    //         <div className="dropdown">
+    //             <button className="dropdown-button" onClick={toggleDropdown}>
+    //                 {label}
+    //             </button>
+    //             {isOpen && (
+    //                 <ul className="dropdown-menu">
+    //                     {options.map((option, index) => (
+    //                         <li
+    //                             key={index}
+    //                             className="dropdown-item"
+    //                             onClick={() => {
+    //                                 onChange(option); // Trigger the callback
+    //                                 toggleDropdown(); // Close the dropdown
+    //                             }}
+    //                         >
+    //                             {option.label}
+    //                         </li>
+    //                     ))}
+    //                 </ul>
+    //             )}
+    //         </div>
+    //     );
+    // }
+    
+
+
 
     return (
         <div className="entry-editor">
@@ -112,14 +150,12 @@ function Entry() {
 
 
             <span className="flex flex-row pointer">
-                <p className="pr1 pt0 mt1" onClick={() => applyStyle('SMALL')}>Small</p>
-                <p className="pr1 pt0 mt1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
-                <p className="pr1 pt0 mt1" onClick={() => applyStyle('LARGE')}>Large</p>
-                <p className="pr1 pt0 mt1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
+            {renderStyleButtons()}
+
             </span>
             <EditorComponent
                 editorState={editorState} // Pass the editorState to the EditorComponent
-                customStyleMap={styleMap}
+                customStyleMap={customStyleMap}
                 onEditorStateChange={handleEditorStateChange}
             />
 
@@ -129,7 +165,18 @@ function Entry() {
 
             </span>
 
-            
+            <Dropdown
+    label="Text Size"
+    options={[
+        { label: 'Small', style: 'SMALL' },
+        { label: 'Medium', style: 'MEDIUM' },
+        { label: 'Large', style: 'LARGE' }
+    ]}
+    onChange={(option) => {
+        console.log(option.style); // Here, you would apply the style
+        // For example: applyStyle(option.style)
+    }}
+/>
 
 
         </div>
