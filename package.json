@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "client:build": "cd ./client && npm run build",
-    "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"", 
+    "dev": "concurrently \"cd ./client && npm run dev\" \"cd ./server && npm run dev\"",
     "install:client": "cd ./client && npm i",
     "install": "cd ./server && npm i",
     "add": "git add -A",
     "commit": "git add -A && git commit -m \"ready for deploy\"",
     "push:heroku": "git push heroku main",
-    "deploy": "npm run client:build && npm run add && npm run commit && npm run push:heroku",
+    "deploy": "npm run client:build && npm run add && npm run commit && git push heroku HEAD:main",
     "start": "cd ./server && npm start",
-    "start:testwin" : "cd ./server && set NODE_ENV=production npm start",
+    "start:testwin": "cd ./server && set NODE_ENV=production npm start",
     "start:testmac": "cd ./server && NODE_ENV=production npm start"
   },
   "keywords": [],
@@ -21,5 +21,8 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "recharts": "^2.12.2"
   }
 }

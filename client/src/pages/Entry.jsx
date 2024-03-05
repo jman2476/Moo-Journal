@@ -4,37 +4,16 @@ import { useStore } from '../store'
 import {NEW_ENTRY} from '../graphql/mutations'
 import { useMutation } from '@apollo/client'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
+import moods from '../utils/moods'
 
 import '../styles/pages/entryPage.scss'
 
-const styleMap = {
-    'SMALL': { fontSize: 12 },
-    'MEDIUM': { fontSize: 18 },
-    'LARGE': { fontSize: 24 },
-    'HIGHLIGHT': { backgroundColor: 'yellow' },
-}
+import {styleMap} from '../utils/editorStyleMap'
 
-import { EditorState, RichUtils } from 'draft-js';
+import { EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
 
 
 function Entry() {
-
-    const moods = [
-        { mood: "Absolutely dreadful", color: "#4a4e69" }, // Dark gray
-        { mood: "Terri-bull", color: "#22223b" }, // Charcoal
-        { mood: "Somewhat gloomy", color: "#6b705c" }, // Olive green
-        { mood: "Barely tolerable", color: "#9a8c98" }, // Muted purple
-        { mood: "Mediocre at best", color: "#c9ada7" }, // Soft pink
-        { mood: "Accepta-bull", color: "#f2e9e4" }, // Off white
-        { mood: "Pretty good", color: "#a5a58d" }, // Khaki
-        { mood: "Udderly happy", color: "#f4a261" }, // Sandy orange
-        { mood: "Remarka-bull", color: "#2a9d8f" }, // Teal
-        { mood: "Fantastically vibrant", color: "#e9c46a" }, // Saffron
-        { mood: "Euphorically ecstatic", color: "#f72585" } // Vivid pink
-      ]
-      
-
-
     const [value, setValue] = useState(5);
 
     const { state, setState } = useStore()
@@ -48,7 +27,7 @@ function Entry() {
     useEffect(() => {
         setJournalEntry({
             promptId:null,
-            text:null,
+            text:"",
             moodRanking:5
         })
         console.log('entry', journalEntry)
@@ -56,16 +35,18 @@ function Entry() {
 
     const handleEditorStateChange = (newState) => {
 
-        
+        const rawEditorState = convertToRaw(editorState.getCurrentContent());
+        const serializedEditorState = JSON.stringify(rawEditorState);
+
         const contentState = newState.getCurrentContent();
         setJournalEntry({
             ...journalEntry,
-            text:contentState.getPlainText()
+            text:contentState.getPlainText(),
+            editorState:serializedEditorState
         })
 
 
         setEditorState(newState);
-        console.log(contentState.getPlainText());
     };
 
     const applyStyle = (style) => {
@@ -90,7 +71,6 @@ function Entry() {
     }
     const handleMoodChange = (event) => {
         const value = event.target.value;
-        console.log('type', typeof +value)
         setValue(value);
         setJournalEntry({
             ...journalEntry,
@@ -100,16 +80,17 @@ function Entry() {
 
     const submitEntry = async () => {
 
-        const textData = journalEntry?.text
-        console.log(journalEntry?.text)
-        console.log(journalEntry?.text.length)
 
-        if(journalEntry?.text && journalEntry?.text.length < 50 || !journalEntry?.text.length){
-            return alert('must be more than 100 chars')
+        if(journalEntry?.text && journalEntry?.text.length < 10 || !journalEntry?.text.length){
+            return alert('must be more than 10 chars')
         }
-
+        console.log('entry', journalEntry)
         console.log(editorState)
-        const data = await newEntry()
+        const data = await newEntry({
+            variables:{
+                ...journalEntry
+            }
+        })
         console.log(data)
         navigate('/')
 
@@ -120,13 +101,13 @@ function Entry() {
         <div className="entry-editor">
             <PromptBox journalEntry={journalEntry} setJournalEntry={setJournalEntry}/>
 
-{/* 
+
             <span className="flex flex-row pointer">
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('SMALL')}>Small</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('MEDIUM')}>Medium</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('LARGE')}>Large</p>
                 <p className="pr1 pt0 mt1" onClick={() => applyStyle('HIGHLIGHT')}>Highlight</p>
-            </span> */}
+            </span>
             <EditorComponent
                 editorState={editorState} // Pass the editorState to the EditorComponent
                 customStyleMap={styleMap}

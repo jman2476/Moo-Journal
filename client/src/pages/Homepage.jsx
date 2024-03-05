@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 
 import { useState } from 'react'
-import { CowPatternBg, AddNewEntry } from '../components';
+import { CowPatternBg } from '../components';
 import '../styles/pages/homepage.scss'
 
 import { useStore } from '../store'
@@ -59,8 +59,10 @@ function Homepage() {
                     <span className="logoContainer">
                         <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
 
+
                         <h3>Start your <span className=''> MooJournaling </span> journey!</h3></span>
                         <span>
+
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
                         </span>

@@ -19,6 +19,7 @@ const typeDefs = gql`
         user: User
         createdAt: String
         updatedAt: String
+        editorState:String
     }
 
     type Prompt {
@@ -35,15 +36,15 @@ const typeDefs = gql`
     }
 
     type mooData {
-        date: Int
-        moodRanking: Int
+        date: [String]
+        moodRanking: [Int]
         user: User
     }
 
     type Query {
         authenticate: User
         getUserEntries: [Journal]
-        graphMood: [mooData]
+        graphMood: mooData
         getEntryById(journal_id: String!): Journal
     }
 
@@ -53,7 +54,7 @@ const typeDefs = gql`
         logoutUser: Success
         generatePrompt(type: String!): Prompt
         test: Success
-        newEntry(prompt_id: String, text: String!, moodRanking: Int!): Journal
+        newEntry(prompt_id: String, text: String!, moodRanking: Int!, editorState:String!): Journal
         updateEntry(journal_id: String!, text: String!): Success
         deleteEntry(journal_id: String!): Success
     }

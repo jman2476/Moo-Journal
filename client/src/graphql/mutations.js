@@ -1,13 +1,4 @@
-import {gql} from '@apollo/client'
-
-export const TEST = gql`
-  mutation Test {
-    test {
-      message
-    }
-  }
-`
-
+import { gql } from '@apollo/client'
 
 export const GENERATE_PROMPT = gql`
   mutation Mutation($type: String!) {
@@ -22,15 +13,6 @@ export const GENERATE_PROMPT = gql`
 }
 `
 
-export const SIGNUP_USER = gql`
-  mutation SignUpUser($username: String!, $email: String!, $password: String!) {
-    signUpUser(username: $username, email: $email, password: $password) {
-      _id
-      email
-      username
-    }
-  }
-`
 
 export const REGISTER_USER = gql`
   mutation RegisterUser($username: String!, $email: String!, $password: String!) {
@@ -51,22 +33,6 @@ export const LOGIN_USER = gql`
     }
   }
 `
-export const CREATE_LIGHTENTRY = gql`
-  mutation CreateLightEntry($text: String!) {
-    CreateLightEntry(text: $text) {
-      _id
-      text
-    }
-  }
-`
-export const CREATE_HEAVYENTRY = gql`
-  mutation CreateHeavyEntry($text: String!) {
-    createHeavyEntry(text: $text) {
-      _id
-      text
-    }
-  }
-`
 
 export const LOGOUT_USER = gql`
   mutation LogoutUser {
@@ -76,38 +42,37 @@ export const LOGOUT_USER = gql`
   }
 `
 
-// export const EDIT_ENTRY = gql`
-//   mutation EditEntry($text: String!, $entry_id: ID) {
-//     editEntry(text: $text, entry_id: $entry_id) {
-//       message
-//     }
-//   }
-// `
-export const DELETE_LIGHTENTRY = gql`
-  mutation DeleteLightEntry($entry_id: ID) {
-    DeleteLightEntry(entry_id: $entry_id) {
-      message
-    }
-  }
-`
-export const DELETE_HEAVYENTRY = gql`
-  mutation DeleteHeavyEntry($entry_id: ID) {
-    DeleteHeavyEntry(entry_id: $entry_id) {
-      message
-    }
-  }
-`
 export const NEW_ENTRY = gql`
-mutation newEntry($promptId: String!, $text: String!, $moodRanking: Int!) {
-  newEntry(prompt_id: $promptId, text: $text, moodRanking: $moodRanking) {
-    _id
-    user {
-      username
-    }
-    prompt {
+  mutation newEntry($text: String!, $moodRanking: Int!, $promptId: String, $editorState: String!) {
+    newEntry(text: $text, moodRanking: $moodRanking, prompt_id: $promptId, editorState: $editorState) {
+      _id
+      prompt {
+        _id
+        text
+        cream
+        usageCount
+        createdAt
+        updatedAt
+      }
+      moodRanking
+      cream
       text
+      user {
+        _id
+        username
+        email
+      }
+      createdAt
+      updatedAt
+      editorState
     }
   }
-}
+`
 
+export const DELETE_ENTRY = gql`
+  mutation deleteEntry($journalId: String!) {
+    deleteEntry(journal_id: $journalId) {
+      message
+    }
+  }
 `

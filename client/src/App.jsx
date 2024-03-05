@@ -6,15 +6,18 @@ import 'tachyons'
 import './App.css'
 
 // Pages
-import { Homepage, About, AuthForm, Feedback, MyMooJournal, LightEntry, HeavyEntry, NotFound, Entry } from './pages';
+import { Homepage, About, AuthForm, Feedback, MyMooJournal, NotFound, Entry, MoodGraph } from './pages';
 
 
 // Components
 import { LoadingIndicator, Footer } from './components'
 
+import { useStore } from './store'
 
 
 function App() {
+
+  const { state, setState } = useStore()
 
   const [loading, setLoading] = useState(true)
 
@@ -49,16 +52,17 @@ function App() {
       <LoadingIndicator />
       :
       <>
+        {state.bgBlur && <div className="modal-backdrop"></div>}
         <Homepage />
         <Routes>
           <Route path="/"/>
           <Route path="/about" element={<About />} />
           <Route path="/entry" element={<Entry />} />
           <Route path="/auth" element={<AuthForm />} />
-          
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/my_journal" element={<MyMooJournal />} />
-          <Route path="/light_entry" element={<LightEntry />} />
-          <Route path="/heavy_entry" element={<HeavyEntry />} />
+         
+          <Route path="/mood_graph" element={<MoodGraph />}/>
           <Route path="*" element={<NotFound />} />
 
         </Routes>

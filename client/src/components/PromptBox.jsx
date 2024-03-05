@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client"
-import { GENERATE_PROMPT, TEST } from "../graphql/mutations"
+import { GENERATE_PROMPT } from "../graphql/mutations"
 import { useState, useEffect } from "react"
 import dayjs from 'dayjs';
 
@@ -48,12 +48,14 @@ function PromptBox({ journalEntry, setJournalEntry }) {
 
     const handleMoodChange = (event) => {
         const value = event.target.value;
-        console.log('type', typeof +value)
+        console.log('type',+value)
         setValue(value);
         setJournalEntry({
             ...journalEntry,
             moodRanking:+value
         })
+
+        console.log(journalEntry)
     };
 
     const renderCreamSelection = () => {
@@ -163,7 +165,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
             {loading ? <p>Loading...</p> : renderContentBasedOnStep()}
 
             <div className="absolute bottom-1 left-2">
-            <p className="">Mood:<span className="pa1 ph2 ml1 br3 mb1 mr2" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span> Date: <span className="pr2">{dayjs().format('MM/DD/YY')}</span> </p>
+            <p className=""><span className="pa1 ph2 ml1 br3 mb1 mr2" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>Mood: {moods[value].mood}</span> Date: <span className="pr2">{dayjs().format('MM/DD/YY')}</span> </p>
             
             </div>
             
