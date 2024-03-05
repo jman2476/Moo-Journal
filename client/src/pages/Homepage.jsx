@@ -9,7 +9,7 @@ import '../styles/pages/homepage.scss'
 import { useStore } from '../store'
 import { LOGOUT_USER } from '../graphql/mutations';
 
-function Homepage() { 
+function Homepage() {
 
     const navigate = useNavigate()
 
@@ -28,21 +28,21 @@ function Homepage() {
 
     }
 
-        // Determine if we're at the root path
+    // Determine if we're at the root path
     const isRootPath = location.pathname === '/';
 
-        // Dynamic className based on the current path
+    // Dynamic className based on the current path
     const headerClassName = isRootPath ? 'homepage' : 'not-homepage';
 
     return (
         <>
             <header className={headerClassName}>
-            
+
                 {state.user ?
                     <>
-                    <span className="logoContainer">
-                        <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
-                        <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
+                        <span className="logoContainer">
+                            <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
+                            <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
                         </span>
                         <span>
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
@@ -56,10 +56,10 @@ function Homepage() {
                     </>
                     :
                     <>
-                    <span className="logoContainer">
-                        <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
+                        <span className="logoContainer">
+                            <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
 
-                        <h3>Start your <span className=''> MooJournaling </span> journey.</h3></span>
+                            <h3>Start your <span className=''> MooJournaling </span> journey.</h3></span>
                         <span className="btn-container">
                             <NavLink className="btn" to='/about'>What the hell is <span className='mj-text fw8'>MooJournal</span>?</NavLink>
                             <NavLink className="btn" to='/auth'>Login | Sign Up</NavLink>
