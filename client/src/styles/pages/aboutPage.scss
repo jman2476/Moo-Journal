@@ -1,0 +1,43 @@
+$cream: #f0ead2;
+$grass-green: #669900;
+$light-brown: #a67c52;
+
+
+
+.text-box {
+    border: $light-brown 5px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: $cream;
+    opacity: 90%;
+    padding: 15px;
+    text-align: left;
+    max-width: 800px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Sniglet';
+}
+
+.center-text {
+    text-align: center;
+}
+
+.title-text {
+    font-family: 'Sniglet';
+    font-size: 32px;
+    text-align: left;
+    padding-bottom: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.indented-text {
+    text-indent: 35px;
+}

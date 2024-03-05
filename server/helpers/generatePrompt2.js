@@ -4,6 +4,7 @@ const OpenAI = require("openai");
 // Load environment variables
 dotenv.config();
 
+
 // Initialize OpenAI client
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_1 });
 
