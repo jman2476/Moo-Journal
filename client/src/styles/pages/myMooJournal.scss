@@ -1,0 +1,38 @@
+.journalEntryCard {
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1000px;
+  background-color: #f0ead2;
+  // overflow:hidden;
+  height: fit-content;
+}
+
+/* TruncateText.css */
+.truncate {
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+  width: 100%;
+}
+.entry-container {
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: clip;
+  box-sizing: border-box; /* Include padding and margin in the element's width calculation */
+  padding:10px;
+}
+
+.promptEntryBox {
+  width: 100%;
+  p {
+    width: inherit;
+  }
+  // background:black;
+  // height:10px;
+  overflow: hidden;
+}
+
+#root {
+  flex: 1;
+}

@@ -12,9 +12,6 @@ export const GET_USER_NOTES = gql`
 query getUserEntries {
   getUserEntries {
     _id
-    cream
-    createdAt
-    moodRanking
     prompt {
       _id
       text
@@ -23,13 +20,17 @@ query getUserEntries {
       createdAt
       updatedAt
     }
+    moodRanking
+    cream
     text
-    updatedAt
     user {
       _id
       username
       email
     }
+    createdAt
+    updatedAt
+    editorState
   }
 }`
 

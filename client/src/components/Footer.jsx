@@ -50,7 +50,7 @@ function Footer() {
     }
 
     return (
-        <footer style={{ position: 'absolute' }}>
+        <footer style={{ position: 'absolute', zIndex: '-5' }}>
             <div style={backgroundStyles}></div>
             <div style={contentStyles}>
                 {contributors.map((contributor, index) => (

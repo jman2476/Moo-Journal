@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 
 import { useState } from 'react'
-import { CowPatternBg, AddNewEntry } from '../components';
+import { CowPatternBg } from '../components';
 import '../styles/pages/homepage.scss'
 
 import { useStore } from '../store'

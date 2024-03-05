@@ -6,7 +6,7 @@ import 'tachyons'
 import './App.css'
 
 // Pages
-import { Homepage, About, AuthForm, Feedback, MyMooJournal, LightEntry, HeavyEntry, NotFound, Entry, MoodGraph } from './pages';
+import { Homepage, About, AuthForm, Feedback, MyMooJournal, NotFound, Entry, MoodGraph } from './pages';
 
 
 // Components

@@ -68,8 +68,10 @@ module.exports = {
 
                 if (!prompt) {
                     const entry = await Journal.create({
+                        prompt:args.promptId,
                         text: args.text,
-                        moodRanking: 5,
+                        moodRanking: args.moodRanking,
+                        editorState:args.editorState,
                         user: user_id
                     })
     
@@ -82,10 +84,11 @@ module.exports = {
 
                 const entry = await Journal.create({
                     prompt: prompt._id,
-                    cream: prompt.cream,
                     text: args.text,
-                    moodRanking: 5,
-                    user: user_id
+                    moodRanking: args.moodRanking,
+                    user: user_id,
+                    editorState:args.editorState,
+
                 })
 
                 // add the journal entry to the user's journal
