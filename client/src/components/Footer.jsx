@@ -7,11 +7,11 @@ import '../styles/components/footer.scss'
 
 function Footer() {
     const contributors = [
-        { name: 'Jasvinder Saini', github: 'https://github.com/jsaini1727', linkedIn: 'in/jasvinder-saini2769' },
-        { name: 'Jeremy McKeegan', github: 'https://github.com/jman2476', linkedIn: 'in/' },
-        { name: 'Charles Swayne', github: 'https://github.com/cjswayne', linkedIn: 'in/charles-swayne-42b277284' },
-        { name: 'Shannon Tice', github: 'https://github.com/shannontice', linkedIn: 'in/' },
-        { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'in/winston-james-jr' },
+        { name: 'Jasvinder Saini', github: 'https://github.com/jsaini1727', linkedIn: 'https://www.linkedin.com/in/jasvinder-saini2769/' },
+        { name: 'Jeremy McKeegan', github: 'https://github.com/jman2476', linkedIn: 'https://www.linkedin.com/in/jeremy-mckeegan-241a842aa/' },
+        { name: 'Charles Swayne', github: 'https://github.com/cjswayne', linkedIn: 'https://www.linkedin.com/in/charles-swayne/' },
+        { name: 'Shannon Tice', github: 'https://github.com/shannontice', linkedIn: 'https://www.linkedin.com/in/shannon-tice/' },
+        { name: 'Winston James Jr', github: 'https://github.com/wintino5', linkedIn: 'https://www.linkedin.com/in/winston-james-jr/' },
 
     ];
 
