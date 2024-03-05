@@ -19,21 +19,18 @@ module.exports = {
                 let data = []
                 // return in the form {[dates], [moodRanking]}
                 for (let entry in userEntries.journal) {
-                    console.log(entry)
                     dates.push(dayjs(userEntries.journal[entry].createdAt).format())
                     moodRankings.push(userEntries.journal[entry].moodRanking)
-
-                    // return in format [{x: value, y: value}]
-                    data.push({
-                        x: dayjs(userEntries.journal[entry].createdAt).format(),
-                        y: userEntries.journal[entry].moodRanking
-                    })
                 }
 
-                console.log(dates)
-                console.log(data)
+                // console.log(dates)
+                // console.log(moodRankings)
 
-                return data
+                return {
+                    date: dates,
+                    moodRanking: moodRankings,
+                    user: userName
+                }
             } catch (err) {
                 console.log(err)
                 let errors = []

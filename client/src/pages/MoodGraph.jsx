@@ -1,42 +1,46 @@
 import { useState, useEffect } from 'react'
 import { GRAPH_MOOD } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
-// import { CategoryScale, Chart } from "chart.js";
-// import { Line } from 'react-chartjs-2'
+
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 
 
 
 function MoodGraph() {
 
-    // const [userData, setUserData] = useState([])
+    const { loading, error, data } = useQuery(GRAPH_MOOD)
+    const [userData, setUserData] = useState([])
+
     
-    // useEffect(() => {
-        const { loading, error, data } = useQuery(GRAPH_MOOD)
-        console.log(data)
-
-        // setUserData(data)
-        // }, [])
-        let userData = []
-for (let i in data.graphMood) {
-    userData.push({x: data.graphMood.moodRanking[i]})
-}
-    // data.push({
-    //     x: dayjs(userEntries.journal[entry].createdAt).format(),
-    //     y: userEntries.journal[entry].moodRanking
-    // })
-
+    useEffect(() => {
+        if (data) {
+            let dataOrganizer = []
+            console.log(data.graphMood.date)
+            console.log(data.graphMood.moodRanking)
+            console.log(userData)
+            for (let i in data.graphMood.date) {
+                dataOrganizer.push({
+                    date: data.graphMood.date[i],
+                    moodRanking: data.graphMood.moodRanking[i]
+                })
+            }
+            setUserData(dataOrganizer)
+        }
+    }, [data])
+    
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
+    console.log(userData)
 
     return (
         <div className="graph-mood">
             {data && <LineChart width={600} height={300} data={userData}>
-                <XAxis dataKey="name" />
+                <XAxis dataKey="date" />
                 <YAxis />
                 <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="moodRanking" stroke="#8884d8" />
             </LineChart>}
         </div>
     )
