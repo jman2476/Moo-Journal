@@ -12,7 +12,7 @@ function Protect({ children }) {
         if (!state.loading) {
             if (!state.loading) {
                 if (!state.user && !location.pathname.includes('auth')) {
-                    navigate('/auth');
+                    navigate('/auth', {state: {message: 'Please login to access this page!'}});
                 }
 
                 if (state.user && location.pathname === '/auth') {
@@ -20,7 +20,7 @@ function Protect({ children }) {
                 }
             }
         }
-    }, [state.user])
+    }, [state.user, state.loading, location.pathname, navigate])
 
     return (
         <>

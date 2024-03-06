@@ -1,54 +1,46 @@
-import { useContext, createContext, useState, useEffect } from "react"
-import { useQuery } from '@apollo/client'
+import { useContext, createContext, useState, useEffect } from "react";
+import { useQuery } from '@apollo/client';
+import { AUTHENTICATE } from '../graphql/queries';
 
-import {AUTHENTICATE} from '../graphql/queries'
+const Context = createContext();
 
-const Context = createContext()
-
-export function StoreProvider({children}){
-
-    const { data: userData } = useQuery(AUTHENTICATE) // correct userData obj
-
-    const [state, setState] = useState({
-        user:null,
+export function StoreProvider({ children }) {
+    
+    const { data: userData } = useQuery(AUTHENTICATE);
+    
+    const initialState = {
+        user: null,
         loading: true,
-        bgBlur:false
-    })
+        bgBlur: false
+    };
+
+    const [state, setState] = useState(initialState);
 
     useEffect(() => {
-        if(userData){
-            console.log(userData.authenticate)
-            setState({
-                ...state,
-                user:userData.authenticate,
-                loading:false
-            })
+        if (userData) {
+            console.log(userData.authenticate);
+            setState(prevState => ({
+                ...prevState,
+                user: userData.authenticate
+            }));
         }
-    }, [userData])
+    }, [userData]);
 
     useEffect(() => {
-
-        // setTimeout(() => {
-        // console.log('page loaded')
-
-        //     setState({
-        //         ...state,
-        //         loading:false
-        //     })        }, 2000);
-
-
-
-    }, [])
-
+        setTimeout(() => {
+            console.log('page loaded');
+            setState(prevState => ({
+                ...prevState,
+                loading: false
+            }));
+        }, 2000);
+    }, []);
 
     return (
-        <Context.Provider value={{
-            state,
-            setState
-        }}>
+        <Context.Provider value={{ state, setState }}>
             {children}
         </Context.Provider>
-    )
+    );
 }
 
-export const useStore = () => useContext(Context)
+export const useStore = () => useContext(Context);
