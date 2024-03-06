@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useStore } from '../store';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { REGISTER_USER, LOGIN_USER } from '../graphql/mutations';
@@ -17,6 +17,9 @@ function AuthForm() {
     });
 
     const [authenticateUser] = useMutation(formData.isLogin ? LOGIN_USER : REGISTER_USER);
+
+    const location = useLocation();
+    const message = location.state && location.state.message;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -63,6 +66,7 @@ function AuthForm() {
 
     return (
         <div className="authform justify-center w-100">
+            {message && <p>{message}</p>}
             <div className="flex flex-column tl">
                 {formData.isLogin ? (
                     <>
