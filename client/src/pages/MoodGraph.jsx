@@ -56,6 +56,7 @@ function MoodGraph() {
 
             <div>
                 <h2>Your Mood over time</h2>
+                <div className='ymot'>
                 {data && <LineChart width={600} height={300} data={userData}>
                     <XAxis dataKey="date" />
                     <YAxis />
@@ -64,9 +65,11 @@ function MoodGraph() {
                     <Legend />
                     <Line type="monotone" dataKey="moodRanking" stroke="#8884d8" />
                 </LineChart>}
+                </div>
             </div>
             <div>
                 <h2>Mood Histogram</h2>
+                <div className='histogram'>
                 {data &&
                     <BarChart
                         width={500}
@@ -86,7 +89,7 @@ function MoodGraph() {
                         <Bar dataKey="count" fill="#8884d8" activeBar={<Rectangle fill="brown" stroke="brown" />} />
                     </BarChart>
                 }
-
+                </div>
             </div>
 
         </div>

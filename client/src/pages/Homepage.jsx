@@ -57,7 +57,7 @@ function Homepage() {
                             <NavLink className="btn" to='/my_journal'>
                                 <span className='mj-text fw8'>My MooJournal</span>
                             </NavLink>
-                            <span onClick={() => handleLogout()} className='btn mj-text fw8'>Logout</span>
+                            <span onClick={() => handleLogout()} className='btn mj-text fw8 logoutBtn'>Logout</span>
                         </span>
                     </>
                 ) : (

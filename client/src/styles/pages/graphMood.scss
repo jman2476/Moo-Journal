@@ -3,6 +3,7 @@
     position: relative;
     top: 30px;
 }
+
 .graph-mood {
     flex-direction: row;
 
@@ -14,8 +15,29 @@
     }
 }
 
-// @media screen and (min-width: 1100px) {
-//     .graph-mood {
-//         flex-direction: row
-//     }
-// }
+@media (max-width: 480px) {
+    
+    .graph-mood {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;;
+     justify-content: space-around;
+    //  margin: 0 !important;
+     margin-top: 200px;
+     margin-bottom: 0;
+     padding: 0 !important;
+     h2 {
+        font-size: 15px;
+        text-align: center;
+     }
+     .ymot {
+        display: block;
+     }
+        
+    }
+    .graph-container {
+        width: 1vw !important;
+        height: 100px !important;
+        margin: 5px;
+    }
+}

@@ -86,22 +86,18 @@
   .DraftEditor-root {
     background: #f0ead2;
     flex: 1;
-    height: 275px;
+    height: 200px;
     padding: 10px;
     overflow: auto;
   }
 
-  // .moodMobile {
-  // margin-bottom: 0;
-  // padding-bottom: 0;
-  // }
 
   .entry-editor {
     background: rgb(173, 193, 120);
     min-width: 350px;
-    margin-top: 110px;
+    margin-top: 80px;
     margin-bottom: 50px;
-    margin-left: auto;
+    margin-left: 0;
     // margin-right: 10px;
     padding: 15px;
     border-radius: 20px;
@@ -175,10 +171,15 @@
 
   .displayMoodMobile, 
   p {
-    // display: flex;
-    // flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: -15px;
+    align-items: start;
+    margin-bottom: 0;
+    margin-top: 45px;
+    padding-right: -7px;
   }
 
+  
 
 }

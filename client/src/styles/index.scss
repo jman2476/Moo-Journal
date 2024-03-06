@@ -30,15 +30,7 @@ $cream: #f0ead2;
   --buttercream-yellow: #f2e085;
 }
 
-// a {
-//   font-weight: 500;
-//   color: #646cff;
-//   text-decoration: inherit;
-// }
 
-// a:hover {
-//   color: #535bf2;
-// }
 
 body {
   margin: 0;
@@ -46,7 +38,7 @@ body {
   place-items: center;
   // min-width: 320px;
   min-height: 100vh;
-  height:100%;
+  height: 100%;
 }
 
 h1 {
@@ -69,7 +61,7 @@ button,
   color: $white-smoke;
   margin: 0px 10px;
   text-shadow: -4px 4px 20px $gray;
-  height:min-content;
+  height: min-content;
 }
 
 .footStyle {
@@ -88,50 +80,9 @@ button:hover,
   color: $white-smoke;
 }
 
-
-
-// @media screen and (max-width: 480px) {
-//   footer {
-//     width: 100%;
-//     flex-direction: inherit;
-//     .feedback{
-//       padding: 0px;
-//       margin-right: 125px;
-//       position: absolute;
-//       justify-content: center;
-//     }
-
-//   }
-// }
-// GENERAL STYLES
-
-.np{
-  pointer-events:none;
+.np {
+  pointer-events: none;
 }
-
-
-
-
-// @media screen and (max-width: 520px) {
-//   footer {
-//     width: 100%;
-
-//     .feedback {
-//       // margin-right: 125px;
-//       position: absolute;
-//       justify-content: center;
-
-//       a {
-//         text-decoration: none;
-//       }
-
-//       &:hover {
-//         text-decoration: underline;
-//       }
-//     }
-
-//   }
-// }
 
 .modak-regular {
   font-family: "Modak", system-ui;
@@ -152,10 +103,6 @@ button:hover,
     color: #213547;
     background-color: $cream;
   }
-
-  // a:hover {
-  //   color: #747bff;
-  // }
 
   button {
     background-color: #f9f9f9;
@@ -233,7 +180,6 @@ button:hover,
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   max-width: 750px;
 
-
   input {
     margin-bottom: 10px;
     width: 100%;
@@ -248,7 +194,6 @@ button:hover,
   }
 
 }
-
 
 .backgroundStyles {
   position: absolute;
@@ -272,7 +217,8 @@ button:hover,
 }
 
 .contentStyles {
-  width: 100vw;;
+  width: 100vw;
+  ;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -297,8 +243,6 @@ button:hover,
   margin-left: 5px;
 }
 
-
-
 @media only screen and (max-width: 600px) {
   body {
     min-width: 320px;
@@ -311,65 +255,6 @@ button:hover,
     // // flex-direction: column;
     // align-items: safe;
   }
-
-  // footer {
-    // margin-top: 40px;
-    // position: unset;
-    // bottom: auto;
-    // left: 0;
-    // right: 0;
-    // // background:#669900;
-    // height: 300px;
-  
-    // .icons {
-    //   display: flex;
-    //   flex-direction: row;
-    //   justify-content: center;
-    // }
-
-   
-  
-  
-    // .feedback {
-    //   // position: absolute;
-    //   right: 70px;
-    //   color: black;
-    //   margin-bottom: 10px;
-  
-    //   // background:#669900; // nice
-    //   // height: 140px;
-    //   justify-content: center;
-    // }
-  
-    // p {
-    //   position: absolute;
-    //   margin: auto;
-    //   padding: 0;
-    //   font-size: 0.8rem;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: 0;
-    // }
-  // }
-
-  // footer {
-  //   height: 100px;
-  //   // padding: 10px; /* Adjust padding as needed */
-  //   top: auto;
-  //   bottom: -50vh;
-
-  //   .feedback {
-  //     padding: 10px;
-  //     margin-right: 0;
-  //   }
-
-  //   p {
-  //     position: static;
-  //     margin: 10px 0;
-  //     /* Adjust margin as needed */
-  //     text-align: center;
-  //   }
-  // }
 
   .authform {
     background: rgb(173, 193, 120);
@@ -384,14 +269,15 @@ button:hover,
     color: white;
     font-family: "Sniglet", system-ui;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-  }
 
-  // .authform {
-  //   min-width: max-content;
-  //   width: 100%;
-  //   margin: 35vw;
-  //   padding: 20px;
-  // }
+    .btn {
+      margin-right: 0;
+    }
+
+    p {
+      display: inline;
+    }
+  }
 
   .cow-pattern-image {
     // width: 100%;
@@ -451,15 +337,15 @@ button:hover,
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 /* For Firefox */
@@ -474,7 +360,6 @@ button:hover,
   flex-direction: column;
   text-align: left;
   width: 100%
-  
 }
 
 .error {
@@ -482,11 +367,9 @@ button:hover,
 }
 
 // Prompt box css
-.mood-date-box{
-  bottom:15px;
+.mood-date-box {
+  bottom: 15px;
 }
-
-
 
 @media(max-width:480px) {
 
@@ -494,31 +377,17 @@ button:hover,
     box-sizing: border-box;
   }
 
-//   #root{
-//     padding:10px;
-//   }
-
-//   .authform {
-//     display: block;
-//     margin-block-start: 1em;
-//     margin-block-end: 1em;
-//     margin-inline-start: 0px;
-//     margin-inline-end: 0px;
-//     padding: 20px;
-//     min-width: 375px;
-//   }
-
   button:hover,
-.btn:hover {
-  box-shadow: -1px 1px 5px $gray, 1px -1px 10px $white-smoke,
-    1px -1px 5px $gray, -1px 1px 10px $white-smoke;
-  transition: 0.2s ease-out;
-  color: $white-smoke;
-}
+  .btn:hover {
+    box-shadow: -1px 1px 5px $gray, 1px -1px 10px $white-smoke,
+      1px -1px 5px $gray, -1px 1px 10px $white-smoke;
+    transition: 0.2s ease-out;
+    color: $white-smoke;
+  }
 }
 
 @media (max-width: 480px) {
-  .cow-pattern-backdrop{
+  .cow-pattern-backdrop {
     display: none;
   }
 }

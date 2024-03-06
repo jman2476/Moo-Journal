@@ -45,3 +45,12 @@
 .dropdown-item:hover {
     background-color: #ddd;
 }
+
+@media(max-width: 480px) {
+     
+    .dropdown-button {
+        display: none;
+    }
+    
+    
+}
