@@ -176,8 +176,7 @@ function Entry() {
             />
 
             <span className="flex justify-end displayMoodMobile items-end w-100 pv2 mt2">
-            {/* {renderMoodSlider()} */}
-            <button className="entrySubmitBtn" onClick={() => submitEntry()}>Submit</button>
+            <button className="entrySubmitBtn ph4 pa1 br3 mr0" onClick={() => submitEntry()}>Submit</button>
 
             </span>
         </div>
