@@ -49,6 +49,35 @@ function Entry() {
         setEditorState(newState);
     };
 
+    // const applyStyle = (style) => {
+    //     const newState = RichUtils.toggleInlineStyle(editorState, style);
+    //     handleEditorStateChange(newState);
+    // };
+    const renderMoodSlider = () => {
+        return (
+            <div className="flex flex-column items-start w-80 mr4 pv4 tl moodMobile">
+                <p className="ma0 pa0 nowrap pb3 np">How Do you feel Today? <span className="pa1 ph2 ml2 br3 mb1" style={{ backgroundColor: moods[value].color, color:+value === 5 || +value === 4  ? 'black' : 'white' }}>{moods[value].mood}</span></p>
+            
+                <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value={value}
+                    onChange={handleMoodChange}
+                    className="slider w-100"
+                />
+            </div>
+        )
+    }
+    const handleMoodChange = (event) => {
+        const value = event.target.value;
+        setValue(value);
+        setJournalEntry({
+            ...journalEntry,
+            moodRanking:+value
+        })
+    };
+
     const submitEntry = async () => {
         const rawEditorState = convertToRaw(editorState.getCurrentContent());
         const serializedEditorState = JSON.stringify(rawEditorState);
@@ -146,9 +175,9 @@ function Entry() {
                 onEditorStateChange={handleEditorStateChange}
             />
 
-            <span className="flex justify-end items-end w-100 pv2 mt2">
-                {/* {renderMoodSlider()} */}
-                <button onClick={() => submitEntry()}>Submit</button>
+            <span className="flex justify-end displayMoodMobile items-end w-100 pv2 mt2">
+            {/* {renderMoodSlider()} */}
+            <button className="entrySubmitBtn" onClick={() => submitEntry()}>Submit</button>
 
             </span>
         </div>

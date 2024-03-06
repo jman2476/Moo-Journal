@@ -38,10 +38,10 @@ function Homepage() {
         <>
             <header className={headerClassName}>
 
-              
+
                 {state.user ? (
                     <>
-                        <span className="logoContainer tl">
+                        <span className="logoContainer tc">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                             {state.user.username ? (
                                 <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
@@ -50,7 +50,7 @@ function Homepage() {
                             )}
 
                         </span>
-                        <span>
+                        <span className="dashboardBtn">
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
                             <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>
