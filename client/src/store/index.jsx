@@ -5,6 +5,7 @@ import { AUTHENTICATE } from '../graphql/queries';
 const Context = createContext();
 
 export function StoreProvider({ children }) {
+    
     const { data: userData } = useQuery(AUTHENTICATE);
     
     const initialState = {
