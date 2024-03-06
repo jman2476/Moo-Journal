@@ -1,8 +1,5 @@
 import cowPic from '../assets/cow-hp-bg.jpg';
 
-
-
-
 function CowPatternBg(){
     return (
         <>
