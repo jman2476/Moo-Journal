@@ -22,15 +22,51 @@ Then feel free to create new journal entries. Begin by indicating your current m
 
 All of the journal entries made can be viewed on your 'My MooJournal' Dashboard. From this page you can also write additional entries and 'Check your Charts' which allows you to see graph data of your logged mood entries. 
 
+## Installtion
+To install this project, follow these steps:
+
+1. Open your terminal.
+2. Navigate to the directory where you want to clone the project.
+3. Run the following command to clone the repository:
+     ```bash
+   git clone git@github.com:jman2476/Moo-Journal.git
+4. Navigate into the project directory: 
+    ```bash
+    cd moo-journal
+5. Set up your .env file
+    ```bash
+    touch.env
+    nano.env
+    
+Add the following environment variables to the .env file:
+
+        JWT_SECRET=''   
+        API_KEY=''
+        OPENAI_API_KEY_1=''  
+    
+6. Install dependencies for the client side: 
+    ```bash
+    npm run install:client
+7. Install dependencies for the server side:
+    ```bash
+    npm run install
+8. Now you're ready to go! You can start the development environment by running: 
+    ```bash
+    npm run dev
 
 ## Technologies
 Backend: Mongoose, Express, Graphql, OpenAI, DayJs
 
-Frontend: HTML, SCSS, Javascript, Tachyons CSS, Vite, React
-
+Frontend: HTML, SCSS, Javascript, Tachyons CSS, Vite, React, DraftJs
 
 ## License
 This project is licensed under the MIT License.
+
+## Badges
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Credits
+Resources provided by rutgers university full stack bootcamp and Chatgpt-4
 
 ## Contributors
 https://github.com/cjswayne
@@ -38,5 +74,3 @@ https://github.com/jsaini1727
 https://github.com/shannontice
 https://github.com/Wintino5
 https://github.com/jman2476
-
-## Description
