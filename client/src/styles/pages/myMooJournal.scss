@@ -6,6 +6,7 @@
   background-color: #f0ead2;
   // overflow:hidden;
   height: fit-content;
+  z-index:2;
 
   .DraftEditor-root{
     height:fit-content;
@@ -49,6 +50,9 @@
     padding:0;
     z-index:0;
   }
+  .promptEntryBox > p{
+    margin-bottom:10px;
+  }
 }
 
 /* TruncateText.css */
@@ -86,4 +90,8 @@
 
 #root {
   flex: 1;
+}
+
+@media(max-width: 480px){
+  
 }

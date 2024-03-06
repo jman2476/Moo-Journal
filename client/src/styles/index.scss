@@ -376,7 +376,7 @@ button:hover,
     border-radius: 20px;
     min-width: 300px;
     // margin: 10vw;
-    margin-top: 10vh;
+    margin-top: 5vh;
     // margin: auto;
     min-height: 300px;
     padding: 40px 40px 30px;
@@ -481,6 +481,12 @@ button:hover,
   margin-bottom: 5px;
 }
 
+// Prompt box css
+.mood-date-box{
+  bottom:15px;
+}
+
+
 
 @media(max-width:480px) {
 
@@ -517,4 +523,4 @@ button:hover,
   }
 }
 
-// this is a random comment
+// this is a random comment lmao

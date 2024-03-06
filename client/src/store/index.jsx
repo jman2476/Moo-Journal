@@ -33,7 +33,7 @@ export function StoreProvider({ children }) {
                 ...prevState,
                 loading: false
             }));
-        }, 2000);
+        }, 500);
     }, []);
 
     return (

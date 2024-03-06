@@ -9,7 +9,6 @@ function Feedback() {
             <h3 style={{ textAlign:'left' }} className="ma0 pb3">Have any ideas to improve MooJournal to share with us?</h3>
 
             <form>
-
                 <input name="name" type="text" placeholder="Enter your Name" />
                 <textarea name="message" type="text" row="3" placeholder="Enter your feedback" style={{ width: '100%', resize: 'none' }} />
                 <button style={{ marginTop:'10px'}}>Comment</button>

@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 
-import { useState } from 'react'
-import { CowPatternBg } from '../components';
 import '../styles/pages/homepage.scss'
 
 import { useStore } from '../store'
@@ -18,7 +16,11 @@ function Homepage() {
     const location = useLocation(); // Get the current location
 
     const handleLogout = async () => {
-        await logoutUser()
+        try{
+            await logoutUser()
+        } catch(err){
+            console.error(err)
+        }
 
         setState({
             ...state,
@@ -38,10 +40,9 @@ function Homepage() {
         <>
             <header className={headerClassName}>
 
-              
                 {state.user ? (
                     <>
-                        <span className="logoContainer tl">
+                        <span className="logoContainer tc">
                             <h1 className="modak-regular"><a href="/">MooJournal</a></h1>
                             {state.user.username ? (
                                 <h3>Welcome back, <span className='mj-text'>{state.user.username}</span></h3>
@@ -50,7 +51,7 @@ function Homepage() {
                             )}
 
                         </span>
-                        <span>
+                        <span className="dashboardBtn">
                             <NavLink className="btn" to='/entry'>Start New Entry</NavLink>
                             <NavLink className="btn" to='/mood_graph'>Check Your Charts</NavLink>
                             <NavLink className="btn" to='/my_journal'>

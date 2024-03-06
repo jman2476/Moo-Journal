@@ -7,8 +7,7 @@ import '../styles/pages/myMooJournal.scss'
 import dayjs from 'dayjs'
 import { EntryBox } from '../components'
 
-import { useState, useEffect, useCallback } from "react"
-import { styleMap } from '../utils/editorStyleMap'
+import { useState, useEffect, useCallback, useRef } from "react"
 
 import { useStore } from '../store'
 
@@ -20,12 +19,13 @@ function MyMooJournal() {
     const [editingEntryId, setEditingEntryId] = useState(null);
     const [toggleExpandCollapse, setToggleExpandCollapse] = useState(true);
     const [contentHeights, setContentHeights] = useState({})
+    const [scrollPosition, setScrollPosition] = useState(0)
 
+    const scrollableDivRef = useRef(null)
 
     const { state, setState } = useStore()
 
     const { data: entryData, refetch: refetchUserEntries } = useQuery(GET_USER_NOTES)
-
 
     useEffect(() => {
         refetchUserEntries()
@@ -39,37 +39,26 @@ function MyMooJournal() {
 
     const [removeEntry] = useMutation(DELETE_ENTRY)
 
-
-
-
     const togglePrompt = (entry) => {
-        // Determine the text to display based on the showPrompt state
+
         const displayText = showPrompt[entry._id] ? entry.prompt.text : truncateText(entry.prompt.text, 105); // Adjust 100 to your desired length
 
         return (
             <>
                 <p className="ma0 pa0">{displayText}</p>
-                {
-                    toggleExpandCollapse &&
-
-                    <p className="f7 ma0 pa0 mb2 pointer hover-white " onClick={() => togglePromptVis(entry._id)}>
-                        <span className="bt">
-                            {showPrompt[entry._id] ? "Collapse" : "Expand"}
-
-                        </span>
-                    </p>
-                }
-
+                <p className="f7 ma0 pa0 mb2 pointer hover-white " onClick={() => togglePromptVis(entry._id)}>
+                    <span className="bt">
+                        {showPrompt[entry._id] ? "Collapse" : "Expand"}
+                    </span>
+                </p>
             </>
         );
     };
 
     const toggleEntry = (entry) => {
-        // Similar approach for entry text
-        const displayText = showEntry[entry._id] ? entry.text : truncateText(entry.text, 105); // Adjust 100 to your desired length
+        console.log(entryData)
 
-        console.log('contentheights', contentHeights)
-        console.log(`content height of ${entry._id}`, contentHeights[entry._id])
+
         return (
             <>
                 <div className={showEntry[entry._id] ? "" : "hideEntry"}>
@@ -89,7 +78,6 @@ function MyMooJournal() {
         );
     };
     const handleHeightChange = useCallback((id, height) => {
-        console.log('id', id, 'height', height)
         setContentHeights(prevHeights => {
             // Only update if height is different to prevent unnecessary updates
             if (prevHeights[id] !== height) {
@@ -98,13 +86,11 @@ function MyMooJournal() {
             return prevHeights;
         });
     }, []);
-    
+
     function truncateText(text, maxLength) {
         if (text.length <= maxLength) return text;
         return text.substr(0, maxLength) + '...';
     }
-
-
 
     const togglePromptVis = (id) => {
         setShowPrompt((prevShowPrompt) => ({
@@ -120,13 +106,28 @@ function MyMooJournal() {
         })))
     }
 
+    const setPromptVis = (id, isVisible) => {
+        setShowPrompt((prevShowPrompt) => ({
+            ...prevShowPrompt,
+            [id]: isVisible
+        }))
+    }
 
+    const setEntryVis = (id, isVisible) => {
+        setShowEntry((prevShowEntry => ({
+            ...prevShowEntry,
+            [id]: isVisible
+        })))
+    }
 
     const openEntry = (entryId) => {
+        handleScrollPosition('save')
+
         setEditingEntryId(entryId)
         setToggleExpandCollapse(false)
-        toggleEntryVis(entryId)
-        togglePromptVis(entryId)
+
+        setEntryVis(entryId, true)
+        setPromptVis(entryId, true)
         setState({
             ...state,
             bgBlur: true
@@ -134,10 +135,12 @@ function MyMooJournal() {
     }
 
     const closeEntry = (entryId) => {
+        handleScrollPosition('restore')
         setEditingEntryId(null)
         setToggleExpandCollapse(true)
-        toggleEntryVis(entryId)
-        togglePromptVis(entryId)
+
+        setEntryVis(entryId, false)
+        setPromptVis(entryId, false)
         setState({
             ...state,
             bgBlur: false
@@ -146,84 +149,74 @@ function MyMooJournal() {
 
     const deleteEntry = async (entryId) => {
         closeEntry(entryId)
-        const msg = await removeEntry({
-            variables: {
-                journalId: entryId
-            }
-        })
+        try {
+            await removeEntry({
+                variables: {
+                    journalId: entryId
+                }
+            })
+        } catch (err) {
+            console.error(err)   
+        }
 
-        console.log(msg)
+
         refetchUserEntries()
     }
 
-
+    const handleScrollPosition = (handleCase) => {
+        if (scrollableDivRef?.current) {
+            switch (handleCase) {
+                case 'save':
+                    setScrollPosition(scrollableDivRef.current.scrollTop)
+                default:
+                    scrollableDivRef.current.scrollTop = scrollPosition;
+            }
+        }
+    }
 
     return (
-
         <>
-            {/* <h1>MyMooJournal</h1> */}
-            {/* <button onClick={() => console.log(entryData)}>Get notes</button> */}
-                {/* <h2 className="fw1 mr2 tl"><span className="bb">My Journal Entries</span></h2> */}
+            <div className="relative">
+                <div className="entry-container overflow-auto flex flex-column items-start mt5" ref={scrollableDivRef}>
+                    <div className="flex flex-column-reverse">
+                        {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
+                        {entryData?.getUserEntries.map((entry, index) => (
+                            <div style={{
+                                borderColor: moods[entry.moodRanking].color,
+                                borderStyle: 'solid',
+                                borderWidth: '3px'
+                            }} key={entry._id} className={`journalEntryCard ${entry._id === editingEntryId ? 'editEntryModal' : ''} ba br4 ma2 tl `}>
 
-        <div className="relative">
-        <div className="blur absolute bottom-0 w-100"></div>
-
-            <div className="entry-container overflow-auto flex flex-column-reverse items-start mt5">
-                {!entryData?.getUserEntries.length && <h2>You have not created any Entries.</h2>}
-                {entryData?.getUserEntries.map((entry, index) => (
-                    <div style={{
-                        borderColor: moods[entry.moodRanking].color,
-                        borderStyle: 'solid', // Ensure the border is visible by setting a style
-                        borderWidth: '3px' // Set a default border width
-                    }} key={entry._id} className={`journalEntryCard ${entry._id === editingEntryId ? 'editEntryModal' : ''} ba br4 ma2 tl `}>
-
-                        <h4 className="w-100 flex justify-between ma2 mt3 nowrap flex-wrap">
-                            <span className="mj-text">
-                                {/* {dayjs(entry.createdAt).format('MM/DD/YYYY [at] hh:mm a')} */}
-                                {getDate()}
-                            </span>
-                            <span className="pa1 ph2 ml1 br3 mb1 mr2 fw1 ba b--black" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
-                                Mood: {moods[entry.moodRanking].mood}
-                            </span>
-                        </h4>
-
-
-
-                        <div className="promptEntryBox ma2">
-
-
-                            {entry.prompt ? togglePrompt(entry) : <></>}
-
-                            {toggleEntry(entry)}
-                            <div>
-
+                                <h4 className="w-100 flex justify-between ma2 mt3 nowrap flex-wrap">
+                                    <span className="mj-text">
+                                        {getDate(+entry.createdAt)}
+                                    </span>
+                                    <span className="pa1 ph2 ml1 br3 mb1 mr2 fw1 ba b--black" style={{ backgroundColor: moods[entry.moodRanking].color, color: +entry.moodRanking === 5 || +entry.moodRanking === 4 ? 'black' : 'white' }}>
+                                        Mood: {moods[entry.moodRanking].mood}
+                                    </span>
+                                </h4>
+                                <div className="promptEntryBox ma2">
+                                    {entry.prompt ? togglePrompt(entry) : <></>}
+                                    {toggleEntry(entry)}
+                                </div>
+                                <div className="justify-end flex">
+                                    {
+                                        entry._id === editingEntryId ? (
+                                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => closeEntry(entry._id)}>Go Back</button>
+                                        ) : (
+                                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => openEntry(entry._id)}>Open</button>
+                                        )
+                                    }
+                                    <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry(entry._id)}>Delete</button>
+                                </div>
                             </div>
-                        </div>
-
-
-                        <div className="justify-end flex">
-                            {
-                                entry._id === editingEntryId ? (
-                                    <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => closeEntry(entry._id)}>Go Back</button>
-
-                                ) : (
-                                    <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => openEntry(entry._id)}>Open Entry</button>
-
-                                )
-                            }
-
-
-
-                            <button className="pa1 ph3 ma0 mh2 mb1 br3" onClick={() => deleteEntry(entry._id)}>Delete Entry</button>
-                        </div>
-
-
-
+                        ))}
 
                     </div>
-                ))}
+                </div>
+
+
             </div>
-</div>
         </>
     )
 }
