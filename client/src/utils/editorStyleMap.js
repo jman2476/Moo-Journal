@@ -11,7 +11,7 @@ export const combinedStyleConfig = [
     {
         style: 'SMALL',
         css: { fontSize: '12px' },
-        label: 'Small',
+        label: 'h4',
         type: 'inline',
         className: 'editor-button-small',
         category:'text-size'
@@ -19,7 +19,7 @@ export const combinedStyleConfig = [
     {
         style: 'MEDIUM',
         css: { fontSize: '18px' },
-        label: 'Medium',
+        label: 'h3',
         type: 'inline',
         className: 'editor-button-medium',
         category:'text-size'
@@ -27,18 +27,58 @@ export const combinedStyleConfig = [
     {
         style: 'LARGE',
         css: { fontSize: '24px' },
-        label: 'Large',
+        label: 'h2',
         type: 'inline',
         className: 'editor-button-large',
         category:'text-size'
     },
     {
-        style: 'HIGHLIGHT',
-        css: { backgroundColor: 'yellow' },
-        label: 'Highlight',
+        style: 'EXTRA_LARGE',
+        css: { fontSize: '48px' },
+        label: 'h1',
+        type: 'inline',
+        className: 'editor-button-large',
+        category:'text-size'
+    },
+    {
+        style: 'HIGHLIGHT_RED',
+        css: { backgroundColor: 'red' },
+        label: 'Red',
         type: 'inline',
         className: 'editor-button-highlight',
-        category:'background-color'
+        category:'highlight'
+    },  
+    {
+        style: 'HIGHLIGHT_GREEN',
+        css: { backgroundColor: 'green' },
+        label: 'Green',
+        type: 'inline',
+        className: 'editor-button-bg-color-green',
+        category:'highlight'
+    },
+    
+    {
+        style: 'HIGHLIGHT_BLUE',
+        css: { backgroundColor: 'blue' },
+        label: 'Blue',
+        type: 'inline',
+        className: 'editor-button-highlight',
+        category:'highlight'
+    },
+    {
+        style: 'HIGHLIGHT_YELLOW',
+        css: { backgroundColor: 'yellow' },
+        label: 'Yellow',
+        type: 'inline',
+        className: 'editor-button-highlight',
+        category:'highlight'
+    },    {
+        style: 'HIGHLIGHT_ORANGE',
+        css: { backgroundColor: 'orange' },
+        label: 'Orange',
+        type: 'inline',
+        className: 'editor-button-highlight',
+        category:'highlight'
     },
     {
         style: 'BOLD',
@@ -48,14 +88,14 @@ export const combinedStyleConfig = [
         className: 'editor-button-bold',
         category:'font-style'
     },
-    {
-        style: 'ITALIC',
-        css: { fontStyle: 'italic' },
-        label: 'Italic',
-        type: 'inline',
-        className: 'editor-button-italic',
-        category:'font-style'
-    },
+    // {
+    //     style: 'ITALIC',
+    //     css: { fontStyle: 'italic' },
+    //     label: 'Italic',
+    //     type: 'inline',
+    //     className: 'editor-button-italic',
+    //     category:'font-style'
+    // },
     {
         style: 'UNDERLINE',
         css: { textDecoration: 'underline' },
@@ -73,28 +113,44 @@ export const combinedStyleConfig = [
         category:'font-style'
     },
     {
-        style: 'FONT_COLOR_RED',
-        css: { color: 'red' },
-        label: 'Red Text',
-        type: 'inline',
-        className: 'editor-button-font-color-red',
-        category:'text-color'
-    },
-    {
-        style: 'FONT_COLOR_BLUE',
-        css: { color: 'blue' },
-        label: 'Blue Text',
+        style: 'FONT_COLOR_BLACK',
+        css: { color: 'Black' },
+        label: 'Black',
         type: 'inline',
         className: 'editor-button-font-color-blue',
         category:'text-color'
     },
     {
-        style: 'BACKGROUND_COLOR_GREEN',
-        css: { backgroundColor: 'lightgreen' },
-        label: 'Green Background',
+        style: 'FONT_COLOR_RED',
+        css: { color: 'red' },
+        label: 'Red',
         type: 'inline',
-        className: 'editor-button-bg-color-green',
-        category:'background-color'
+        className: 'editor-button-font-color-red',
+        category:'text-color'
+    },
+    {
+        style: 'FONT_COLOR_GREEN',
+        css: { color: 'green' },
+        label: 'Green',
+        type: 'inline',
+        className: 'editor-button-font-color-blue',
+        category:'text-color'
+    },
+    {
+        style: 'FONT_COLOR_BLUE',
+        css: { color: 'blue' },
+        label: 'Blue',
+        type: 'inline',
+        className: 'editor-button-font-color-blue',
+        category:'text-color'
+    },
+    {
+        style: 'FONT_FAMILY_SNIGLET',
+        css: { fontFamily: '"Sniglet", Courier, monospace' },
+        label: 'Sniglet',
+        type: 'inline',
+        className: 'editor-button-font-family-monospace',
+        category:'font-family'
     },
     {
         style: 'FONT_FAMILY_MONOSPACE',
@@ -104,22 +160,6 @@ export const combinedStyleConfig = [
         className: 'editor-button-font-family-monospace',
         category:'font-family'
     },
-    // {
-    //     style: 'TEXT_ALIGN_CENTER',
-    //     css: { textAlign: 'center' },
-    //     label: 'Center Align',
-    //     type: 'block',
-    //     className: 'editor-button-text-align-center',
-    //     category:'text-align'
-    // }, // Note: Text alignment may require additional handling
-    // {
-    //     style: 'TEXT_ALIGN_RIGHT',
-    //     css: { textAlign: 'right' },
-    //     label: 'Right Align',
-    //     type: 'block',
-    //     className: 'editor-button-text-align-right',
-    //     category:'text-align'
-    // }, // Note: Text alignment may require additional handling
     {
         style: 'SUPERSCRIPT',
         css: { verticalAlign: 'super', fontSize: 'smaller' },
@@ -139,7 +179,7 @@ export const combinedStyleConfig = [
     {
         style: 'LINE_HEIGHT',
         css: { lineHeight: '1.5' },
-        label: 'Line Height',
+        label: 'Line Height 1.5',
         type: 'inline',
         className: 'editor-button-line-height',
         category:'advanced'
@@ -147,7 +187,7 @@ export const combinedStyleConfig = [
     {
         style: 'LETTER_SPACING',
         css: { letterSpacing: '2px' },
-        label: 'Letter Spacing',
+        label: 'Spacing',
         type: 'inline',
         className: 'editor-button-letter-spacing',
         category:'advanced'

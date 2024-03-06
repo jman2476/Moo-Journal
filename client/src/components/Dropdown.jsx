@@ -17,6 +17,7 @@ function Dropdown({ label, options, onChange }) {
                 <ul className="dropdown-menu">
                     {options.map((option, index) => (
                         <li
+                            style={option.css}
                             key={index}
                             className="dropdown-item pointer"
                             onClick={() => {
@@ -25,7 +26,7 @@ function Dropdown({ label, options, onChange }) {
                                 console.log(option)
                             }}
                         >
-                           <p>{option.label}</p> 
+                           <p style={option.css}>{option.label}</p> 
                         </li>
                     ))}
                 </ul>

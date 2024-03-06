@@ -47,8 +47,8 @@ function PromptBox({ journalEntry, setJournalEntry }) {
 
     const renderCreamSelection = () => {
         return (
-            <div className="flex flex-row items-center">
-                <p className="f5">Pick Prompt type: </p>
+            <div className="flex flex-row items-center mb3">
+                <p className="f5 ma0 pa0">Pick Prompt type: </p>
 
                 <button onClick={() => handleCreamSelection('Light')}>Light</button>
                 <button onClick={() => handleCreamSelection('Heavy')}>Heavy</button>

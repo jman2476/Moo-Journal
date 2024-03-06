@@ -106,7 +106,8 @@ function Entry() {
                 label={category}
                 options={groupedStyles[category].map(style => ({
                     label:style.label,
-                    style:style.style
+                    style:style.style,
+                    css:style.css
                 }))}
                 onChange={(option) => applyStyle(option.style)}
             />
