@@ -151,10 +151,7 @@ function PromptBox({ journalEntry, setJournalEntry }) {
                     >
                         Mood: {moods[value].mood}
                     </span>
-                    Date:
-                    <span className="pr2">
-                        {dayjs().format('MM/DD/YY')}
-                    </span>
+                    Date: <span className="pr2"> {dayjs().format('MM/DD/YY')}</span> 
                 </p>
             </div>
         </div>

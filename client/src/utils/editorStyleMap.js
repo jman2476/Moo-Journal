@@ -88,14 +88,6 @@ export const combinedStyleConfig = [
         className: 'editor-button-bold',
         category:'font-style'
     },
-    // {
-    //     style: 'ITALIC',
-    //     css: { fontStyle: 'italic' },
-    //     label: 'Italic',
-    //     type: 'inline',
-    //     className: 'editor-button-italic',
-    //     category:'font-style'
-    // },
     {
         style: 'UNDERLINE',
         css: { textDecoration: 'underline' },
@@ -174,14 +166,6 @@ export const combinedStyleConfig = [
         label: 'Subscript',
         type: 'inline',
         className: 'editor-button-subscript',
-        category:'advanced'
-    },
-    {
-        style: 'LINE_HEIGHT',
-        css: { lineHeight: '1.5' },
-        label: 'Line Height 1.5',
-        type: 'inline',
-        className: 'editor-button-line-height',
         category:'advanced'
     },
     {
