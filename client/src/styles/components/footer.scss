@@ -25,6 +25,11 @@
   // top:0;
 }
 
+.person{
+  text-decoration:none;
+  color:black;
+}
+
 @media (max-width: 480px) {
   footer {
     margin-top: 40px;
@@ -67,8 +72,12 @@
         p{
             margin:0px;
         }
+
     }
-  
+    a.person{
+      text-decoration: none;
+      color:inherit;
+    }
     .feedback{
       order: -1;
         font-size:16px;
