@@ -1,5 +1,3 @@
-
-
 const moods = [
     { mood: "Absolutely dreadful", color: "#4a4e69" }, // Dark gray
     { mood: "Terri-bull", color: "#22223b" }, // Charcoal
@@ -14,5 +12,4 @@ const moods = [
     { mood: "Euphorically ecstatic", color: "#f72585" } // Vivid pink
   ]
   
-
 export default moods

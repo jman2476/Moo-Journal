@@ -16,7 +16,11 @@ function Homepage() {
     const location = useLocation(); // Get the current location
 
     const handleLogout = async () => {
-        await logoutUser()
+        try{
+            await logoutUser()
+        } catch(err){
+            console.error(err)
+        }
 
         setState({
             ...state,

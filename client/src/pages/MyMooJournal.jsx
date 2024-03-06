@@ -149,11 +149,16 @@ function MyMooJournal() {
 
     const deleteEntry = async (entryId) => {
         closeEntry(entryId)
-        const msg = await removeEntry({
-            variables: {
-                journalId: entryId
-            }
-        })
+        try {
+            await removeEntry({
+                variables: {
+                    journalId: entryId
+                }
+            })
+        } catch (err) {
+            console.error(err)   
+        }
+
 
         refetchUserEntries()
     }
