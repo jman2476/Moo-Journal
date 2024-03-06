@@ -1,9 +1,9 @@
-import { Editor, EditorState, convertFromRaw, createWithContent } from 'draft-js';
+import { Editor, EditorState, convertFromRaw } from 'draft-js';
 import { useState, useEffect, useRef } from "react"
 import { combinedStyleConfig } from '../utils/editorStyleMap'
 
 
-function EntryBox({ fetchedEditorStateString, onHeightChange, entryId}) {
+function EntryBox({ fetchedEditorStateString, onHeightChange, entryId }) {
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
     const editorWrapperRef = useRef(null)
 
@@ -19,9 +19,7 @@ function EntryBox({ fetchedEditorStateString, onHeightChange, entryId}) {
             const newEditorState = EditorState.createWithContent(contentState)
             setEditorState(newEditorState)
         }
- 
     }, [fetchedEditorStateString])
-
 
     useEffect(() => {
         const height = editorWrapperRef.current?.clientHeight
@@ -31,13 +29,9 @@ function EntryBox({ fetchedEditorStateString, onHeightChange, entryId}) {
 
     return (
         <div ref={editorWrapperRef}>
-            <Editor  customStyleMap={customStyleMap} editorState={editorState} readOnly={true} />
-
+            <Editor customStyleMap={customStyleMap} editorState={editorState} readOnly={true} />
         </div>
-
-
     )
-
 }
 
 export default EntryBox
